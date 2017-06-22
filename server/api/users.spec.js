@@ -77,6 +77,26 @@ describe('User routes', () => {
           expect(res.body.email).to.be.equal(jensEmail);
         })
       });
+
+      it('fails with a 401 when user not logged in', () => {
+        return request(app)
+        // .get('/api/users/???')
+        // .expect(401)
+        // .then(res => {
+        //   // ?
+        // })
+      });
+    });
+
+    describe('POST /api/users', () => {
+      it('creates a user', () => {
+        return request(app)
+        .post('/api/users')
+        .expect(200)
+        .then(res => {
+          // should create a user
+        })
+      });
     });
 
   });
