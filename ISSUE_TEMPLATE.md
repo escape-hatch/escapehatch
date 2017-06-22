@@ -5,5 +5,8 @@ For bugs, please include the following:
 * What steps reproduce the behavior?
 
 ---
+For anything else,
+* What is the user story?
+
 
 *Issue description here…*
