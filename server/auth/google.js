@@ -2,11 +2,12 @@ const passport = require('passport');
 const router = require('express').Router();
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../db/models/user');
+const secret = require('../../secret');
 
 const googleConfig = {
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: process.env.GOOGLE_CALLBACK
+  clientID: secret.GOOGLE_CLIENT_ID,
+  clientSecret: secret.GOOGLE_CLIENT_SECRET,
+  callbackURL: secret.GOOGLE_CALLBACK
 };
 
 const strategy = new GoogleStrategy(googleConfig, (token, refreshToken, profile, done) => {
