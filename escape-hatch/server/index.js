@@ -4,7 +4,7 @@ const app = express();
 const volleyball = require('volleyball');
 const bodyParser = require('body-parser');
 
-express.static(path.join(__dirname, './path/to/static/assets'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Any routes or other various middlewares should go here!
 app.use(volleyball);
