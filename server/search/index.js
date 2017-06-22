@@ -1,16 +1,16 @@
 const router = require('express').Router();
-// const github = require('./github/request')
+const github = require('./github/request')
 const base64url = require('base64-url');
 
 // what happens if any single 3rd party API call fails?
+// service param?
 
-router.get('/:err/:service', (req, res, next) => {
+router.get('/:err', (req, res, next) => {
   const userErr = base64url.decode(req.params.err)
-  // const service = req.params.service || 'all'
 
-  console.log(userErr)
-  res.send(userErr)
-  // res.json(github(userErr))
+  github(userErr)
+  .then(result => res.json(result))
+
 });
 
 module.exports = router;
