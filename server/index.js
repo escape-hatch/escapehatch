@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // The only thing after this might be a piece of middleware to serve up 500 errors for server problems
 // (However, if you have middleware to serve up 404s, that go would before this as well)
 app.use('/api', require('./apiRoutes'))
+app.use('/search', require('./search'))
 
 app.get('*', function (req, res, next) {
   res.sendFile(path.join(__dirname, '../public/index.html'));
