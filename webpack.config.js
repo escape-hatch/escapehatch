@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './browser/index.js',
+  entry: ['./browser/index.js', './public/stylesheets/index.scss'],
   output: {
     path: __dirname,
     filename: './public/bundle.js'
@@ -14,6 +14,15 @@ module.exports = {
         options: {
           presets: ['react', 'es2015']
         }
+      },
+
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   }
