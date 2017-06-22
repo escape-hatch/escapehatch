@@ -11,16 +11,23 @@ describe('User routes', () => {
   });
 
   describe('/api/users/', () => {
-
+    const codysFirstName = 'Cody';
+    const codysLastName = 'Smith';
     const codysEmail = 'cody@workingonit.com';
+    const jensFirstName = 'Jen';
+    const jensLastName = 'Tam';
     const jensEmail = 'jen@jen.com';
 
     beforeEach(() => {
       return User.create({
+        firstName: codysFirstName,
+        lastName: codysLastName,
         email: codysEmail,
       })
       .then(() => {
         User.create({
+          firstName: jensFirstName,
+          lastName: jensLastName,
           email: jensEmail,
         })
       });
@@ -34,6 +41,11 @@ describe('User routes', () => {
         .then(res => {
           expect(res.body).to.be.an('array');
           expect(res.body[0].email).to.be.equal(codysEmail);
+          expect(res.body[0].firstName).to.be.equal(codysFirstName);
+          expect(res.body[0].lastName).to.be.equal(codysLastName);
+          expect(res.body[1].email).to.be.equal(jensEmail);
+          expect(res.body[1].firstName).to.be.equal(jensFirstName);
+          expect(res.body[1].lastName).to.be.equal(jensLastName);
         })
       });
     });
@@ -45,8 +57,11 @@ describe('User routes', () => {
         .expect(200)
         .then(res => {
           expect(res.body).to.be.an('object');
-          expect(res.body.email).to.be.equal(codysEmail);
           expect(res.body.id).to.be.equal(1);
+          expect(res.body.firstName).to.be.equal(codysFirstName);
+          expect(res.body.lastName).to.be.equal(codysLastName);
+          expect(res.body.email).to.be.equal(codysEmail);
+
         })
       });
 
@@ -56,8 +71,10 @@ describe('User routes', () => {
         .expect(200)
         .then(res => {
           expect(res.body).to.be.an('object');
-          expect(res.body.email).to.be.equal(jensEmail);
           expect(res.body.id).to.be.equal(2);
+          expect(res.body.firstName).to.be.equal(jensFirstName);
+          expect(res.body.lastName).to.be.equal(jensLastName);
+          expect(res.body.email).to.be.equal(jensEmail);
         })
       });
     });
