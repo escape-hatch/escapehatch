@@ -25,3 +25,9 @@ Thumbs.db
 # repos / submodules
 .git
 .svn
+
+public/bundle.js
+public/bundle.js.map
+secrets.js
+yarn.lock
+npm-debug.log

@@ -1,34 +1,65 @@
 const path = require('path');
 const express = require('express');
-const app = express();
-const volleyball = require('volleyball');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const db = require('./db');
+const store = new SequelizeStore({ db });
+const PORT = process.env.PORT || 8080;
+const app = express();
+module.exports = app;
 
-app.use(express.static(path.join(__dirname, '../public')));
+if (process.env.NODE_ENV === 'development') require('../secrets');
 
-// MIDDLEWARE
-app.use(volleyball);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+passport.serializeUser((user, done) =>
+  done(null, user.id));
 
-// Make sure this is right at the end of your server logic!
-// The only thing after this might be a piece of middleware to serve up 500 errors for server problems
-// (However, if you have middleware to serve up 404s, that go would before this as well)
-app.use('/api', require('./apiRoutes'))
-app.use('/search', require('./search'))
+passport.deserializeUser((id, done) =>
+  db.models.user.findById(id)
+    .then(user => done(null, user))
+    .catch(done));
 
-app.get('*', function (req, res, next) {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+const createApp = () => app
+  .use(morgan('dev'))
+  .use(express.static(path.join(__dirname, '..', 'public')))
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(session({
+    secret: process.env.SESSION_SECRET || 'my best friend is Cody',
+    store,
+    resave: false,
+    saveUninitialized: false
+  }))
+  .use(passport.initialize())
+  .use(passport.session())
+  .use('/auth', require('./auth'))
+  .use('/api', require('./api'))
+  .use('/search', require('./search'))
+  .use((req, res, next) =>
+    path.extname(req.path).length > 0 ? res.status(404).send('Not found') : next())
+  .use('*', (req, res) =>
+    res.sendFile(path.join(__dirname, '..', 'public/index.html')))
+  .use((err, req, res, next) =>
+    res.status(err.status || 500).send(err.message || 'Internal server error.'));
 
+const syncDb = () =>
+  db.sync();
 
-//ERROR HANDLING MIDDLEWARE
-app.use(function (err, req, res, next) {
-  console.error(err);
-  console.error(err.stack);
-  res.status(err.status || 500).send(err.message || 'Internal server error.');
-});
+const listenUp = () =>
+  app.listen(PORT, () =>
+    console.log(`Mixing it up on port ${PORT}`));
 
-app.listen(3000, function () {
-  console.log("Your server is listening on port 3000...");
-});
+// This evaluates as true when this file is run directly from the command line,
+// i.e. when we say 'node server/index.js' (or 'nodemon server/index.js', or 'nodemon server', etc)
+// It will evaluate false when this module is required by another module - for example,
+// if we wanted to require our app in a test spec
+if (require.main === module) {
+  store.sync()
+    .then(syncDb)
+    .then(createApp)
+    .then(listenUp);
+} else {
+  createApp(app);
+}
