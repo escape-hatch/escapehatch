@@ -12,7 +12,7 @@ const Main = props => {
 
   return (
     <div>
-      <h1>BOILERMAKER</h1>
+      <h1>Escape Hatch</h1>
       { loggedIn ?
           <nav>
             <Link to="/home">Home</Link>
