@@ -7,7 +7,7 @@ const issues = Promise.promisify(ghsearch.issues.bind(ghsearch))
 
 module.exports = function (userErr) {
 
-    return issues({ q: 'sequelize error', per_page: 10 })
+    return issues({ q: 'sequelize error', per_page: 50 })
     .then(res => res)
     .catch(err => console.error(err))
 
