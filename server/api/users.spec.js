@@ -12,24 +12,56 @@ describe('User routes', () => {
 
   describe('/api/users/', () => {
 
-    const codysEmail = 'cody@puppybook.com';
+    const codysEmail = 'cody@workingonit.com';
+    const jensEmail = 'jen@jen.com';
 
     beforeEach(() => {
       return User.create({
-        email: codysEmail
+        email: codysEmail,
+      })
+      .then(() => {
+        User.create({
+          email: jensEmail,
+        })
       });
     });
 
-    it('GET /api/users', () => {
-      return request(app)
+    describe('GET /api/users', () => {
+      it('retrieves all users', () => {
+        return request(app)
         .get('/api/users')
         .expect(200)
         .then(res => {
           expect(res.body).to.be.an('array');
           expect(res.body[0].email).to.be.equal(codysEmail);
-        });
+        })
+      });
     });
 
-  }); // end describe('/api/users')
+    describe('GET /api/users/:id', () => {
+      it('retrieves selected user', () => {
+        return request(app)
+        .get('/api/users/1')
+        .expect(200)
+        .then(res => {
+          expect(res.body).to.be.an('object');
+          expect(res.body.email).to.be.equal(codysEmail);
+          expect(res.body.id).to.be.equal(1);
+        })
+      });
 
-}); // end describe('User routes')
+      it('retrieves a different selected user', () => {
+        return request(app)
+        .get('/api/users/2')
+        .expect(200)
+        .then(res => {
+          expect(res.body).to.be.an('object');
+          expect(res.body.email).to.be.equal(jensEmail);
+          expect(res.body.id).to.be.equal(2);
+        })
+      });
+    });
+
+  });
+
+});
