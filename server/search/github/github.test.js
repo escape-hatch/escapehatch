@@ -1,8 +1,8 @@
 import chai from 'chai';
 const expect = chai.expect;
 const Promise = require('bluebird')
-const github = require('./github/request')
-const formatter = require('./github/formatter')
+const github = require('./request')
+const formatter = require('./formatter')
 
 
 describe('GitHub API:', () => {
