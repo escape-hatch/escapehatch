@@ -19,19 +19,22 @@ describe('User routes', () => {
     const jensEmail = 'jen@jen.com';
 
     beforeEach(() => {
-      return User.create({
-        firstName: codysFirstName,
-        lastName: codysLastName,
-        email: codysEmail,
-      })
-      .then(() => {
-        User.create({
+      return User.bulkCreate([
+        {
+          firstName: codysFirstName,
+          lastName: codysLastName,
+          email: codysEmail,
+        },
+        {
           firstName: jensFirstName,
           lastName: jensLastName,
           email: jensEmail,
-        })
-      });
-    });
+        }
+      ])
+      .then( () => {
+        return User.findAll();
+     });
+   });
 
     describe('GET /api/users', () => {
       it('retrieves all users', () => {
@@ -78,13 +81,13 @@ describe('User routes', () => {
         })
       });
 
-      it('fails with a 401 when user not logged in', () => {
+      it('fails with a 404(Not Found) if user doesn\'t exist', () => {
         return request(app)
-        // .get('/api/users/???')
-        // .expect(401)
-        // .then(res => {
-        //   // ?
-        // })
+        .get('/api/users/3')
+        .expect(404)
+        .then(res => {
+          expect(res.status).to.be.equal(404);
+        })
       });
     });
 
@@ -92,13 +95,14 @@ describe('User routes', () => {
       it('creates a user', () => {
         return request(app)
         .post('/api/users')
-        .expect(200)
-        .then(res => {
-          // should create a user
+        .send({
+          firstName: 'Beth',
+          lastName: 'Jones',
+          email: 'beth@secrets.org',
         })
+        .expect(201)
       });
     });
 
   });
-
 });
