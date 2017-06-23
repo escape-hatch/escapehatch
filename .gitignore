@@ -28,6 +28,6 @@ Thumbs.db
 
 public/bundle.js
 public/bundle.js.map
-secrets.js
+secret.js
 yarn.lock
 npm-debug.log
