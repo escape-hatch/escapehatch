@@ -11,25 +11,98 @@ describe('User routes', () => {
   });
 
   describe('/api/users/', () => {
-
-    const codysEmail = 'cody@puppybook.com';
+    const codysFirstName = 'Cody';
+    const codysLastName = 'Smith';
+    const codysEmail = 'cody@workingonit.com';
+    const jensFirstName = 'Jen';
+    const jensLastName = 'Tam';
+    const jensEmail = 'jen@jen.com';
 
     beforeEach(() => {
-      return User.create({
-        email: codysEmail
-      });
-    });
+      return User.bulkCreate([
+        {
+          firstName: codysFirstName,
+          lastName: codysLastName,
+          email: codysEmail,
+        },
+        {
+          firstName: jensFirstName,
+          lastName: jensLastName,
+          email: jensEmail,
+        }
+      ])
+      .then( () => {
+        return User.findAll();
+     });
+   });
 
-    it('GET /api/users', () => {
-      return request(app)
+    describe('GET /api/users', () => {
+      it('retrieves all users', () => {
+        return request(app)
         .get('/api/users')
         .expect(200)
         .then(res => {
           expect(res.body).to.be.an('array');
           expect(res.body[0].email).to.be.equal(codysEmail);
-        });
+          expect(res.body[0].firstName).to.be.equal(codysFirstName);
+          expect(res.body[0].lastName).to.be.equal(codysLastName);
+          expect(res.body[1].email).to.be.equal(jensEmail);
+          expect(res.body[1].firstName).to.be.equal(jensFirstName);
+          expect(res.body[1].lastName).to.be.equal(jensLastName);
+        })
+      });
     });
 
-  }); // end describe('/api/users')
+    describe('GET /api/users/:id', () => {
+      it('retrieves selected user', () => {
+        return request(app)
+        .get('/api/users/1')
+        .expect(200)
+        .then(res => {
+          expect(res.body).to.be.an('object');
+          expect(res.body.id).to.be.equal(1);
+          expect(res.body.firstName).to.be.equal(codysFirstName);
+          expect(res.body.lastName).to.be.equal(codysLastName);
+          expect(res.body.email).to.be.equal(codysEmail);
 
-}); // end describe('User routes')
+        })
+      });
+
+      it('retrieves a different selected user', () => {
+        return request(app)
+        .get('/api/users/2')
+        .expect(200)
+        .then(res => {
+          expect(res.body).to.be.an('object');
+          expect(res.body.id).to.be.equal(2);
+          expect(res.body.firstName).to.be.equal(jensFirstName);
+          expect(res.body.lastName).to.be.equal(jensLastName);
+          expect(res.body.email).to.be.equal(jensEmail);
+        })
+      });
+
+      it('fails with a 404(Not Found) if user doesn\'t exist', () => {
+        return request(app)
+        .get('/api/users/3')
+        .expect(404)
+        .then(res => {
+          expect(res.status).to.be.equal(404);
+        })
+      });
+    });
+
+    describe('POST /api/users', () => {
+      it('creates a user', () => {
+        return request(app)
+        .post('/api/users')
+        .send({
+          firstName: 'Beth',
+          lastName: 'Jones',
+          email: 'beth@secrets.org',
+        })
+        .expect(201)
+      });
+    });
+
+  });
+});
