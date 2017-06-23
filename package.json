@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "escape-hatch",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Ultimate error solution finder!",
   "main": "index.js",
   "scripts": {
     "start": "webpack -w & nodemon server",
