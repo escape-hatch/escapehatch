@@ -9,6 +9,9 @@ module.exports = db.define('err', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  stack: {
+    type: Sequelize.TEXT,
+  }
 }, {
   instanceMethods: {
   },
