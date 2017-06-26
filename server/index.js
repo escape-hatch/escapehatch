@@ -36,7 +36,6 @@ const createApp = () => app
   .use(passport.session())
   .use('/auth', require('./auth'))
   .use('/api', require('./api'))
-  .use('/search', require('./search'))
   .use((req, res, next) =>
     path.extname(req.path).length > 0 ? res.status(404).send('Not found') : next())
   .use('*', (req, res) =>
