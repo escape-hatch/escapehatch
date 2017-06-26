@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import './index.scss';
 
 import React from 'react';
@@ -18,7 +20,6 @@ const requireLogin = (nextRouterState, replace, next) =>
       next();
     })
     .catch(err => console.log(err));
-
 
 ReactDOM.render(
   <Provider store={store}>
