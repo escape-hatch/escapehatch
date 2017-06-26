@@ -1,13 +1,9 @@
 const User = require('./user');
 const Err = require('./err');
 const Link = require('./link');
-const Vote = require('./vote');
+const user_links = require('./user_links');
 
 User.belongsToMany(Err, {through: 'user_err'});
-User.belongsToMany(Link, {through: 'user_link'});
-User.belongsToMany(Vote, {through: 'user_vote'});
+User.belongsToMany(Link, {through: 'user_links'});
 
 Err.belongsToMany(Link, {through: 'err_link'});
-
-Vote.belongsToMany(Link, {through: 'vote_link'});
-

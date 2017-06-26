@@ -6,10 +6,10 @@ module.exports = db.define('link', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  dateModified: {
+  linkedPostCreated: {
     type: Sequelize.DATE,
   },
-  dateCreated: {
+  linkedPostModified: {
     type: Sequelize.DATE,
   },
 }, {
