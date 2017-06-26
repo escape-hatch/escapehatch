@@ -10,15 +10,16 @@ const Promise = require('bluebird')
 
 router.get('/:err', (req, res, next) => {
   const userErr = base64url.decode(req.params.err)
+  console.log(userErr)
+  res.send(userErr)
+  // Promise.all([github(userErr), stackApp(userErr)])
+  // .spread((githubResults, stackAppResults) => {
 
-  Promise.all([github(userErr), stackApp(userErr)])
-  .spread((githubResults, stackAppResults) => {
-    console.log(stackAppResults)
-    // githubFormatter(githubResults.items)
-    res.json(stackAppResults.data.items)
-  })
-  // .then(response => res.json(response))
-  .catch(err => console.error(err))
+  //   // githubFormatter(githubResults.items)
+  //   res.json(stackAppResults.data.items)
+  // })
+  // // .then(response => res.json(response))
+  // .catch(err => console.error(err))
 });
 
 module.exports = router;
