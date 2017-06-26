@@ -46,27 +46,58 @@ const data = {
       at startup (bootstrap_node.js:147:9)`,
     },
   ],
-  // user_err: [
-  //   // user 1 has asked to see more info on err 1
-  //   {
-  //     userId: 1,
-  //     errId: 1,
-  //   },
-  //   // user 1 has asked to see more info on err 2
-  //   {
-  //     userId: 1,
-  //     errId: 2,
-  //   },
-  // ],
+  link: [
+    {
+      link: 'http://cdn2-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-8.jpg',
+      linkedPostCreated: '2014-03-03',
+      linkedPostModified: '2014-03-03',
+    },
+    {
+      link: 'http://98441.cdx.c.ooyala.com/oyZDhjczpnDMxVanYahPNBK7iTw7eZ-9/promo251675386',
+      linkedPostCreated: '2014-03-03',
+      linkedPostModified: '2014-03-03',
+    },
+    {
+      link: 'https://s-media-cache-ak0.pinimg.com/736x/80/d3/64/80d364e09d31fcba8af274926d4332ff--teddy-bears-teddy-bear-dogs.jpg',
+      linkedPostCreated: '2014-03-03',
+      linkedPostModified: '2014-03-03',
+    },
+  ],
 }
+
+/*
+The same way you do any other many-to-many association. `someInstance.addFoos([foo1, foo2])`
+
+`foo1` can be an instance or an id of an instance
+*/
+
+let userId
 
 db.sync()
 .then(() => {
   return db.sync({force: true})
   // return db.sync()
 })
-.then( () => { return User.bulkCreate(data.user) })
+.then( () => { return User.bulkCreate(data.user, {
+    returning: true
+  })
+})
+.then( users => { userId = users[0].id } )
 .then( () => { return Err.bulkCreate(data.err) })
+.then( () => {
+  return Err.create({
+    type: 'EvalError',
+    message: 'big mistake',
+    stack: 'you are really wrong',
+  })
+  .then(mistake => {
+    return User.findById(userId)
+    .then(user => {
+      return user.addErr(mistake)
+    })
+  })
+})
+.then( () => { return Link.bulkCreate(data.link) })
 .then(function () {
   console.log("Finished inserting data");
 })
