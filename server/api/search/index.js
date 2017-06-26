@@ -13,9 +13,9 @@ router.get('/:err', (req, res, next) => {
 
   Promise.all([github(userErr), stackApp(userErr)])
   .spread((githubResults, stackAppResults) => {
-    console.log(stackAppResults)
+    const stackData = stackAppFormatter(stackAppResults.data.items)
     // githubFormatter(githubResults.items)
-    res.json(stackAppResults.data.items)
+    res.json(stackData)
   })
   // .then(response => res.json(response))
   .catch(err => console.error(err))
