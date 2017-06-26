@@ -7,5 +7,3 @@ const issues = Promise.promisify(ghsearch.issues.bind(ghsearch))
 module.exports = (userErr) =>
     issues({ q: userErr, per_page: 50 })
     .then(res => res)
-    .catch(err => console.error(err))
-
