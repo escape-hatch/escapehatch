@@ -2,6 +2,7 @@ const db = require('./server/db')
 const User = require('./server/db/models/user')
 const Err = require('./server/db/models/err')
 const Link = require('./server/db/models/link')
+const user_links = require('./server/db/models/user_links')
 
 const data = {
   user: [
@@ -62,6 +63,23 @@ const data = {
       linkedPostModified: '2014-03-03',
     },
   ],
+  user_links: [
+    {
+      vote: 'upvote',
+      userId: 1,
+      linkId: 2,
+    },
+    {
+      vote: 'downvote',
+      userId: 1,
+      linkId: 1,
+    },
+    {
+      vote: 'upvote',
+      userId: 2,
+      linkId: 1,
+    }
+  ]
 }
 
 async function main() {
@@ -84,8 +102,13 @@ async function main() {
     const associatedUser = await users[0].addErr(errs[1])
     const associatedErr = await errs[0].addLink(links[2])
 
+    const creatingUserLinks = await user_links.bulkCreate(data.user_links, {
+      returning: true
+    })
+
     console.log("Finished inserting data")
   }
+
   catch(err) {
     console.error('There was totally a problem', err, err.stack)
   }
