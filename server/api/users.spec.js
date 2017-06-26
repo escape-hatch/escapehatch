@@ -14,6 +14,7 @@ describe('User routes', () => {
     const codysFirstName = 'Cody';
     const codysLastName = 'Smith';
     const codysEmail = 'cody@workingonit.com';
+
     const jensFirstName = 'Jen';
     const jensLastName = 'Tam';
     const jensEmail = 'jen@jen.com';
@@ -89,6 +90,14 @@ describe('User routes', () => {
           expect(res.status).to.be.equal(404);
         })
       });
+
+      describe('when not logged in', () => {
+        xit('fails with a 401 (Unauthorized)', () => {
+          request(app)
+          .get('/api/users/1')
+          .expect(401)
+        })
+      })
     });
 
     describe('POST /api/users', () => {
