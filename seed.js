@@ -2,7 +2,6 @@ const db = require('./server/db')
 const User = require('./server/db/models/user')
 const Err = require('./server/db/models/err')
 const Link = require('./server/db/models/link')
-const Vote = require('./server/db/models/vote')
 
 const data = {
   user: [
@@ -65,46 +64,35 @@ const data = {
   ],
 }
 
-/*
-The same way you do any other many-to-many association. `someInstance.addFoos([foo1, foo2])`
+async function main() {
+  try {
+    const synched = await db.sync()
+    const forceSynched = await db.sync({force: true})
 
-`foo1` can be an instance or an id of an instance
-*/
-
-let userId
-
-db.sync()
-.then(() => {
-  return db.sync({force: true})
-  // return db.sync()
-})
-.then( () => { return User.bulkCreate(data.user, {
-    returning: true
-  })
-})
-.then( users => { userId = users[0].id } )
-.then( () => { return Err.bulkCreate(data.err) })
-.then( () => {
-  return Err.create({
-    type: 'EvalError',
-    message: 'big mistake',
-    stack: 'you are really wrong',
-  })
-  .then(mistake => {
-    return User.findById(userId)
-    .then(user => {
-      return user.addErr(mistake)
+    const creatingUsers = User.bulkCreate(data.user, {
+      returning: true
     })
-  })
-})
-.then( () => { return Link.bulkCreate(data.link) })
+    const creatingErrs = Err.bulkCreate(data.err, {
+      returning: true
+    })
+    const creatingLinks = Link.bulkCreate(data.link, {
+      returning: true
+    })
+
+    const [users, errs, links] = await Promise.all([creatingUsers, creatingErrs, creatingLinks])
+
+    const associatedUser = await users[0].addErr(errs[1])
+    const associatedErr = await errs[0].addLink(links[2])
+
+    console.log("Finished inserting data")
+  }
+  catch(err) {
+    console.error('There was totally a problem', err, err.stack)
+  }
+}
+
+main()
 .then(function () {
-  console.log("Finished inserting data");
-})
-.catch(function (err) {
-  console.error('There was totally a problem', err, err.stack);
-})
-.finally(function () {
   db.close()
   console.log('connection closed');
   return null;
