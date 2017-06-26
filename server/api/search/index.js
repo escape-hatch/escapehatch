@@ -12,14 +12,15 @@ router.get('/:err', (req, res, next) => {
   const userErr = base64url.decode(req.params.err)
   console.log(userErr)
   res.send(userErr)
-  // Promise.all([github(userErr), stackApp(userErr)])
-  // .spread((githubResults, stackAppResults) => {
 
-  //   // githubFormatter(githubResults.items)
-  //   res.json(stackAppResults.data.items)
-  // })
-  // // .then(response => res.json(response))
-  // .catch(err => console.error(err))
+  Promise.all([github(userErr), stackApp(userErr)])
+  .spread((githubResults, stackAppResults) => {
+    const stackData = stackAppFormatter(stackAppResults.data.items)
+    // githubFormatter(githubResults.items)
+    res.json(stackData)
+  })
+  // .then(response => res.json(response))
+  .catch(err => console.error(err))
 });
 
 module.exports = router;

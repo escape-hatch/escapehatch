@@ -1,7 +1,7 @@
 module.exports = function (stackList) {
   return stackList.map( item => ({
     url: item.link,
-    body: item.body,
+    body: item.question_body,
     title: item.title,
     id: item.id,
     posted_on: item.creation_date,
