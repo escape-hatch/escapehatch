@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import ReactCSSTransitionGroup from npm
-// import './Links.css';
+import cssLinks from './Links.css';
 
 // Component //
 const Links = props => {
