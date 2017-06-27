@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import ReactCSSTransitionGroup from npm
 import cssLinks from './Links.css';
 
 // Component //
@@ -35,6 +34,3 @@ const mapState = (state) => ({
 });
 
 export default connect(mapState)(Links)
-
-          // <p><strong>Title:</strong> {l.title}</p>
-          // <p><strong>Link:</strong> {l.link}</p>
