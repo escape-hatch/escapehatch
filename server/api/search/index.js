@@ -13,7 +13,7 @@ router.get('/:err', (req, res, next) => {
   console.log("GET /:err backend");
   const userErr = base64url.decode(req.params.err)
 
-  Promise.all([github(userErr), stackApp(userErr)])
+  Promise.all([github(userE Arr), stackApp(userErr)])
   .spread((githubResults, stackAppResults) => {
     const transformed = stackAppResults.data.items.map( item => {
       const newItem = Object.assign({}, item, {
@@ -26,7 +26,6 @@ router.get('/:err', (req, res, next) => {
 
     // console.log("stackAppResults:", stackAppResults)
     // githubFormatter(githubResults.items)
-    console.log(stackAppResults.data.items[5])
     res.json(transformed)
   })
   // .then(response => res.json(response))
