@@ -23,10 +23,16 @@ const initialLinksState = {
 }
 
 export default function(state = initialLinksState, action) {
+  const newState = Object.assign({}, state)
+
   switch (action.type) {
     case GET_LINKS:
-      return action.links
+      newState.currentLinks = action.links
+      break;
+
     default:
       return state
   }
+
+  return newState
 }
