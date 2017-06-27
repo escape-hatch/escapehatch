@@ -9,13 +9,15 @@ const Promise = require('bluebird')
 // what happens if any single 3rd party API call fails?
 // service param?
 
-router.get('/:err', (req, res, next) => {
+router
+
+.get('/:err', (req, res, next) => {
   const userErr = base64url.decode(req.params.err)
 
   Promise.all([github(userErr), stackApp(userErr)])
   .spread((githubResults, stackAppResults) => {
-    const stackData = stackAppFormatter(stackAppResults.data.items)
-    const gitData = githubFormatter(githubResults.items)
+    const stackData = stackAppFormatter(stackAppResults.data.items, userErr)
+    const gitData = githubFormatter(githubResults.items, userErr)
     const data = { stackData, gitData }
     res.json(data)
   })
@@ -24,3 +26,4 @@ router.get('/:err', (req, res, next) => {
 });
 
 module.exports = router;
+

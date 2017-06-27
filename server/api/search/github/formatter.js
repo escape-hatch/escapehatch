@@ -1,13 +1,15 @@
-module.exports = function (gitList) {
+module.exports = function (gitList, userErr) {
   return gitList.map( item => ({
     url: item.html_url,
     body: item.body,
     title: item.title,
     status: item.state,
-    id: item.id,
+    vendor_id: item.id,
     posted_on: item.created_at,
     updated_on: item.updated_at,
-    comments: item.comments
+    comments: item.comments,
+    vendor: 'github',
+    error: userErr
     })
   )
 }
