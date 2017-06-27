@@ -1,0 +1,9 @@
+{
+  "extends": "fullstack",
+  "parser": "babel-eslint",
+  "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"],
+        "strict": 0
+    }
+}
