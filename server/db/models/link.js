@@ -45,13 +45,18 @@ module.exports = db.define('link', {
         }
       })
       const findUser = User.findById(userId)
-      const[link, error, user] = await Promise.all([createLink, createErr, findUser])
+      const[
+        [link] = linkAndBool,
+        [error] = errorAndBool,
+        user
+      ] = await Promise.all([createLink, createErr, findUser])
 
-      const errLink = error[0].addLink(link[0])
-      const userLink = user.addLink(link[0], { vote: info.vote })
-      const userErr = user.addErr(error[0])
+      const
+        errLink = error.addLink(link),
+        userLink = user.addLink(link, { vote: info.vote }),
+        userErr = user.addErr(error)
       await Promise.all([errLink, userLink, userErr])
-      return link[0]
+      return link
     }
   },
   hooks: {

@@ -12,6 +12,7 @@ module.exports = function (stackList, userErr) {
     views: item.view_count,
     tags: item.tags,
     vendor: 'stackapp',
+    vendor_id: item.question_id,
     error: userErr
     })
   )
