@@ -11,11 +11,20 @@ const getLinks = links => ({
 })
 
 // thunk action creators //
-export const getLinksByErrId = errId =>
+// export const getLinksByErrId = errId =>
+//   dispatch =>
+//     axios.get(`/api/links/${errId}`)
+//     .then(res => dispatch(getLinks(res.data)))
+//     .catch(err => console.log(err))
+
+// Adfjskdlfjsdlkfjs1
+
+export const getLinksByErrId = encryptedId =>
   dispatch =>
-    axios.get(`/api/links/${errId}`)
+    axios.get(`/api/search/${encryptedId}`)
     .then(res => dispatch(getLinks(res.data)))
     .catch(err => console.log(err))
+
 
 // reducer
 const initialLinksState = {

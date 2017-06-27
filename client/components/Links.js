@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // Component //
 const Links = props => {
   const links = props.currentLinks
+  console.log("links", links);
   return (
     <div>
       <h1>Search Results Page</h1>
@@ -11,7 +12,11 @@ const Links = props => {
       <ul>
       {
         links && links.map(l => (
-        <li key={l.id}>{l.link}</li>
+        <li key={ l.question_id }>
+          <p>Title: {l.title}</p>
+          <p>Link: {l.link}</p>
+          <p>Score: {l.score}</p>
+        </li>
       ))
       }
       </ul>

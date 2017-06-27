@@ -9,11 +9,12 @@ const Promise = require('bluebird')
 // service param?
 
 router.get('/:err', (req, res, next) => {
+  console.log("GET /:err backend");
   const userErr = base64url.decode(req.params.err)
 
   Promise.all([github(userErr), stackApp(userErr)])
   .spread((githubResults, stackAppResults) => {
-    console.log(stackAppResults)
+    console.log("stackAppResults:", stackAppResults)
     // githubFormatter(githubResults.items)
     res.json(stackAppResults.data.items)
   })
