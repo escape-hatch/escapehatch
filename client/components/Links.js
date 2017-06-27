@@ -16,8 +16,8 @@ const Links = props => {
         <li key={ l.question_id }>
 
           <p><strong>Title: </strong><a href={l.link}>{l.title} </a></p>
-          <p><strong>View Count:</strong> {l.view_count}</p>
-          <p><strong>Score:</strong> {l.score}</p>
+          <span>{l.view_count} Views</span>
+          <span className="score"><strong>Score:</strong> {l.score}</span>
         </li>
       ))
       }
