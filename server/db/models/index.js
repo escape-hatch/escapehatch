@@ -7,6 +7,7 @@ User.belongsToMany(Err, {through: 'user_err'});
 User.belongsToMany(Link, {through: 'user_links'});
 
 Err.belongsToMany(Link, {through: 'err_link'});
+
 /*
 adds the following methods to Err:
   - getLinks

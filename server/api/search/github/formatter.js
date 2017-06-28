@@ -1,16 +1,17 @@
 const he = require('he');
 
-module.exports = function (gitList) {
+module.exports = function (gitList, userErr) {
   return gitList.map( item => ({
-    vendor: 'github',
     url: item.html_url,
     body: item.body,
     title: he.decode(item.title),
     status: item.state,
-    id: item.id,
+    vendor_id: item.id,
     posted_on: item.created_at,
     updated_on: item.updated_at,
-    comments: item.comments
+    comments: item.comments,
+    vendor: 'github',
+    error: userErr
     })
   );
 };
