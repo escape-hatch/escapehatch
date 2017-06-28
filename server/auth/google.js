@@ -8,7 +8,7 @@ try {
   secret = require('../../secret');
 }
 catch(err){
-  console.log('No secret file found. Skipping OAuth.')
+  console.log('No secret file found. Skipping OAuth.');
 }
 
 if(secret) {
