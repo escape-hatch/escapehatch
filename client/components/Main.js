@@ -26,7 +26,7 @@ const Main = props => {
       <hr />
       { children }
     </div>
-  );
+  )
 };
 
 Main.propTypes = {

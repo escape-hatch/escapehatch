@@ -2,7 +2,7 @@
   "extends": "fullstack",
   "parser": "babel-eslint",
   "rules": {
-        "semi": ["error", "always"],
+        "semi": ["error", "never"],
         "quotes": ["error", "single"],
         "strict": 0
     }
