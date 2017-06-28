@@ -4,3 +4,4 @@ import link from './link';
 
 export default combineReducers({ user, link });
 
+console.log('test');
