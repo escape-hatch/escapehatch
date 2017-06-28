@@ -7,12 +7,6 @@ const Links = props => {
   const links = props.currentLinks
   console.log("links", links);
 
-  // const utcSeconds = { l.last_activity_date };
-  // const d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-  // d.setUTCSeconds(utcSeconds);
-
-  // console.log("d:", d);
-
   return (
     <div>
       <h1>Search Results Page</h1>
