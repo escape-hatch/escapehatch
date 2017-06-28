@@ -12,19 +12,23 @@ const Links = props => {
       <p>***Search results error to be placed here ***</p>
       <ul>
       {
-        links && links.map(l => (
-        <li key={ l.id }>
+        links && links.map(l => {
+          if(l.vendor === 'stackOverflow') {
+            return (
+              <li key={ l.id }>
 
-          <p><strong>Title: </strong>
-            <a href={l.url}>{l.title} </a>
-          </p>
+                <p><strong>Title: </strong>
+                  <a href={l.url}>{l.title} </a>
+                </p>
 
-          <p>Last Activity Date: { l.updated_on }</p>
+                <p>Last Activity Date: { l.updated_on }</p>
 
-          <span>{l.views} Views</span>
-          <span className="score"><strong>Score:</strong> {l.score}</span>
-        </li>
-      ))
+                <span>{l.views} Views</span>
+                <span className="score"><strong>Score:</strong> {l.score}</span>
+              </li>
+            );
+          }
+        })
       }
       </ul>
     </div>

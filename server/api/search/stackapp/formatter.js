@@ -2,6 +2,7 @@ const he = require('he');
 
 module.exports = function (stackList) {
   const results = stackList.map( item => ({
+    vendor: 'stackOverflow',
     url: item.link,
     body: item.body,
     title: he.decode(item.title),
