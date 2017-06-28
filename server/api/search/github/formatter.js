@@ -9,5 +9,5 @@ module.exports = function (gitList) {
     updated_on: item.updated_at,
     comments: item.comments
     })
-  )
-}
+  );
+};

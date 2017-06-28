@@ -13,7 +13,7 @@ const Links = props => {
       <ul>
       {
         links && links.map(l => (
-        <li key={ l.question_id }>
+        <li key={ l.id }>
 
           <p><strong>Title: </strong>
             <a href={l.url}>{l.title} </a>

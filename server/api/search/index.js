@@ -14,6 +14,10 @@ router.get('/:err', (req, res, next) => {
 
   Promise.all([github(userErr), stackApp(userErr)])
   .spread((githubResults, stackAppResults) => {
+    // console.log('githubResults:', Object.keys(githubResults));
+    // console.log('githubResults:', githubResults.items[0]);
+
+
     const transformed = stackAppFormatter(stackAppResults.data.items);
 
     res.json(transformed);
