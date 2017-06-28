@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - node
+services:
+  - postgresql
+addons:
+  postgresql: '9.6'
+sudo: false
+dist: trusty
+before_script: 'createdb escapehatch && createdb escapehatch-test' #if change name of the database, need to update it here
