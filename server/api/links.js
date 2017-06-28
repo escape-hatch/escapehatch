@@ -18,16 +18,6 @@ router
   return Link.propogateLink(info, 3)
   .then(response => res.status(200).send(response))
   .catch(next)
-/*
-  userId
-  info
-    .error
-    .vendor
-    .vendor_id
-    .vote
-    .url
-  */
-  // call propogateLink
 })
 
 
