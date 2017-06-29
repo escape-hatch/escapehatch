@@ -5,7 +5,6 @@ module.exports = function (stackList, userErr) {
     url: item.link,
     body: item.question_body,
     title: he.decode(item.title),
-    vendor_id: item.id,
     posted_on: item.creation_date,
     updated_on: new Date(item.last_activity_date * 1e3).toDateString(),
     comments: item.answer_count,

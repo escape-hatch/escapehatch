@@ -18,8 +18,6 @@ router
 
   const userErr = base64url.decode(req.params.err);
   const [errType, errMsg] = userErr.split(': ');
-  console.log("github(userErr):", github(userErr));
-
 
   Promise.all([
     github(userErr),
@@ -42,7 +40,6 @@ router
 });
 
 module.exports = router;
-
 
 // query DB for err string, pull up associated links
 // pass DB info into formatters
