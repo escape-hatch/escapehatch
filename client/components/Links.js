@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import cssLinks from './Links.css';
 
 // Component //
-const Links = React.createClass({
-  render: function() {
+class Links extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
     const stack = this.props.stack;
     const git = this.props.git;
 
@@ -51,7 +55,7 @@ const Links = React.createClass({
       </div>
     );
   }
-});
+}
 
 export { Links };
 
