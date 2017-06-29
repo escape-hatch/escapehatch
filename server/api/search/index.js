@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const ghRequest = require('./github/request')
 const soRequest = require('./stackapp/request')
 const githubFormatter = require('./github/formatter')
@@ -8,6 +9,9 @@ const Promise = require('bluebird')
 const db = require('../../db')
 const dbFormatter = require('./utils/dbFormatter')
 const addVotes = require('./utils/dbApiZipVotes')
+const Err = require('../../db/models/err');
+const Link = require('../../db/models/link');
+const UserLink = require('../../db/models/user_links');
 
 // what happens if any single 3rd party API call fails?
 // service param?
@@ -15,8 +19,9 @@ const addVotes = require('./utils/dbApiZipVotes')
 router
 
 .get('/:err', (req, res, next) => {
-  const userErr = base64url.decode(req.params.err)
-  const [errType, errMsg] = userErr.split(': ')
+
+  const userErr = base64url.decode(req.params.err);
+  const [errType, errMsg] = userErr.split(': ');
 
   const awaitdb = db.query('SELECT * FROM errs \
     JOIN err_link ON errs.id = err_link."errId" \
@@ -37,7 +42,7 @@ router
     const formattedData = addVotes(data, voteData)
     res.json(formattedData)
   })
-  .catch(err => console.error(err))
+  .catch(next);
 });
 
 module.exports = router;

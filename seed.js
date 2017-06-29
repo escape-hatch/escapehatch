@@ -91,7 +91,9 @@ async function main() {
     const [users, errs, links] = await Promise.all([creatingUsers, creatingErrs, creatingLinks])
 
     const associatedUser = await users[0].addErr(errs[1])
-    const associatedErr = await errs[0].addLink(links[2])
+    const associatedErrA = await errs[0].addLink(links[0])
+    const associatedErrB = await errs[0].addLink(links[1])
+    const associatedErrC = await errs[0].addLink(links[2])
 
     const creatingUserLinks = await user_links.bulkCreate(data.user_links, {
       returning: true

@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
+const Link = require('./link')
 
 module.exports = db.define('err', {
   type: {

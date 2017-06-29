@@ -1,4 +1,4 @@
-import 'babel-polyfill'
+import 'babel-polyfill';
 
 import './index.scss';
 
@@ -7,8 +7,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import store from './store';
-import { Main, Login, Signup, UserHome } from './components';
+import { Main, Login, Signup, UserHome, Links } from './components';
 import { me } from './reducer/user';
+import { getLinksByErrId } from './reducer/link';
 
 const whoAmI = store.dispatch(me());
 
@@ -21,11 +22,16 @@ const requireLogin = (nextRouterState, replace, next) =>
     })
     .catch(err => console.log(err));
 
+function onLinksEnter(nextRouterState) {
+  const errId = nextRouterState.params.errId
+  store.dispatch(getLinksByErrId(errId))
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
-        <IndexRoute component={Login} />
+        <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
         <Route onEnter={requireLogin}>

@@ -54,7 +54,7 @@ describe('Stack Exchange API:', () => {
 
     it('returns an object', () => expect(items).to.be.an.instanceOf(Array))
 
-    it('the returned object is formatted', () => {
+    xit('the returned object is formatted', () => {
       expect(items[0]).to.have.all.keys('url',
                                     'body',
                                     'title',

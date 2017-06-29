@@ -1,8 +1,10 @@
+const he = require('he');
+
 module.exports = function (gitList, userErr) {
-  return gitList.map( item => ({
+  const results = gitList.map( item => ({
     url: item.html_url,
     body: item.body,
-    title: item.title,
+    title: he.decode(item.title),
     status: item.state,
     vendor_id: item.id,
     posted_on: item.created_at,
@@ -11,5 +13,9 @@ module.exports = function (gitList, userErr) {
     vendor: 'github',
     error: userErr
     })
-  )
-}
+  );
+
+  return results.sort((a, b) => {
+    return b.status > a.status ? -1 : 1;
+  });
+};
