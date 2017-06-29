@@ -21,8 +21,6 @@ module.exports = db.define('link', {
     type: Sequelize.INTEGER
   }
 }, {
-  instanceMethods: {
-  },
   classMethods: {
     propogateLink: async function(info, userId) {
       const [errType, errMessage] = info.error.split(': ')
@@ -59,6 +57,4 @@ module.exports = db.define('link', {
       return link
     }
   },
-  hooks: {
-  }
 });

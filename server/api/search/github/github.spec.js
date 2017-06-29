@@ -28,11 +28,6 @@ describe('GitHub API:', () => {
         .then(res => expect(res).to.haveOwnPropertyDescriptor('items'))
       )
 
-      xit('the \'items\' property is limited to 50 items', () =>
-        result
-        .then(res => expect(res.items).to.have.lengthOf(50))
-      )
-
     })
 
   })
@@ -46,15 +41,18 @@ describe('GitHub API:', () => {
 
     it('returns an object', () => expect(items).to.be.an.instanceOf(Array))
 
-    xit('the returned object is formatted', () => {
+    it('the returned object is formatted', () => {
       expect(items[0]).to.have.all.keys('url',
                                     'body',
                                     'title',
                                     'status',
-                                    'id',
                                     'posted_on',
                                     'updated_on',
-                                    'comments')
+                                    'comments',
+                                    'vendor_id',
+                                    'vendor',
+                                    'error'
+                                    )
     })
   })
 })

@@ -74,7 +74,7 @@ const data = {
 }
 
 async function main() {
-  try {
+
     const synched = await db.sync()
     const forceSynched = await db.sync({force: true})
 
@@ -102,14 +102,16 @@ async function main() {
     console.log("Finished inserting data")
   }
 
-  catch(err) {
-    console.error('There was totally a problem', err, err.stack)
-  }
+if (require.main === module) {
+    main()
+    .catch(err => {
+      console.error('There was totally a problem', err, err.stack)
+    })
+  .then(function () {
+    db.close()
+    console.log('connection closed');
+    return null;
+  });
 }
 
-main()
-.then(function () {
-  db.close()
-  console.log('connection closed');
-  return null;
-});
+module.exports = main
