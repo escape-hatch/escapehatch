@@ -2,8 +2,8 @@
 const { expect } = require('chai');
 const db = require('../db');
 const Link = db.model('link');
-const Err = db.model('err')
-const seed = require('../../../seed')
+const Err = db.model('err');
+const seed = require('../../../seed');
 
 describe('Link model', () => {
 
@@ -22,8 +22,8 @@ describe('Link model', () => {
         created: '2017-06-18 12:10:37',
         modified: '2017-06-27 12:10:37'
       },
-      userId = 1
-      let link
+      userId = 1;
+      let link;
 
       beforeEach(() => {
         link = Link.propogateLink(info, userId)
@@ -34,7 +34,7 @@ describe('Link model', () => {
       it('returns an object', () => {
         return link.then(res => {
           expect(res).to.be.an.instanceOf(Object)
-        })
+        });
       });
 
       it('updates expected tables', () => {
@@ -47,8 +47,8 @@ describe('Link model', () => {
           })
           .then(err =>
             expect(err.dataValues).to.haveOwnPropertyDescriptor('message')
-          )
-        })
+          );
+        });
       });
     });
   });

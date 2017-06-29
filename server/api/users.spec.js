@@ -50,7 +50,7 @@ describe('User routes', () => {
           expect(res.body[1].email).to.be.equal(jensEmail);
           expect(res.body[1].firstName).to.be.equal(jensFirstName);
           expect(res.body[1].lastName).to.be.equal(jensLastName);
-        })
+        });
       });
     });
 
@@ -66,7 +66,7 @@ describe('User routes', () => {
           expect(res.body.lastName).to.be.equal(codysLastName);
           expect(res.body.email).to.be.equal(codysEmail);
 
-        })
+        });
       });
 
       it('retrieves a different selected user', () => {
@@ -79,7 +79,7 @@ describe('User routes', () => {
           expect(res.body.firstName).to.be.equal(jensFirstName);
           expect(res.body.lastName).to.be.equal(jensLastName);
           expect(res.body.email).to.be.equal(jensEmail);
-        })
+        });
       });
 
       it('fails with a 404(Not Found) if user doesn\'t exist', () => {
@@ -88,16 +88,16 @@ describe('User routes', () => {
         .expect(404)
         .then(res => {
           expect(res.status).to.be.equal(404);
-        })
+        });
       });
 
       describe('when not logged in', () => {
         xit('fails with a 401 (Unauthorized)', () => {
           request(app)
           .get('/api/users/1')
-          .expect(401)
-        })
-      })
+          .expect(401);
+        });
+      });
     });
 
     describe('POST /api/users', () => {
@@ -109,7 +109,7 @@ describe('User routes', () => {
           lastName: 'Jones',
           email: 'beth@secrets.org',
         })
-        .expect(201)
+        .expect(201);
       });
     });
 

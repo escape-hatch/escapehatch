@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const User = require('./user')
-const Err = require('./err')
+const User = require('./user');
+const Err = require('./err');
 
 module.exports = db.define('link', {
   link: {
@@ -23,7 +23,7 @@ module.exports = db.define('link', {
 }, {
   classMethods: {
     propogateLink: async function(info, userId) {
-      const [errType, errMessage] = info.error.split(': ')
+      const [errType, errMessage] = info.error.split(': ');
 
       const createLink = this.findOrCreate({
         where: {
@@ -47,14 +47,14 @@ module.exports = db.define('link', {
         [link] = linkAndBool,
         [error] = errorAndBool,
         user
-      ] = await Promise.all([createLink, createErr, findUser])
+      ] = await Promise.all([createLink, createErr, findUser]);
 
       const
         errLink = error.addLink(link),
         userLink = user.addLink(link, { vote: info.vote }),
-        userErr = user.addErr(error)
-      await Promise.all([errLink, userLink, userErr])
-      return link
+        userErr = user.addErr(error);
+      await Promise.all([errLink, userLink, userErr]);
+      return link;
     }
   },
 });
