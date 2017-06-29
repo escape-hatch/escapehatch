@@ -16,11 +16,12 @@ export const getLinksByErrId = encryptedId =>
     .then(res => dispatch(getLinks(res.data)))
     .catch(err => console.log(err))
 
-
 // reducer
 const initialLinksState = {
   currentLinks: []
 }
+
+export const wrapper = () => getLinksByErrId(encryptedId)
 
 export default function(state = initialLinksState, action) {
   const newState = Object.assign({}, state)

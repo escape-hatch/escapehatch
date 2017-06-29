@@ -37,4 +37,10 @@ describe('Links Component', () => {
 
     expect(linksElem.length).to.equal(2);
   });
+
+  it('should render a list item for each stack result', () => {
+    const linksElem = scryRenderedDOMComponentsWithClass(component, 'stackResults');
+
+    expect(linksElem.length).to.equal(1);
+  });
 });
