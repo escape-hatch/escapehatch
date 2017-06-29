@@ -2,6 +2,7 @@
 const { expect } = require('chai');
 const db = require('../db');
 const Link = db.model('link');
+const Err = db.model('err')
 const seed = require('../../../seed')
 describe.only('Link model', () => {
 
@@ -32,12 +33,22 @@ describe.only('Link model', () => {
       it('returns an object', () => {
         return link.then(res => {
           expect(res).to.be.an.instanceOf(Object)
-      })
+        })
       });
 
-
+      it('updates expected tables', () => {
+        return link.then(res => {
+          Err.find({
+            where: {
+              type: 'TypeError',
+              message: 'Assignment to constant variable.'
+            }
+          })
+          .then(err =>
+            expect(err.dataValues).to.haveOwnPropertyDescriptor('message')
+          )
+        })
+      });
     });
-
   });
-
 });
