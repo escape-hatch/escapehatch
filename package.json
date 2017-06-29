@@ -7,9 +7,7 @@
     "start": "webpack -w & nodemon server",
     "start-server": "nodemon server",
     "build-client": "webpack",
-    "test-frontend": "mocha ./client/**/*.spec.js --compilers js:babel-register --watch-extensions js,jsx ",
-    "test-backend": "mocha ./server/**/*.spec.js --watch-extensions js,jsx ",
-    "test": "npm run test-backend && npm run test-frontend",
+    "test": "mocha ./**/*.spec.js --compilers js:babel-register --require babel-polyfill --watch-extensions js,jsx",
     "lint": "eslint **/*.js --ignore-pattern node_modules/"
   },
   "author": "",

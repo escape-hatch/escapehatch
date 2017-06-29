@@ -24,13 +24,13 @@ router
   Promise.all([
     github(userErr),
     stackApp(userErr),
-    Err.find({
-      where: { type: errType, message: errMsg },
-      include: [ { model: Link } ]
-    })
+    // Err.find({
+    //   where: { type: errType, message: errMsg },
+    //   include: [ { model: Link } ]
+    // })
 
   ])
-  .spread((githubResults, stackAppResults, dbResults) => {
+  .spread((githubResults, stackAppResults) => {
     console.log('*****TEST2****');
     const stackData = stackAppFormatter(stackAppResults.data.items, userErr);
     const gitData = githubFormatter(githubResults.items, userErr);
