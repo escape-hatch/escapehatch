@@ -6,8 +6,8 @@ const stackAppFormatter = require('./stackapp/formatter')
 const base64url = require('base64-url')
 const Promise = require('bluebird')
 const db = require('../../db')
-const dbFormatter = require('./dbFormatter')
-const addVotes = require('./dbApiZipVotes')
+const dbFormatter = require('./utils/dbFormatter')
+const addVotes = require('./utils/dbApiZipVotes')
 
 // what happens if any single 3rd party API call fails?
 // service param?
@@ -41,9 +41,3 @@ router
 });
 
 module.exports = router;
-
-
-// query DB for err string, pull up associated links
-// pass DB info into formatters
-
-

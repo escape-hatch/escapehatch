@@ -21,6 +21,3 @@ module.exports = (apiResults, dbResults) => {
   }
   return apiResults
 }
-
-// countedList = { github: {}, stackApp: {} };
-// apiObj = { github: [{}], stackApp: [{}] }
