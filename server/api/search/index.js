@@ -29,7 +29,6 @@ router
 
   ])
   .spread((githubResults, stackAppResults) => {
-    console.log('*****TEST2****');
     const stackData = stackAppFormatter(stackAppResults.data.items, userErr);
     const gitData = githubFormatter(githubResults.items, userErr);
     const data = { stackData, gitData };
