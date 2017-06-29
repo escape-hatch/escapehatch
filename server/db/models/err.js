@@ -3,21 +3,12 @@ const db = require('../db');
 
 module.exports = db.define('err', {
   type: {
-    type: Sequelize.ENUM('TypeError', 'SyntaxError', 'ReferenceError', 'EvalError', 'InternalError', 'RangeError', 'URIError'),
+    type: Sequelize.STRING,
+    allowNull: false
   },
   message: {
     type: Sequelize.STRING,
     allowNull: false
-  },
-  stack: {
-    type: Sequelize.TEXT,
-  }
-}, {
-  instanceMethods: {
-  },
-  classMethods: {
-  },
-  hooks: {
   }
 });
 

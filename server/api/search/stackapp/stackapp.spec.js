@@ -59,13 +59,15 @@ describe('Stack Exchange API:', () => {
                                     'body',
                                     'title',
                                     'answered',
-                                    'id',
+                                    'vendor_id',
                                     'posted_on',
                                     'updated_on',
                                     'comments',
                                     'score',
                                     'views',
-                                    'tags'
+                                    'tags',
+                                    'vendor',
+                                    'error'
                                     )
     })
   })

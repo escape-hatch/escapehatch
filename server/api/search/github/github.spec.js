@@ -28,11 +28,6 @@ describe('GitHub API:', () => {
         .then(res => expect(res).to.haveOwnPropertyDescriptor('items'))
       )
 
-      it('the \'items\' property is limited to 50 items', () =>
-        result
-        .then(res => expect(res.items).to.have.lengthOf(50))
-      )
-
     })
 
   })
@@ -51,10 +46,13 @@ describe('GitHub API:', () => {
                                     'body',
                                     'title',
                                     'status',
-                                    'id',
                                     'posted_on',
                                     'updated_on',
-                                    'comments')
+                                    'comments',
+                                    'vendor_id',
+                                    'vendor',
+                                    'error'
+                                    )
     })
   })
 })

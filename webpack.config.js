@@ -12,6 +12,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
       },
+      //converts sass(.scss) files into css files
       {
         test: /\.scss$/,
         use: [
@@ -19,7 +20,12 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
-      }
+      },
+      //converts css files into js modules can import
+      {
+       test: /\.css/,
+       loaders: ['style-loader', 'css-loader']
+     }
     ]
   }
 };

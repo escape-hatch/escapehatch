@@ -1,24 +1,48 @@
 const router = require('express').Router();
-const github = require('./github/request')
+
+const ghRequest = require('./github/request')
+const soRequest = require('./stackapp/request')
 const githubFormatter = require('./github/formatter')
 const stackAppFormatter = require('./stackapp/formatter')
 const base64url = require('base64-url')
-const stackApp = require('./stackapp/request')
 const Promise = require('bluebird')
+const db = require('../../db')
+const dbFormatter = require('./utils/dbFormatter')
+const addVotes = require('./utils/dbApiZipVotes')
+const Err = require('../../db/models/err');
+const Link = require('../../db/models/link');
+const UserLink = require('../../db/models/user_links');
+
 // what happens if any single 3rd party API call fails?
 // service param?
 
-router.get('/:err', (req, res, next) => {
-  const userErr = base64url.decode(req.params.err)
+router
 
-  Promise.all([github(userErr), stackApp(userErr)])
-  .spread((githubResults, stackAppResults) => {
-    console.log(stackAppResults)
-    // githubFormatter(githubResults.items)
-    res.json(stackAppResults.data.items)
+.get('/:err', (req, res, next) => {
+
+  const userErr = base64url.decode(req.params.err);
+  const [errType, errMsg] = userErr.split(': ');
+
+  const awaitdb = db.query('SELECT * FROM errs \
+    JOIN err_link ON errs.id = err_link."errId" \
+    JOIN links ON err_link."linkId" = links.id \
+    JOIN user_links ON user_links."linkId" = links.id \
+    WHERE errs.type = :type AND errs.message = :message', { replacements: { type: errType, message: errMsg} })
+
+  Promise.all([
+    ghRequest(userErr),
+    soRequest(userErr),
+    awaitdb
+  ])
+  .spread((githubResults, stackAppResults, dbResults) => {
+    const stackData = stackAppFormatter(stackAppResults.data.items, userErr)
+    const gitData = githubFormatter(githubResults.items, userErr)
+    const data = { stackapp: stackData, github: gitData }
+    const voteData = dbFormatter(dbResults[0])
+    const formattedData = addVotes(data, voteData)
+    res.json(formattedData)
   })
-  // .then(response => res.json(response))
-  .catch(err => console.error(err))
+  .catch(next);
 });
 
 module.exports = router;
