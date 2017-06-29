@@ -1,4 +1,3 @@
-// TODO: Keep this in order to pass frontend test
 import 'babel-polyfill';
 import reducer from './link';
 import { expect } from 'chai';
