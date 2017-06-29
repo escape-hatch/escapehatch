@@ -18,20 +18,16 @@ router
 
   const userErr = base64url.decode(req.params.err);
   const [errType, errMsg] = userErr.split(': ');
-  console.log("github(userErr):", github(userErr));
-
 
   Promise.all([
     github(userErr),
     stackApp(userErr),
-    Err.find({
-      where: { type: errType, message: errMsg },
-      include: [ { model: Link } ]
-    })
-
+    // Err.find({
+    //   where: { type: errType, message: errMsg },
+    //   include: [ { model: Link } ]
+    // })
   ])
-  .spread((githubResults, stackAppResults, dbResults) => {
-    console.log('*****TEST2****');
+  .spread((githubResults, stackAppResults) => {
     const stackData = stackAppFormatter(stackAppResults.data.items, userErr);
     const gitData = githubFormatter(githubResults.items, userErr);
     const data = { stackData, gitData };
@@ -42,7 +38,6 @@ router
 });
 
 module.exports = router;
-
 
 // query DB for err string, pull up associated links
 // pass DB info into formatters
