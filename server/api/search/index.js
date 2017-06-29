@@ -7,6 +7,7 @@ const base64url = require('base64-url')
 const Promise = require('bluebird')
 const db = require('../../db')
 const dbFormatter = require('./dbFormatter')
+const addVotes = require('./dbApiZipVotes')
 
 // what happens if any single 3rd party API call fails?
 // service param?
@@ -32,9 +33,9 @@ router
     const stackData = stackAppFormatter(stackAppResults.data.items, userErr)
     const gitData = githubFormatter(githubResults.items, userErr)
     const data = { stackapp: stackData, github: gitData }
-    // const formattedData = dbFormatter(dbResults[0], data)
-
-    res.json(data)
+    const voteData = dbFormatter(dbResults[0])
+    const formattedData = addVotes(data, voteData)
+    res.json(formattedData)
   })
   .catch(err => console.error(err))
 });
