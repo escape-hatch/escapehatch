@@ -1,13 +1,12 @@
 const router = require('express').Router();
-const github = require('./github/request')
+const ghRequest = require('./github/request')
+const soRequest = require('./stackapp/request')
 const githubFormatter = require('./github/formatter')
 const stackAppFormatter = require('./stackapp/formatter')
 const base64url = require('base64-url')
-const stackApp = require('./stackapp/request')
 const Promise = require('bluebird')
-const Err = require('../../db/models/err')
-const Link = require('../../db/models/link')
-const UserLink = require('../../db/models/user_links')
+const db = require('../../db')
+const dbFormatter = require('./dbFormatter')
 
 // what happens if any single 3rd party API call fails?
 // service param?
@@ -18,20 +17,24 @@ router
   const userErr = base64url.decode(req.params.err)
   const [errType, errMsg] = userErr.split(': ')
 
+  const awaitdb = db.query('SELECT * FROM errs \
+    JOIN err_link ON errs.id = err_link."errId" \
+    JOIN links ON err_link."linkId" = links.id \
+    JOIN user_links ON user_links."linkId" = links.id \
+    WHERE errs.type = :type AND errs.message = :message', { replacements: { type: errType, message: errMsg} })
+
   Promise.all([
-    github(userErr),
-    stackApp(userErr),
-    Err.find({
-      where: { type: errType, message: errMsg },
-      include: [ { model: Link } ]
-    })
+    ghRequest(userErr),
+    soRequest(userErr),
+    awaitdb
   ])
   .spread((githubResults, stackAppResults, dbResults) => {
     const stackData = stackAppFormatter(stackAppResults.data.items, userErr)
     const gitData = githubFormatter(githubResults.items, userErr)
-    const data = { stackData, gitData }
+    const data = { stackapp: stackData, github: gitData }
+    // const formattedData = dbFormatter(dbResults[0], data)
 
-    res.json(dbResults)
+    res.json(data)
   })
   .catch(err => console.error(err))
 });
@@ -41,3 +44,5 @@ module.exports = router;
 
 // query DB for err string, pull up associated links
 // pass DB info into formatters
+
+

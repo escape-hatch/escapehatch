@@ -15,7 +15,7 @@ router
     created: '2017-06-18 12:10:37',
     modified: '2017-06-27 12:10:37'
   }
-  return Link.propogateLink(info, 3)
+  return Link.propogateLink(info, 2)
   .then(response => res.status(200).send(response))
   .catch(next)
 })
