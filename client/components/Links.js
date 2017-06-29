@@ -20,7 +20,7 @@ class Links extends React.Component {
         {
           stack && stack.map(l => {
             return (
-              <li key={ l.vendor_id }>
+              <li key={ l.vendor_id } className="stackResults">
 
                 <p><strong>Title: </strong>
                   <a href={l.url}>{l.title} </a>
@@ -37,7 +37,7 @@ class Links extends React.Component {
         {
           git && git.map(l => {
             return (
-              <li key={ l.vendor_id }>
+              <li key={ l.vendor_id } className="gitResults">
 
                 <p><strong>Title: </strong>
                   <a href={l.url}>{l.title} </a>
