@@ -7,7 +7,7 @@
     "start": "webpack -w & nodemon server",
     "start-server": "nodemon server",
     "build-client": "webpack",
-    "test": "mocha ./**/*.spec.js --compilers js:babel-register --watch-extensions js,jsx --require babel-polyfill"
+    "test": "DATABASE_URL='postgres://localhost:5432/escapehatch-test' mocha ./**/*.spec.js --compilers js:babel-register --watch-extensions js,jsx --require babel-polyfill"
   },
   "author": "",
   "license": "ISC",

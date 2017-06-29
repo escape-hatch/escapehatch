@@ -2,12 +2,10 @@
 const { expect } = require('chai');
 const db = require('../db');
 const Link = db.model('link');
-
+const seed = require('../../../seed')
 describe.only('Link model', () => {
 
-  beforeEach(() => {
-    return db.sync({ force: true });
-  });
+  beforeEach(seed);
 
   describe('classMethods', () => {
 
@@ -29,16 +27,17 @@ describe.only('Link model', () => {
         link = Link.propogateLink(info, userId)
       });
 
-      it('returns a link object', () => {
-        expect(link).to.be.an.instanceOf(Object)
+      it('returns a promise', () => expect(link).to.be.an.instanceof(Promise))
+
+      it('returns an object', () => {
+        return link.then(res => {
+          expect(res).to.be.an.instanceOf(Object)
+      })
       });
 
-      xit('returns false if the password is incorrect', () => {
-        expect(cody.correctPassword('bonez')).to.be.equal(false);
-      });
 
-    }); // end describe('correctPassword')
+    });
 
-  }); // end describe('instanceMethods')
+  });
 
-}); // end describe('User model')
+});
