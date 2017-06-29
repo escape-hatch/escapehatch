@@ -4,7 +4,8 @@ const db = require('../db');
 const Link = db.model('link');
 const Err = db.model('err')
 const seed = require('../../../seed')
-describe.only('Link model', () => {
+
+describe('Link model', () => {
 
   beforeEach(seed);
 
