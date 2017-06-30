@@ -11,8 +11,6 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 module.exports = app;
 
-if (process.env.NODE_ENV === 'development') require('../secrets');
-
 passport.serializeUser((user, done) =>
   done(null, user.id));
 
@@ -40,8 +38,10 @@ const createApp = () => app
     path.extname(req.path).length > 0 ? res.status(404).send('Not found') : next())
   .use('*', (req, res) =>
     res.sendFile(path.join(__dirname, '..', 'public/index.html')))
-  .use((err, req, res, next) =>
-    res.status(err.status || 500).send(err.message || 'Internal server error.'));
+  .use((err, req, res, next) => {
+    console.log(err);
+    res.status(err.status || 500).send(err.message || 'Internal server error.');
+  });
 
 const syncDb = () =>
   db.sync();

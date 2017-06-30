@@ -21,8 +21,6 @@ const initialLinksState = {
   currentLinks: []
 }
 
-export const wrapper = () => getLinksByErrId(encryptedId)
-
 export default function(state = initialLinksState, action) {
   const newState = Object.assign({}, state)
 
