@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link, Redirect } from 'react-router';
 import { logout } from '../reducer/user';
+import SearchBar from './SearchBar';
+import base64url from 'base64-url';
+
 
 // Component //
 
@@ -26,6 +29,13 @@ const Main = props => {
       }
       <hr />
       { children }
+      <SearchBar
+        handleSubmit={ (val) => {
+          const userErr = base64url.encode(val);
+          console.log(userErr);
+          return (<Redirect push to={`/links/${userErr}`} />);
+        }}
+      />
     </div>
   );
 };
