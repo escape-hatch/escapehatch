@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import cssLinks from './Links.css';
+import { updateVote } from '../reducer/link';
 
 // Component //
 class Links extends React.Component {
@@ -9,6 +10,7 @@ class Links extends React.Component {
   }
 
   render() {
+    console.log("this.props***", this.props)
     const stack = this.props.stack;
     const git = this.props.git;
 
@@ -19,23 +21,6 @@ class Links extends React.Component {
         <p>Vendor: Github <img src="/img/github-icon.png"/></p>
         <p>Vendor: Stack Overflow <img src="/img/so-icon.png"/></p>
         <ul>
-        {
-          stack && stack.map(l => {
-            return (
-              <li key={ l.vendor_id } className="stackResults">
-
-                <p><strong>Title: </strong>
-                  <a href={l.url}>{l.title} </a>
-                </p>
-
-                <p>Last Activity Date: { l.updated_on }</p>
-
-                <span>{l.views} Views</span>
-                <span className="score"><strong>Score:</strong> {l.score}</span>
-              </li>
-            );
-          })
-        }
         {
           git && git.map(l => {
             return (
@@ -49,6 +34,8 @@ class Links extends React.Component {
 
                 <span>Status: {l.status}</span>
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
+
+                <button onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
               </li>
             );
           })
@@ -67,4 +54,42 @@ const mapState = (state) => ({
   git: state.link.currentLinks.github,
 });
 
-export default connect(mapState)(Links);
+const mapDispatch = (dispatch) => ({
+  dispatchUpvote: link => {
+    console.log("dispatching vote***");
+    const info = {
+      error: link.error,
+      vendor: link.vendor,
+      vendor_id: link.vendor_id,
+      vote: 'upvote',
+      url: link.url,
+      created: link.created,
+      modified: link.modified
+    }
+    console.log("info***", info)
+    dispatch(updateVote(info));
+  },
+});
+
+export default connect(mapState, mapDispatch)(Links);
+
+
+/*
+        {
+          stack && stack.map(l => {
+            return (
+              <li key={ l.vendor_id } className="stackResults">
+
+                <p><strong>Title: </strong>
+                  <a href={l.url}>{l.title} </a>
+                </p>
+
+                <p>Last Activity Date: { l.updated_on }</p>
+
+                <span>{l.views} Views</span>
+                <span className="score"><strong>Score:</strong> {l.score}</span>
+              </li>
+            );
+          })
+        }
+*/
