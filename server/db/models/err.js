@@ -4,7 +4,7 @@ const db = require('../db');
 module.exports = db.define('err', {
   type: {
     type: Sequelize.STRING,
-    allowNull: false
+    defaultValue: 'Error'
   },
   message: {
     type: Sequelize.STRING,

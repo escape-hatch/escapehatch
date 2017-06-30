@@ -30,6 +30,9 @@ const data = {
       type: 'TypeError',
       message: `Cannot read property 'be' of undefined`
     },
+    {
+      message: 'My sequelize done messed up'
+    }
   ],
   link: [
     {
