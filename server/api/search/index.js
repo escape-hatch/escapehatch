@@ -21,7 +21,9 @@ router
 .get('/:err', (req, res, next) => {
 
   const userErr = base64url.decode(req.params.err);
-  const [errType, errMsg] = userErr.split(': ');
+  const [errType, errMsg] = userErr.includes(': ')
+    ? userErr.split(': ')
+    : ['Error', userErr];
 
   const awaitdb = db.query('SELECT * FROM errs \
     JOIN err_link ON errs.id = err_link."errId" \

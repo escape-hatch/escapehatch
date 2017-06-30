@@ -23,7 +23,9 @@ module.exports = db.define('link', {
 }, {
   classMethods: {
     propogateLink: async function(info, userId) {
-      const [errType, errMessage] = info.error.split(': ')
+      const [errType, errMessage] = info.error.includes(': ')
+        ? info.error.split(': ')
+        : ['Error', info.error];
 
       const createLink = this.findOrCreate({
         where: {
