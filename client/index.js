@@ -23,8 +23,8 @@ const requireLogin = (nextRouterState, replace, next) =>
     .catch(err => console.log(err));
 
 function onLinksEnter(nextRouterState) {
-  const errId = nextRouterState.params.errId
-  store.dispatch(getLinksByErrId(errId))
+  const errId = nextRouterState.params.errId;
+  store.dispatch(getLinksByErrId(errId));
 }
 
 ReactDOM.render(

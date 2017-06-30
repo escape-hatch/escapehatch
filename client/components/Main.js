@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router';
 import { logout } from '../reducer/user';
 import SearchBar from './SearchBar';
-import base64url from 'base64-url';
 
 
 // Component //
@@ -28,14 +27,8 @@ const Main = props => {
           </nav>
       }
       <hr />
+      <SearchBar />
       { children }
-      <SearchBar
-        handleSubmit={ (val) => {
-          const userErr = base64url.encode(val);
-          console.log(userErr);
-          return (<Redirect push to={`/links/${userErr}`} />);
-        }}
-      />
     </div>
   );
 };
