@@ -73,7 +73,6 @@ const mapDispatch = (dispatch) => ({
 
 export default connect(mapState, mapDispatch)(Links);
 
-
 /*
         {
           stack && stack.map(l => {
