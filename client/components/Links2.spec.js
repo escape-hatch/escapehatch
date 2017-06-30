@@ -4,7 +4,7 @@ import { expect } from 'chai';
 
 import { Links } from './Links';
 
-describe('List Component List Items', function () {
+describe('Links Component - List Items', function () {
   let git;
   let stack;
   let wrapper;
