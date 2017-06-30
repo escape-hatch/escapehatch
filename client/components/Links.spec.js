@@ -11,7 +11,7 @@ import { expect } from 'chai';
 
 import { Links } from './Links';
 
-describe('Links Component', () => {
+describe('Links Component - Props', () => {
   let component;
   let git;
   let stack;
