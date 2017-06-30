@@ -29,6 +29,7 @@ class Links extends React.Component {
                   <a href={l.url}>{l.title} </a>
                 </p>
 
+                <p>Vendor: { l.vendor }</p>
                 <p>Last Activity Date: { l.updated_on }</p>
 
                 <span>Status: {l.status}</span>
@@ -36,6 +37,28 @@ class Links extends React.Component {
 
                 <button onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
                 <button onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+              </li>
+            );
+          })
+        }
+        {
+          stack && stack.map(l => {
+            return (
+              <li key={ l.vendor_id } className="stackResults">
+
+                <p><strong>Title: </strong>
+                  <a href={l.url}>{l.title} </a>
+                </p>
+
+                <p>Vendor: { l.vendor }</p>
+                <p>Last Activity Date: { l.updated_on }</p>
+
+                <span>{l.views} Views</span>
+                <span className="score"><strong>Score:</strong> {l.score}</span>
+
+                <button onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                <button onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+
               </li>
             );
           })
@@ -84,23 +107,3 @@ const mapDispatch = (dispatch) => ({
 });
 
 export default connect(mapState, mapDispatch)(Links);
-
-/*
-        {
-          stack && stack.map(l => {
-            return (
-              <li key={ l.vendor_id } className="stackResults">
-
-                <p><strong>Title: </strong>
-                  <a href={l.url}>{l.title} </a>
-                </p>
-
-                <p>Last Activity Date: { l.updated_on }</p>
-
-                <span>{l.views} Views</span>
-                <span className="score"><strong>Score:</strong> {l.score}</span>
-              </li>
-            );
-          })
-        }
-*/
