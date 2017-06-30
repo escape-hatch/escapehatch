@@ -61,8 +61,8 @@ export { Links };
 
 // Container //
 const mapState = (state) => ({
-  stack: state.link.currentLinks.stackData,
-  git: state.link.currentLinks.gitData,
+  stack: state.link.currentLinks.stackapp,
+  git: state.link.currentLinks.github,
 });
 
 export default connect(mapState)(Links);
