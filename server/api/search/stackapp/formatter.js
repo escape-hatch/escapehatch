@@ -25,5 +25,3 @@ module.exports = function (stackList, userErr) {
   return results;
 };
 
-// during map, check if vendor ID in DB vendor ID
-// if so, add DB info to item.

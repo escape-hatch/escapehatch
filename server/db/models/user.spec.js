@@ -32,8 +32,8 @@ describe('User model', () => {
         expect(cody.correctPassword('bonez')).to.be.equal(false);
       });
 
-    }); // end describe('correctPassword')
+    });
 
-  }); // end describe('instanceMethods')
+  });
 
-}); // end describe('User model')
+});
