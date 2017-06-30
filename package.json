@@ -8,6 +8,7 @@
     "start-server": "nodemon server",
     "build-client": "webpack",
     "test": "DATABASE_URL='postgres://localhost:5432/escapehatch-test' mocha ./**/*.spec.js --compilers js:babel-register --require babel-polyfill ./client/components/test_helper.js --watch-extensions js,jsx",
+    "seed": "node seed.js",
     "lint": "eslint **/*.js --ignore-pattern node_modules/"
   },
   "author": "",

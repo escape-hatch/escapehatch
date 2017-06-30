@@ -51,3 +51,4 @@ module.exports = db.define('user', {
     beforeUpdate: setSaltAndPassword
   }
 });
+
