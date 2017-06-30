@@ -79,13 +79,16 @@ async function main() {
     const forceSynched = await db.sync({force: true})
 
     const creatingUsers = User.bulkCreate(data.user, {
-      returning: true
+      returning: true,
+      individualHooks: true
     })
     const creatingErrs = Err.bulkCreate(data.err, {
-      returning: true
+      returning: true,
+      individualHooks: true
     })
     const creatingLinks = Link.bulkCreate(data.link, {
-      returning: true
+      returning: true,
+      individualHooks: true
     })
 
     const [users, errs, links] = await Promise.all([creatingUsers, creatingErrs, creatingLinks])
@@ -96,7 +99,8 @@ async function main() {
     const associatedErrC = await errs[0].addLink(links[2])
 
     const creatingUserLinks = await user_links.bulkCreate(data.user_links, {
-      returning: true
+      returning: true,
+      individualHooks: true
     })
 
     console.log("Finished inserting data")
