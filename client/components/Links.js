@@ -10,7 +10,6 @@ class Links extends React.Component {
   }
 
   render() {
-    console.log("this.props***", this.props)
     const stack = this.props.stack;
     const git = this.props.git;
 
@@ -36,6 +35,7 @@ class Links extends React.Component {
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
 
                 <button onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                <button onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
               </li>
             );
           })
@@ -66,9 +66,21 @@ const mapDispatch = (dispatch) => ({
       created: link.created,
       modified: link.modified
     }
-    console.log("info***", info)
     dispatch(updateVote(info));
   },
+  dispatchDownvote: link => {
+    const info = {
+      error: link.error,
+      vendor: link.vendor,
+      vendor_id: link.vendor_id,
+      vote: 'downvote',
+      url: link.url,
+      created: link.created,
+      modified: link.modified
+    }
+    console.log("info***", info)
+    dispatch(updateVote(info));
+  }
 });
 
 export default connect(mapState, mapDispatch)(Links);
