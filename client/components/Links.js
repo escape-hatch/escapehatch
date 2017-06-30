@@ -16,6 +16,8 @@ class Links extends React.Component {
       <div className="links">
         <h1>Search Results Page</h1>
         <p>***Search results error to be placed here ***</p>
+        <p>Vendor: Github <img src="/img/github-icon.png"/></p>
+        <p>Vendor: Stack Overflow <img src="/img/so-icon.png"/></p>
         <ul>
         {
           stack && stack.map(l => {
@@ -61,8 +63,8 @@ export { Links };
 
 // Container //
 const mapState = (state) => ({
-  stack: state.link.currentLinks.stackData,
-  git: state.link.currentLinks.gitData,
+  stack: state.link.currentLinks.stackapp,
+  git: state.link.currentLinks.github,
 });
 
 export default connect(mapState)(Links);
