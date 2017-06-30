@@ -30,7 +30,7 @@ class Links extends React.Component {
                 </p>
 
                 <p>Vendor: { l.vendor }</p>
-                <p>Last Activity Date: { l.updated_on }</p>
+                <p>Last Activity Date: { l.modified }</p>
 
                 <span>Status: {l.status}</span>
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
@@ -51,7 +51,7 @@ class Links extends React.Component {
                 </p>
 
                 <p>Vendor: { l.vendor }</p>
-                <p>Last Activity Date: { l.updated_on }</p>
+                <p>Last Activity Date: { l.modified }</p>
 
                 <span>{l.views} Views</span>
                 <span className="score"><strong>Score:</strong> {l.score}</span>
