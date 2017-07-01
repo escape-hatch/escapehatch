@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import signupScss from './scss/SignupLogin.scss';
+import signupLoginScss from './scss/SignupLogin.scss';
 
 const AuthFormLogin = props => {
 
