@@ -31,11 +31,11 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
+        <Route path="home" component={UserHome} />
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
         <Route onEnter={requireLogin}>
-          <Route path="home" component={UserHome} />
         </Route>
       </Route>
     </Router>

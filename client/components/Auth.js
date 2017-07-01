@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import AuthForm from './AuthForm';
-import { auth } from '../reducer/user';
+import AuthFormLogin from './AuthFormLogin';
+import AuthFormSignup from './AuthFormSignup';
+import { authSignup, authLogin } from '../reducer/user';
 
 const mapLogin = ({ user }) => ({
   name: 'login',
@@ -15,14 +16,24 @@ const mapSignup = ({ user }) => ({
 });
 
 const mapDispatch = dispatch => ({
-  handleSubmit (evt) {
+  handleSignupSubmit(evt) {
+    evt.preventDefault();
+    const formName = evt.target.name;
+    const firstName = evt.target.firstName.value;
+    const lastName = evt.target.lastName.value;
+    const email = evt.target.email.value;
+    const password = evt.target.password.value;
+    dispatch(authSignup(firstName, lastName, email, password, formName));
+  },
+
+  handleLoginSubmit (evt) {
     evt.preventDefault();
     const formName = evt.target.name;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
-    dispatch(auth(email, password, formName));
+    dispatch(authLogin(email, password, formName));
   }
 });
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm);
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm);
+export const Login = connect(mapLogin, mapDispatch)(AuthFormLogin);
+export const Signup = connect(mapSignup, mapDispatch)(AuthFormSignup);
