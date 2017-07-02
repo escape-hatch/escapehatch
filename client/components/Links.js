@@ -14,58 +14,143 @@ class Links extends React.Component {
     const git = this.props.git;
 
     return (
-      <div className="links">
-        <h1>Search Results Page</h1>
+<div className="links">
+        <h1>Search Results:</h1>
         <p>***Search results error to be placed here ***</p>
         <ul>
         {
           git && git.map(l => {
             return (
               <li key={ l.vendor_id } className="gitResults results">
+                <div className="center-block" style={{textAlign: 'left'}}>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-12">
+                        <div className="panel panel-primary">
+                          <div className="panel-heading">
+                            <h2 className="panel-title" style={{display: 'inline'}}>
+                              <img src="/img/github-icon.png" />
+                              <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
+                            </h2>
+                            <div className="" style={{float:'right', padddinRight: '30px'}}>Status: {l.status}</div>
+                          </div>
 
-                <p><strong>Title: </strong>
-                  <a href={l.url}>{l.title} </a>
-                </p>
-                <p><img src="/img/github-icon.png" /></p>
+                          <div className="panel-body">
 
-                <p>Vendor: { l.vendor }</p>
-                <p>Last Activity Date: { l.modified }</p>
+                            <div className="row">
+                              <div className="col-md-6">Last Modified: {l.modified}</div>
 
-                <span>Status: {l.status}</span>
-                <span className="score"><strong>Comments:</strong> {l.comments}</span>
+                              <div className="col-md-6">
+                                 Score: {l.comments}
+                              </div>
+                            </div>
 
-                <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
-              </li>
+                            <div className="row">
+                              <div className="body-heading"> Body
+                              </div>
+                            </div>
+
+                            <div className="row">
+                              <div className="col-md-12 body">
+                                {l.body}
+                              </div>
+                            </div>
+
+
+                            <div className="row">
+                              <div className="col-md-6">
+                                 <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                              </div>
+                            </div>
+
+                            <div className="row">
+                              <div className="col-md-6">
+                                 <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </li>
             );
           })
         }
-        {
+
+                {
           stack && stack.map(l => {
             return (
               <li key={ l.vendor_id } className="stackResults results">
+                <div className="center-block" style={{textAlign: 'left'}}>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-12">
+                        <div className="panel panel-primary">
+                          <div className="panel-heading">
+                            <h2 className="panel-title" style={{display: 'inline'}}>
+                              <img src="/img/so-icon.png" />
+                              <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
+                            </h2>
+                            <div className="" style={{float:'right', padddinRight: '30px'}}>Views: {l.views}</div>
+                          </div>
 
-                <p><strong>Title: </strong>
-                  <a href={l.url}>{l.title} </a>
-                </p>
-                <p><img src="/img/so-icon.png" /></p>
+                          <div className="panel-body">
 
-                <p>Vendor: { l.vendor }</p>
-                <p>Last Activity Date: { l.modified }</p>
+                            <div className="row">
+                              <div className="col-md-6">Last Modified: {l.modified}</div>
 
-                <span>{l.views} Views</span>
-                <div className="score"><strong>Score:</strong> {l.score}</div>
+                              <div className="col-md-6">
+                                 Score: {l.comments}
+                              </div>
 
-                <button className="upvote btn-success" onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                              <div className="col-md-6">
+                                 Tags: {l.tags}
+                              </div>
+                            </div>
 
-              </li>
+                            <div className="row">
+                              <div className="body-heading"> Body
+                              </div>
+                            </div>
+
+                            <div className="row">
+                              <div className="col-md-12 body">
+                                {l.body}
+                              </div>
+                            </div>
+
+
+                            <div className="row">
+                              <div className="col-md-6">
+                                 <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                              </div>
+                            </div>
+
+                            <div className="row">
+                              <div className="col-md-6">
+                                 <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </li>
             );
           })
         }
         </ul>
-      </div>
+
+</div>
+
     );
+
   }
 }
 
