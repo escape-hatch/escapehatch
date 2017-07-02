@@ -1,0 +1,25 @@
+body form div {
+  margin: 1em 0;
+}
+
+.col-md-12 {
+  text-align: center;
+}
+
+.control-group {
+  display: block;
+}
+
+.form-horizontal .control-label {
+  text-align: center;
+}
+
+.btn-success{
+  background-color: #687864;
+  border-color: #767976;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:visited{
+    background-color: #555b54;
+    border-color: #767976;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import cssLinks from './Links.css';
+import cssLinks from './scss/Links.scss';
 import { updateVote } from '../reducer/link';
 
 // Component //

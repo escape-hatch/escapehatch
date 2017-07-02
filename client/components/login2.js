@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AuthForm = props => {
+const AuthFormLogin = props => {
 
-  const { name, displayName, handleSubmit, error } = props;
+  const { name, displayName, handleLoginSubmit, error } = props;
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
+      <form onSubmit={handleLoginSubmit} name={name}>
         <div>
           <label htmlFor="email"><small>Email</small></label>
           <input name="email" type="text" />
@@ -26,11 +26,11 @@ const AuthForm = props => {
   );
 };
 
-export default AuthForm;
+export default AuthFormLogin;
 
-AuthForm.propTypes = {
+AuthFormLogin.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
+  handleLoginSubmit: PropTypes.func.isRequired,
   error: PropTypes.object
 };

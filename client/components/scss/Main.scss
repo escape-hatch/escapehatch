@@ -1,0 +1,69 @@
+/*Color Scheme
+    color: #31708E;
+    color: #5085A5;
+    color: #687864;
+    color: #8FC1E3;
+    color: #F7F9FB; white
+
+*/
+
+html,
+body,
+ul,
+ol {
+   margin: 0;
+  padding: 0;
+}
+
+.panel-title {
+  font-size: 20px;
+  padding: 15px 0;
+}
+
+.panel-heading.nav.navbar-default{padding-top:0px;padding-bottom:0px;}
+
+.panel-heading.nav.navbar-default h3{margin-top:20px;}
+.panel-heading.nav.navbar-default h4{margin-top:15px;}
+
+.panel-heading .nav.navbar-nav.navbar-right h4{padding-bottom:0px;margin-bottom:0px;padding-top:0px;margin-top:0px;}
+
+
+.navBar, .dropdown, .navbar-default .navbar-nav>li>a {
+  background-color: #5085A5;
+  color: #F7F9FB;
+}
+
+.panel a,  {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .panel a:hover, .panel a:focus {
+    color: rgba(255, 255, 255, 0.71);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.loginSignup {
+  padding: 15px 15px;
+}
+
+.loginSignup span, .loginSignup a, .loginSignup Link {
+  padding: 0 15px;
+}
+
+.navbar-nav>li {
+  padding: 15px 15px;
+}
+.nav>li>a {
+  display: inline
+}
+
+
+.navbar-nav > li {
+padding-right: 0;
+}
+
+li.loginSignup {
+    padding-left: 0;
+}
