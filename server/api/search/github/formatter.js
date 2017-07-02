@@ -7,8 +7,8 @@ module.exports = function (gitList, userErr) {
     title: he.decode(item.title),
     status: item.state,
     vendor_id: item.id,
-    posted_on: item.created_at,
-    updated_on: item.updated_at,
+    created: item.created_at,
+    modified: item.updated_at,
     comments: item.comments,
     vendor: 'github',
     error: userErr

@@ -21,11 +21,15 @@ passport.deserializeUser((id, done) =>
 
 const createApp = () => app
   .use(morgan('dev'))
+
+  // Serve static files from ../public
   .use(express.static(path.join(__dirname, '..', 'public')))
   .use(express.static(path.join(__dirname, '..', 'node_modules/bootstrap/dist')))
 
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
+
+  //Authentication middleware
   .use(session({
     secret: process.env.SESSION_SECRET || 'my best friend is Cody',
     store,
