@@ -17,17 +17,16 @@ class Links extends React.Component {
       <div className="links">
         <h1>Search Results Page</h1>
         <p>***Search results error to be placed here ***</p>
-        <p>Vendor: Github <img src="/img/github-icon.png"/></p>
-        <p>Vendor: Stack Overflow <img src="/img/so-icon.png"/></p>
         <ul>
         {
           git && git.map(l => {
             return (
-              <li key={ l.vendor_id } className="gitResults">
+              <li key={ l.vendor_id } className="gitResults results">
 
                 <p><strong>Title: </strong>
                   <a href={l.url}>{l.title} </a>
                 </p>
+                <p><img src="/img/github-icon.png" /></p>
 
                 <p>Vendor: { l.vendor }</p>
                 <p>Last Activity Date: { l.modified }</p>
@@ -35,8 +34,8 @@ class Links extends React.Component {
                 <span>Status: {l.status}</span>
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
 
-                <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
               </li>
             );
           })
@@ -44,20 +43,21 @@ class Links extends React.Component {
         {
           stack && stack.map(l => {
             return (
-              <li key={ l.vendor_id } className="stackResults">
+              <li key={ l.vendor_id } className="stackResults results">
 
                 <p><strong>Title: </strong>
                   <a href={l.url}>{l.title} </a>
                 </p>
+                <p><img src="/img/so-icon.png" /></p>
 
                 <p>Vendor: { l.vendor }</p>
                 <p>Last Activity Date: { l.modified }</p>
 
                 <span>{l.views} Views</span>
-                <span className="score"><strong>Score:</strong> {l.score}</span>
+                <div className="score"><strong>Score:</strong> {l.score}</div>
 
-                <button className="upvote" onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                <button className="upvote btn-success" onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
 
               </li>
             );

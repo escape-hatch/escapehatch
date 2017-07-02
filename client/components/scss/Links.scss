@@ -1,6 +1,7 @@
-li {
+.results {
   list-style-type: none;
   border: 1px solid black;
+  padding: 20px;
 }
 
 span.score {
@@ -9,4 +10,14 @@ span.score {
 
 img {
   width: 30px;
+}
+
+.btn-success{
+  background-color: #687864;
+  border-color: #767976;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:visited{
+    background-color: #555b54;
+    border-color: #767976;
 }
