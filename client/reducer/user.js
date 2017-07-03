@@ -15,7 +15,17 @@ export const me = () =>
       .then(res =>
         dispatch(getUser(res.data || defaultUser)));
 
-export const auth = (email, password, method) =>
+export const authSignup = (firstName, lastName, email, password, method) =>
+  dispatch =>
+    axios.post(`/auth/${method}`, { firstName, lastName, email, password })
+      .then(res => {
+        dispatch(getUser(res.data));
+        browserHistory.push('/home');
+      })
+      .catch(error =>
+        dispatch(getUser({ error })));
+
+export const authLogin = (email, password, method) =>
   dispatch =>
     axios.post(`/auth/${method}`, { email, password })
       .then(res => {

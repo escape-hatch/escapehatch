@@ -24,6 +24,7 @@
     "express": "^4.14.1",
     "express-session": "^1.15.1",
     "he": "^1.1.1",
+    "jquery": "^3.2.1",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
     "octonode": "^0.7.13",
