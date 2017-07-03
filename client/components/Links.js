@@ -37,9 +37,16 @@ class Links extends React.Component {
 
                 <span>Status: {l.status}</span>
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
-
-                <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                  {
+                    user.id
+                    ?
+                    <div>
+                      <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                      <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                    </div>
+                    :
+                    <h4>Log in or sign up to vote!</h4>
+                }
               </li>
             );
           })
