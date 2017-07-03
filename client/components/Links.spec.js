@@ -20,9 +20,9 @@ describe('Links Component - Tags', () => {
   beforeEach('render the component', () => {
     git = ['i\'m just a link', 'yes i\'m only a link'];
     stack = ['and i\'m sitting here on capitol hill'];
-    user = [{
+    user = {
       id: 1,
-    }]
+    }
 
     component = ReactTestUtils.renderIntoDocument(<Links
       git={git}

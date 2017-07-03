@@ -35,20 +35,16 @@ class Links extends React.Component {
 
                 <span>Status: {l.status}</span>
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
-                <div>
                 {
                   user.id
-                  ?
-                    <div>
+                  ? <div>
                       <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
                       <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
                     </div>
-                  :
-                    <div>
-                      <h4>Log in or sign up to vote!</h4>
+                  : <div>
+                      <h4><strong>Log in or sign up to vote!</strong></h4>
                     </div>
                 }
-                </div>
               </li>
             );
           })
@@ -67,20 +63,16 @@ class Links extends React.Component {
 
                 <span>{l.views} Views</span>
                 <span className="score"><strong>Score:</strong> {l.score}</span>
-                <div>
                 {
                   user.id
-                  ?
-                    <div>
+                  ? <div>
                       <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
                       <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
                     </div>
-                  :
-                    <div>
-                      <h4>Log in or sign up to vote!</h4>
+                  : <div>
+                      <h4><strong>Log in or sign up to vote!</strong></h4>
                     </div>
                 }
-                </div>
               </li>
             );
           })
