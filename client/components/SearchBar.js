@@ -5,9 +5,10 @@ import base64url from 'base64-url';
 module.exports = () =>
   (
     <div className="row">
-      <div className="col-lg-6">
-        <form className="input-group" onSubmit={handleSubmit}>
+      <div id="formDiv" className="col-lg-6">
+        <form id="search" className="input-group" onSubmit={handleSubmit}>
           <input
+            ref="search"
             type="text"
             className="form-control"
             name="searchVal"
