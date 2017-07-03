@@ -1,59 +1,48 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import {spy} from 'sinon';
+import { spy } from 'sinon';
 import SearchBar from './SearchBar';
 
-describe.only('SearchBar Component', () => {
+describe('SearchBar Component', () => {
   let search;
 
   before(() => {
     search = shallow(<SearchBar />);
-    const form = search.find('form')
   });
 
-  it('shows a search bar', () => {
-    expect(search.find('form').find('input[name="searchVal"]')).to.have.length(1)
-  })
+  it('shows a search bar', () =>
+    expect(search.find('input[name="searchVal"]')).to.have.length(1)
+  );
 
-  it('has a submit button', () => {
-    const submit = search.find('form').find('button[type="submit"]')
-    expect(submit).to.have.length(1)
-  })
+  it('has a submit button', () =>
+    expect(search.find('button[type="submit"]')).to.have.length(1)
+  );
 
-  // it('can set search terms', () => {
-  //   search.find('form').simulate('submit',
-  //     {
-  //       preventDefault: () => undefined,
-  //       target: {value: mockSearch}
-  //     });
-  //   expect(search.find('form').target.value.to.equal(mockSearch))
-  // }
-  // );
-
- describe('when submitted', () => {
-    search = spy()
+  describe('when submitted', () => {
+    search = spy();
     const submitEvent = {
       preventDefault: spy(),
       target: {
-        value: 'sequelize userID column does not exist'
+        searchVal: {
+          value: 'sequelize userID column does not exist'
+        },
+        userID: 1
       }
-    }
+    };
 
     beforeEach('submit', () => {
-      search.reset()
-      submitEvent.preventDefault.reset()
-      root.simulate('submit', submitEvent)
-    })
+      submitEvent.preventDefault.reset();
+      search.find('button[type="submit"]').simulate('submit', submitEvent);
+    });
 
-    it('calls props.login with credentials', () => {
-      expect(search).to.have.been.calledWith(
-        submitEvent.target.value
-      )
-    })
+    it('calls onSubmit', () => {
+      const onSubmit = search.find('form').onSubmit;
+      expect(onSubmit).to.have.been.called;
+    });
 
-    it('calls preventDefault', () => {
+    it('calls preventDefault', () =>
       expect(submitEvent.preventDefault).to.have.been.called
-    })
-  })
+    );
+  });
 });
