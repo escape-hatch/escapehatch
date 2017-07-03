@@ -14,8 +14,6 @@ class Links extends React.Component {
     const git = this.props.git;
     const user = this.props.user
 
-    console.log('~~~~~ user:', user)
-
     return (
       <div className="links">
         <h1>Search Results Page</h1>
@@ -37,16 +35,20 @@ class Links extends React.Component {
 
                 <span>Status: {l.status}</span>
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
-                  {
-                    user.id
-                    ?
+                <div>
+                {
+                  user.id
+                  ?
                     <div>
                       <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
                       <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
                     </div>
-                    :
-                    <h4>Log in or sign up to vote!</h4>
+                  :
+                    <div>
+                      <h4>Log in or sign up to vote!</h4>
+                    </div>
                 }
+                </div>
               </li>
             );
           })
@@ -65,10 +67,20 @@ class Links extends React.Component {
 
                 <span>{l.views} Views</span>
                 <span className="score"><strong>Score:</strong> {l.score}</span>
-
-                <button className="upvote" onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
-
+                <div>
+                {
+                  user.id
+                  ?
+                    <div>
+                      <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                      <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                    </div>
+                  :
+                    <div>
+                      <h4>Log in or sign up to vote!</h4>
+                    </div>
+                }
+                </div>
               </li>
             );
           })

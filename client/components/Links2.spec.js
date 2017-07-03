@@ -8,6 +8,7 @@ import { Links } from './Links';
 describe('Links Component - List Items', function () {
   let git;
   let stack;
+  let user;
   let wrapper;
   let spy;
 
@@ -34,11 +35,18 @@ describe('Links Component - List Items', function () {
     ]
   }
 
+  function mockUser() {
+    return [{
+      id: 1,
+    }]
+  }
+
   beforeEach('render the component', () => {
     git = mockGit()
     stack = mockStack()
+    user = mockUser()
     spy = sinon.spy();
-    wrapper = shallow(<Links git={git} stack={stack} dispatchUpvote={spy} />);
+    wrapper = shallow(<Links git={git} stack={stack} dispatchUpvote={spy} user={user}/>);
   });
 
   describe('Contents', () => {
@@ -66,25 +74,26 @@ describe('Links Component - List Items', function () {
   })
 
   describe('Voting Buttons', () => {
-    it('calls dispatchUpvote handler when user clicks to upvote git result', () => {
+    it.only('calls dispatchUpvote when user clicks to upvote git result', () => {
       wrapper = shallow(<Links git={git} dispatchUpvote={spy} />);
+      console.log(wrapper.debug())
       wrapper.find('.upvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
     })
 
-    it('calls dispatchDownvote handler when user clicks to downvote git result', () => {
+    it.only('calls dispatchDownvote when user clicks to downvote git result', () => {
       wrapper = shallow(<Links git={git} dispatchDownvote={spy} />);
       wrapper.find('.downvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
     })
 
-    it('calls dispatchUpvote handler when user clicks to upvote stack overflow result', () => {
+    it.only('calls dispatchUpvote when user clicks to upvote stack overflow result', () => {
       wrapper = shallow(<Links stack={stack} dispatchUpvote={spy} />);
       wrapper.find('.upvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
     })
 
-    it('calls dispatchDownvote handler when user clicks to downvote stack overflow result', () => {
+    it.only('calls dispatchDownvote when user clicks to downvote stack overflow result', () => {
       wrapper = shallow(<Links stack={stack} dispatchDownvote={spy} />);
       wrapper.find('.downvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
