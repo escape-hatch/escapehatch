@@ -98,4 +98,20 @@ describe('Links Component - List Items', function () {
       expect(spy).to.have.property('callCount', 1);
     })
   })
+
+  describe('Voting Buttons - User Who Is NOT Logged in', () => {
+    beforeEach('user is not logged in, or user has not registered', () => {
+      user = {}
+    });
+
+    it('upvote button should not render when a user is not logged-in', () => {
+      wrapper = shallow(<Links git={git} stack={stack} user={user} />)
+      expect(wrapper.text()).not.to.contain('Upvote');
+    })
+
+    it('downvote button should not render when a user is not logged-in', () => {
+      wrapper = shallow(<Links git={git} stack={stack} user={user} />)
+      expect(wrapper.text()).not.to.contain('Downvote');
+    })
+  })
 });
