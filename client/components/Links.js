@@ -12,6 +12,9 @@ class Links extends React.Component {
   render() {
     const stack = this.props.stack;
     const git = this.props.git;
+    const user = this.props.user
+
+    console.log('~~~~~ user:', user)
 
     return (
       <div className="links">
@@ -75,11 +78,11 @@ export { Links };
 const mapState = (state) => ({
   stack: state.link.currentLinks.stackapp,
   git: state.link.currentLinks.github,
+  user: state.user,
 });
 
 const mapDispatch = (dispatch) => ({
   dispatchUpvote: link => {
-    console.log("dispatching vote***");
     const info = {
       error: link.error,
       vendor: link.vendor,
@@ -101,7 +104,6 @@ const mapDispatch = (dispatch) => ({
       created: link.created,
       modified: link.modified
     }
-    console.log("info***", info)
     dispatch(updateVote(info));
   }
 });
