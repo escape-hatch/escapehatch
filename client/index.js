@@ -32,7 +32,11 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
         <Route path="home" component={UserHome} />
+<<<<<<< HEAD
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
+=======
+        <Route path="links/:errId" component={Links} onEnter={onLinksEnter} />
+>>>>>>> t/search_tests
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
         <Route onEnter={requireLogin}>

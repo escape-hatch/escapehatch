@@ -3,14 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { logout } from '../reducer/user';
-<<<<<<< HEAD
-import SearchBar from './SearchBar';
-
-
-=======
 import scssMain from './scss/Main.scss';
->>>>>>> master
-// Component //
+import SearchBar from './SearchBar';
 
 const Main = props => {
 
@@ -18,23 +12,6 @@ const Main = props => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <h3>Nav Bar</h3>
-      <h3>Escape Hatch</h3>
-      { loggedIn ?
-          <nav>
-            <Link to="/home">Home</Link>
-            <a href="#" onClick={handleClick}>Logout</a>
-          </nav> :
-          <nav>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </nav>
-      }
-      <hr />
-      <SearchBar />
-      { children }
-=======
 
       <div className="panel panel-default">
               <div className="panel-heading nav navbar-default">
@@ -63,8 +40,8 @@ const Main = props => {
                   </div>
               </div>
           </div>
+          <SearchBar />
           { children }
->>>>>>> master
     </div>
   );
 };
