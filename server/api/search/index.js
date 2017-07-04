@@ -39,7 +39,7 @@ router
   .spread((githubResults, stackAppResults, dbResults) => {
     const stackData = stackAppFormatter(stackAppResults.data.items, userErr)
     const gitData = githubFormatter(githubResults.items, userErr)
-    const data = { stackapp: stackData, github: gitData }
+    const data = { stackapp: stackData, github: gitData, error: userErr }
     const voteData = dbFormatter(dbResults[0])
     const formattedData = addVotes(data, voteData)
     res.json(formattedData)

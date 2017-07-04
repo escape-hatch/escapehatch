@@ -12,11 +12,11 @@ class Links extends React.Component {
   render() {
     const stack = this.props.stack;
     const git = this.props.git;
+    const error = this.props.error
 
     return (
       <div className="links">
-        <h1>Search Results Page</h1>
-        <p>***Search results error to be placed here ***</p>
+        <h1>Search Results for { error }</h1>
         <p>Vendor: Github <img src="/img/github-icon.png"/></p>
         <p>Vendor: Stack Overflow <img src="/img/so-icon.png"/></p>
         <ul>
@@ -75,6 +75,7 @@ export { Links };
 const mapState = (state) => ({
   stack: state.link.currentLinks.stackapp,
   git: state.link.currentLinks.github,
+  error: state.link.currentLinks.error,
 });
 
 const mapDispatch = (dispatch) => ({
