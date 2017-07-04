@@ -44,7 +44,7 @@ describe('Links Component - List Items', function () {
   });
 
   describe('Contents', () => {
-    it.only('renders the original error message', () => {
+    it('renders the original error message', () => {
       console.log(wrapper.debug())
       expect(wrapper.text()).to.contain(`THIS IS ALL WRONG!!!`)
     })
