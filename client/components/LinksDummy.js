@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import cssLinks from './scss/Links.scss';
 import { updateVote } from '../reducer/link';
 
 // Component //
@@ -56,18 +57,25 @@ class LinksDummy extends React.Component {
                               </div>
                             </div>
 
+                            {
+                              user.id
+                            ? <div>
+                                <div className="row">
+                                  <div className="col-md-6">
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                  </div>
+                                </div>
 
-                            <div className="row">
-                              <div className="col-md-6">
-                                 <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                <div className="row">
+                                  <div className="col-md-6">
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-
-                            <div className="row">
-                              <div className="col-md-6">
-                                 <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                            : <div>
+                                <h4><strong>Log in or sign up to vote!</strong></h4>
                               </div>
-                            </div>
+                            }
 
                           </div>
                         </div>
@@ -122,18 +130,25 @@ class LinksDummy extends React.Component {
                               </div>
                             </div>
 
+                            {
+                              user.id
+                            ? <div>
+                                <div className="row">
+                                  <div className="col-md-6">
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                  </div>
+                                </div>
 
-                            <div className="row">
-                              <div className="col-md-6">
-                                 <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                <div className="row">
+                                  <div className="col-md-6">
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-
-                            <div className="row">
-                              <div className="col-md-6">
-                                 <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                            : <div>
+                                <h4><strong>Log in or sign up to vote!</strong></h4>
                               </div>
-                            </div>
+                            }
 
                           </div>
                         </div>

@@ -24,7 +24,7 @@ describe('Links Component - Tags', () => {
       id: 1,
     }
 
-    component = ReactTestUtils.renderIntoDocument(<Links
+    component = ReactTestUtils.renderIntoDocument(<LinksDummy
       git={git}
       stack={stack}
       user={user}
