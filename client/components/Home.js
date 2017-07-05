@@ -1,0 +1,37 @@
+import React from 'react';
+
+module.exports = () =>
+  (
+    <div>
+      <div className="row content">
+        <div className="col-lg-3" />
+        <div className="col-lg-6">
+          <h2>Get the help you need, right when you need it</h2>
+          <h4>Escape Hatch instantly connects developers with relevant information to help cut down on time spent debugging.</h4>
+        </div>
+        <div className="col-lg-3" />
+      </div>
+
+      <div className="row content">
+        <div className="col-lg-3" />
+        <div className="col-lg-6">
+          <h2>Getting Started</h2>
+          <span className="codebox">npm install escape-hatch</span>
+
+          <h4>This gives you access to both the client side, and server side files that you can plug into your code and start getting solutions to your problems</h4>
+
+          <div className="example">
+            <h4>For monitoring errors on your server side, simply add the follow line to the top of your server start file:</h4>
+            <span className="codebox">require('./escape-hatch-node')()</span>
+          </div>
+
+          <div className="example">
+            <h4>For monitoring in the browser, use this simple script tag in your html files:</h4>
+            <span className="codebox">&lt;script src='escape-hatch-browser.js'&gt;&lt;/script&gt;</span>
+          </div>
+
+        </div>
+        <div className="col-lg-3" />
+      </div>
+    </div>
+  );
