@@ -23,7 +23,7 @@
     "react",
     "redux"
   ],
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/escape-hatch/escapehatch"
   },
@@ -57,6 +57,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
+    "sanitize-html": "^1.14.1",
     "sequelize": "^3.30.2",
     "showdown": "^1.7.1"
   },

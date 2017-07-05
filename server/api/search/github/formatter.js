@@ -1,14 +1,14 @@
 const he = require('he');
-// const showdown  = require('showdown'),
-//       converter = new showdown.Converter();
+const showdown  = require('showdown'),
+      converter = new showdown.Converter();
       // text      = '#hello, markdown!',
       // html      = converter.makeHtml(text);
+const sanitizeHtml = require('sanitize-html');
 
 module.exports = function (gitList, userErr) {
   const results = gitList.map( item => ({
     url: item.html_url,
-    body: truncateString(item.body),
-    // body: truncateString(converter.makeHtml(item.body)),
+    body: sanitizeHtml(converter.makeHtml(truncateString(item.body))),
     title: he.decode(item.title),
     status: item.state,
     vendor_id: item.id,

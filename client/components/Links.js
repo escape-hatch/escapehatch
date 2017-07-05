@@ -4,13 +4,18 @@ import cssLinks from './scss/Links.scss';
 import { updateVote } from '../reducer/link';
 import { Link } from 'react-router';
 
-const showdown  = require('showdown'),
-      converter = new showdown.Converter();
-
 // Component //
 class Links extends React.Component {
   constructor(props) {
     super(props);
+
+  this.createMarkup = this.createMarkup.bind(this);
+  }
+
+  createMarkup(htmlMessage) {
+    return {
+      __html: htmlMessage
+    };
   }
 
   render() {
@@ -57,7 +62,7 @@ class Links extends React.Component {
 
                             <div className="row">
                               <div className="col-md-12 body">
-                                {converter.makeHtml(l.body)}
+                                <div dangerouslySetInnerHTML={this.createMarkup(l.body)} />
                               </div>
                             </div>
 
