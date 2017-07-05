@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import store from './store';
-import { Main, Login, Signup, UserHome, Links } from './components';
+import { Main, Login, Signup, UserHome, Links, LinksDummy } from './components';
 import { me } from './reducer/user';
 import { getLinksByErrId } from './reducer/link';
 
@@ -33,6 +33,7 @@ ReactDOM.render(
       <Route path="/" component={Main}>
         <Route path="home" component={UserHome} />
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
+        <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter}/>
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
         <Route onEnter={requireLogin}>
