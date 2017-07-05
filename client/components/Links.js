@@ -126,7 +126,7 @@ class Links extends React.Component {
                               </div>
 
                               <div className="col-md-6">
-                                 Tags: {l.tags}
+                                 Tags: {l.tags.join(', ')}
                               </div>
                             </div>
 
