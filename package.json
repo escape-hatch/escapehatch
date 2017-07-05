@@ -15,7 +15,19 @@
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
     "postinstall": "webpack"
   },
-  "author": "",
+  "keywords": [
+    "error handling",
+    "npm",
+    "library",
+    "node",
+    "react",
+    "redux"
+  ],
+  "repository":{
+    "type": "git",
+    "url": "git+https://github.com/escape-hatch/escapehatch"
+  },
+  "author": "Jennifer Tam <jennifer.k.tam@gmail.com>, Cindy Schalit <cindyschalit@gmail.com>, Alice Perez <aliceperez25@gmail.com>, Josh White <whitejosh42@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
