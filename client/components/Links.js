@@ -2,6 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cssLinks from './scss/Links.scss';
 import { updateVote } from '../reducer/link';
+import { Link } from 'react-router';
+
+const showdown  = require('showdown'),
+      converter = new showdown.Converter();
 
 // Component //
 class Links extends React.Component {
@@ -53,7 +57,7 @@ class Links extends React.Component {
 
                             <div className="row">
                               <div className="col-md-12 body">
-                                {l.body}
+                                {converter.makeHtml(l.body)}
                               </div>
                             </div>
 
@@ -73,7 +77,10 @@ class Links extends React.Component {
                                 </div>
                               </div>
                             : <div>
-                                <h4><strong>Log in or sign up to vote!</strong></h4>
+                                <h4>
+                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                </h4>
                               </div>
                             }
 
@@ -146,7 +153,10 @@ class Links extends React.Component {
                                 </div>
                               </div>
                             : <div>
-                                <h4><strong>Log in or sign up to vote!</strong></h4>
+                                <h4>
+                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                </h4>
                               </div>
                             }
 
