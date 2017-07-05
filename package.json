@@ -58,30 +58,32 @@
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
     "sanitize-html": "^1.14.1",
-    "sequelize": "^3.30.2",
     "showdown": "^1.7.1"
   },
   "devDependencies": {
+    "sequelize": "^3.30.2",
+    "sass-loader": "^6.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "node-sass": "^4.5.0",
+    "css-loader": "^0.26.1",
     "babel-core": "^6.22.1",
-    "babel-eslint": "^7.2.3",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.23.0",
     "babel-preset-react": "^6.22.0",
-    "babel-register": "^6.24.1",
+    "babel-register": "^6.24.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "chai": "^3.5.0",
-    "css-loader": "^0.26.1",
     "enzyme": "^2.8.2",
     "eslint": "^4.1.1",
     "eslint-config-fullstack": "^3.0.0",
     "eslint-plugin-react": "^7.1.0",
     "jsdom": "^11.0.0",
     "mocha": "^3.3.0",
-    "node-sass": "^4.5.0",
     "react-addons-test-utils": "^15.6.0",
-    "sass-loader": "^6.0.0",
     "sinon": "^2.3.6",
-    "style-loader": "^0.13.1",
-    "supertest": "^3.0.0",
-    "webpack": "^2.2.1"
+    "supertest": "^3.0.0"
   }
 }
