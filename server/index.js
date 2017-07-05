@@ -25,7 +25,6 @@ const createApp = () => app
   // Serve static files from ../public
   .use(express.static(path.join(__dirname, '..', 'public')))
   .use(express.static(path.join(__dirname, '..', 'node_modules/bootstrap/dist')))
-
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
 

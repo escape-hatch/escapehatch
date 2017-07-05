@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import cssLinks from './scss/Links.scss';
 import { updateVote } from '../reducer/link';
 
 // Component //
-class Links extends React.Component {
+class LinksDummy extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -155,7 +154,7 @@ class Links extends React.Component {
   }
 }
 
-export { Links };
+export { LinksDummy };
 
 // Container //
 const mapState = (state) => ({
@@ -191,4 +190,4 @@ const mapDispatch = (dispatch) => ({
   }
 });
 
-export default connect(mapState, mapDispatch)(Links);
+export default connect(mapState, mapDispatch)(LinksDummy);
