@@ -5,9 +5,9 @@ import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import store from './store';
-import { Main, Login, Signup, UserHome, Links, LinksDummy } from './components';
+import { Main, Login, Signup, UserHome, Links, Home, LinksDummy } from './components';
 import { me } from './reducer/user';
 import { getLinksByErrId } from './reducer/link';
 
@@ -31,7 +31,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
-        <Route path="home" component={UserHome} />
+        <IndexRedirect to="/home" />
+        <Route path="home" component={Home} />
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
         <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter}/>
         <Route path="login" component={Login} />
