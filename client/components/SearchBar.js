@@ -5,7 +5,8 @@ import base64url from 'base64-url';
 module.exports = () =>
   (
     <div className="row">
-      <div id="formDiv" className="col-lg-12">
+      <div className="col-lg-3" />
+      <div id="formDiv" className="col-lg-6">
         <form id="search" className="input-group" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -18,6 +19,7 @@ module.exports = () =>
           </span>
         </form>
       </div>
+      <div className="col-lg-3" />
     </div>
   );
 
