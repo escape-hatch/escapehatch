@@ -12,12 +12,12 @@ class Links extends React.Component {
   render() {
     const stack = this.props.stack;
     const git = this.props.git;
+    const error = this.props.error
     const user = this.props.user
 
     return (
-<div className="links">
-        <h1>Search Results:</h1>
-        <p>***Search results error to be placed here ***</p>
+      <div className="links">
+        <h1>Search Results for "{ error }"</h1>
         <ul>
         {
           git && git.map(l => {
@@ -175,6 +175,7 @@ export { Links };
 const mapState = (state) => ({
   stack: state.link.currentLinks.stackapp,
   git: state.link.currentLinks.github,
+  error: state.link.currentLinks.error,
   user: state.user,
 });
 
