@@ -56,8 +56,7 @@ class Links extends React.Component {
                             </div>
 
                             <div className="row">
-                              <div className="body-heading"> Body
-                              </div>
+                              <div className="body-heading"></div>
                             </div>
 
                             <div className="row">
@@ -128,17 +127,6 @@ class Links extends React.Component {
 
                               <div className="col-md-6">
                                  Tags: {l.tags}
-                              </div>
-                            </div>
-
-                            <div className="row">
-                              <div className="body-heading"> Body
-                              </div>
-                            </div>
-
-                            <div className="row">
-                              <div className="col-md-12 body">
-                                {l.body}
                               </div>
                             </div>
 

@@ -1,8 +1,6 @@
 const he = require('he');
 const showdown  = require('showdown'),
       converter = new showdown.Converter();
-      // text      = '#hello, markdown!',
-      // html      = converter.makeHtml(text);
 const sanitizeHtml = require('sanitize-html');
 
 module.exports = function (gitList, userErr) {
@@ -13,7 +11,7 @@ module.exports = function (gitList, userErr) {
     status: item.state,
     vendor_id: item.id,
     created: item.created_at,
-    modified: item.updated_at,
+    modified: new Date(item.updated_at).toDateString(),
     comments: item.comments,
     vendor: 'github',
     error: userErr
