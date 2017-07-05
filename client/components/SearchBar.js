@@ -15,7 +15,7 @@ module.exports = () =>
             placeholder="Search for..."
           />
           <span className="input-group-btn">
-            <button className="btn btn-default" type="submit">Go!</button>
+            <button className="btn btn-default searchButton" type="submit">Go!</button>
           </span>
         </form>
       </div>

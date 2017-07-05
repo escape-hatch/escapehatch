@@ -34,7 +34,7 @@ export const updateVote = (info) =>
 
 // reducer
 const initialLinksState = {
-  currentLinks: []
+  currentLinks: {}
 }
 
 export default function(state = initialLinksState, action) {
