@@ -10,8 +10,8 @@ module.exports = function (gitList, userErr) {
     title: he.decode(item.title),
     status: item.state,
     vendor_id: item.id,
-    created: item.created_at,
-    modified: new Date(item.updated_at).toDateString(),
+    created: prettifyDate(new Date(item.created_at).toDateString()),
+    modified: prettifyDate(new Date(item.updated_at).toDateString()),
     comments: item.comments,
     vendor: 'github',
     error: userErr
@@ -28,4 +28,12 @@ const truncateString = (str) => {
   const array = str.split(' ');
   if(array.length <=20) return array.join(' ');
   else return array.slice(0,50).join(' ') + '...';
+}
+
+const prettifyDate = (str) => {
+  const array = str.split(' ');
+  array[0] += '. ';
+  array[1] += ' ';
+  array[2] += ', ';
+  return array;
 }
