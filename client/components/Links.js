@@ -17,7 +17,7 @@ class Links extends React.Component {
 
     return (
       <div className="links">
-        <h1>Search Results for { error }</h1>
+        <h1>Search Results for "{ error }"</h1>
         <p>Vendor: Github <img src="/img/github-icon.png"/></p>
         <p>Vendor: Stack Overflow <img src="/img/so-icon.png"/></p>
         <ul>
