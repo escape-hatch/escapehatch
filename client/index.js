@@ -5,7 +5,7 @@ import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import store from './store';
 import { Main, Login, Signup, UserHome, Links, Home, LinksDummy } from './components';
 import { me } from './reducer/user';
@@ -31,6 +31,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
+        <IndexRedirect to="/home" />
         <Route path="home" component={Home} />
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
         <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter}/>
