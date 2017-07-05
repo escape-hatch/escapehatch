@@ -39,10 +39,12 @@ const AuthFormLogin = props => {
               <button className="btn btn-success btn-lg"type="submit">{ displayName }</button>
             </div>
           </div>
-        </fieldset>
         { error &&  <div> { error.response.data } </div> }
+        <a href="/auth/google">{ displayName } with Google</a>
+        <br />
+          <a href="/auth/github">{ displayName } with GitHub</a>
+        </fieldset>
       </form>
-      <a href="/auth/google">{ displayName } with Google</a>
       </div>
     </div>
   </div>
