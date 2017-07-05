@@ -8,6 +8,7 @@ import { Links } from './Links';
 describe('Links Component - List Items', function () {
   let git;
   let stack;
+  let error;
   let user;
   let wrapper;
   let spy;
@@ -45,11 +46,16 @@ describe('Links Component - List Items', function () {
     git = mockGit()
     stack = mockStack()
     user = mockUser()
+    error = 'THIS IS ALL WRONG!!!'
     spy = sinon.spy();
-    wrapper = shallow(<Links git={git} stack={stack} dispatchUpvote={spy} user={user}/>);
+    wrapper = shallow(<Links git={git} stack={stack} error={error} user={user} dispatchUpvote={spy} />);
   });
 
   describe('Contents', () => {
+    it('renders the original error message', () => {
+      expect(wrapper.text()).to.contain(`THIS IS ALL WRONG!!!`)
+    })
+
     it('renders the title of each git and stack search result', () => {
       expect(wrapper.text()).to.contain(`i\'m just a link`);
       expect(wrapper.text()).to.contain(`and i\'m sittin\' here on capitol hill`);
