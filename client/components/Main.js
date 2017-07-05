@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { logout } from '../reducer/user';
 import scssMain from './scss/Main.scss';
-// Component //
+import SearchBar from './SearchBar';
 
 const Main = props => {
 
@@ -40,6 +40,7 @@ const Main = props => {
                   </div>
               </div>
           </div>
+          <SearchBar />
           { children }
     </div>
   );

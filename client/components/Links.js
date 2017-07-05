@@ -13,6 +13,7 @@ class Links extends React.Component {
     const stack = this.props.stack;
     const git = this.props.git;
     const error = this.props.error
+    const user = this.props.user
 
     return (
       <div className="links">
@@ -34,9 +35,16 @@ class Links extends React.Component {
 
                 <span>Status: {l.status}</span>
                 <span className="score"><strong>Comments:</strong> {l.comments}</span>
-
-                <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                {
+                  user.id
+                  ? <div>
+                      <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                      <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                    </div>
+                  : <div>
+                      <h4><strong>Log in or sign up to vote!</strong></h4>
+                    </div>
+                }
               </li>
             );
           })
@@ -55,10 +63,16 @@ class Links extends React.Component {
 
                 <span>{l.views} Views</span>
                 <span className="score"><strong>Score:</strong> {l.score}</span>
-
-                <button className="upvote" onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
-
+                {
+                  user.id
+                  ? <div>
+                      <button className="upvote"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                      <button className="downvote"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                    </div>
+                  : <div>
+                      <h4><strong>Log in or sign up to vote!</strong></h4>
+                    </div>
+                }
               </li>
             );
           })
@@ -76,11 +90,11 @@ const mapState = (state) => ({
   stack: state.link.currentLinks.stackapp,
   git: state.link.currentLinks.github,
   error: state.link.currentLinks.error,
+  user: state.user,
 });
 
 const mapDispatch = (dispatch) => ({
   dispatchUpvote: link => {
-    console.log("dispatching vote***");
     const info = {
       error: link.error,
       vendor: link.vendor,
@@ -102,7 +116,6 @@ const mapDispatch = (dispatch) => ({
       created: link.created,
       modified: link.modified
     }
-    console.log("info***", info)
     dispatch(updateVote(info));
   }
 });

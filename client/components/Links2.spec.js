@@ -9,6 +9,7 @@ describe('Links Component - List Items', function () {
   let git;
   let stack;
   let error;
+  let user;
   let wrapper;
   let spy;
 
@@ -35,12 +36,19 @@ describe('Links Component - List Items', function () {
     ]
   }
 
+  function mockUser() {
+    return {
+      id: 1,
+    }
+  }
+
   beforeEach('render the component', () => {
     git = mockGit()
     stack = mockStack()
+    user = mockUser()
     error = 'THIS IS ALL WRONG!!!'
     spy = sinon.spy();
-    wrapper = shallow(<Links git={git} stack={stack} error={error} dispatchUpvote={spy} />);
+    wrapper = shallow(<Links git={git} stack={stack} error={error} user={user} dispatchUpvote={spy} />);
   });
 
   describe('Contents', () => {
@@ -71,29 +79,45 @@ describe('Links Component - List Items', function () {
     });
   })
 
-  describe('Voting Buttons', () => {
-    it('calls dispatchUpvote when clicked for git result', () => {
-      wrapper = shallow(<Links git={git} dispatchUpvote={spy} />);
+  describe('Voting Buttons - User Who Is Logged in', () => {
+    it('calls dispatchUpvote when a logged-in user clicks to upvote git result', () => {
+      wrapper = shallow(<Links git={git} user={user} dispatchUpvote={spy} />)
       wrapper.find('.upvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
     })
 
-    it('calls dispatchDownvote when clicked for git result', () => {
-      wrapper = shallow(<Links git={git} dispatchDownvote={spy} />);
+    it('calls dispatchDownvote when a logged-in user clicks to downvote git result', () => {
+      wrapper = shallow(<Links git={git} user={user} dispatchDownvote={spy} />);
       wrapper.find('.downvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
     })
 
-    it('calls dispatchUpvote when clicked for Stack Overflow result', () => {
-      wrapper = shallow(<Links stack={stack} dispatchUpvote={spy} />);
+    it('calls dispatchUpvote when a logged-in user clicks to upvote stack overflow result', () => {
+      wrapper = shallow(<Links stack={stack} user={user} dispatchUpvote={spy} />);
       wrapper.find('.upvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
     })
 
-    it('calls dispatchDownvote when clicked for Stack Overflow result', () => {
-      wrapper = shallow(<Links stack={stack} dispatchDownvote={spy} />);
+    it('calls dispatchDownvote when a logged-in user clicks to downvote stack overflow result', () => {
+      wrapper = shallow(<Links stack={stack} user={user} dispatchDownvote={spy} />);
       wrapper.find('.downvote').simulate('click');
       expect(spy).to.have.property('callCount', 1);
+    })
+  })
+
+  describe('Voting Buttons - User Who Is NOT Logged in', () => {
+    beforeEach('user is not logged in, or user has not registered', () => {
+      user = {}
+    });
+
+    it('upvote button should not render when a user is not logged-in', () => {
+      wrapper = shallow(<Links git={git} stack={stack} user={user} />)
+      expect(wrapper.text()).not.to.contain('Upvote');
+    })
+
+    it('downvote button should not render when a user is not logged-in', () => {
+      wrapper = shallow(<Links git={git} stack={stack} user={user} />)
+      expect(wrapper.text()).not.to.contain('Downvote');
     })
   })
 });
