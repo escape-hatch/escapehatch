@@ -8,7 +8,6 @@ module.exports = () =>
       <div id="formDiv" className="col-lg-6">
         <form id="search" className="input-group" onSubmit={handleSubmit}>
           <input
-            ref="search"
             type="text"
             className="form-control"
             name="searchVal"
