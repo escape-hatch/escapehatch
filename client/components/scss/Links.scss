@@ -50,3 +50,12 @@ img {
   text-align: left;
   padding: 0 12%;
 }
+
+.loginSignupButton {
+  color: #337ab7 !important;
+}
+
+.loginSignupButton:hover, .loginSignupButton:focus, .loginSignupButton:active {
+  color: #1f5a8c !important;
+}
+

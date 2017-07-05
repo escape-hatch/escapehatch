@@ -2,11 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cssLinks from './scss/Links.scss';
 import { updateVote } from '../reducer/link';
+import { Link } from 'react-router';
 
 // Component //
 class Links extends React.Component {
   constructor(props) {
     super(props);
+
+  this.createMarkup = this.createMarkup.bind(this);
+  }
+
+  createMarkup(htmlMessage) {
+    return {
+      __html: htmlMessage
+    };
   }
 
   render() {
@@ -47,13 +56,12 @@ class Links extends React.Component {
                             </div>
 
                             <div className="row">
-                              <div className="body-heading"> Body
-                              </div>
+                              <div className="body-heading"></div>
                             </div>
 
                             <div className="row">
                               <div className="col-md-12 body">
-                                {l.body}
+                                <div dangerouslySetInnerHTML={this.createMarkup(l.body)} />
                               </div>
                             </div>
 
@@ -73,7 +81,10 @@ class Links extends React.Component {
                                 </div>
                               </div>
                             : <div>
-                                <h4><strong>Log in or sign up to vote!</strong></h4>
+                                <h4>
+                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                </h4>
                               </div>
                             }
 
@@ -115,18 +126,7 @@ class Links extends React.Component {
                               </div>
 
                               <div className="col-md-6">
-                                 Tags: {l.tags}
-                              </div>
-                            </div>
-
-                            <div className="row">
-                              <div className="body-heading"> Body
-                              </div>
-                            </div>
-
-                            <div className="row">
-                              <div className="col-md-12 body">
-                                {l.body}
+                                 Tags: {l.tags.join(', ')}
                               </div>
                             </div>
 
@@ -146,7 +146,10 @@ class Links extends React.Component {
                                 </div>
                               </div>
                             : <div>
-                                <h4><strong>Log in or sign up to vote!</strong></h4>
+                                <h4>
+                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                </h4>
                               </div>
                             }
 
