@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { logout } from '../reducer/user';
-import scssMain from './scss/Main.scss';
 import SearchBar from './SearchBar';
+import Footer from './Footer';
+
+import scssMain from './scss/Main.scss';
 
 class Main extends React.Component {
   constructor(props) {
@@ -57,6 +59,7 @@ class Main extends React.Component {
     );
   }
 }
+
 
 Main.propTypes = {
   children: PropTypes.object,

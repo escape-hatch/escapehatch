@@ -9,20 +9,19 @@ const AuthFormSignup = props => {
 
   return (
   <div className="container">
-    <div className="row justify-content-between">
-      <div className="panel panel-info">
-        <div className="panel-heading">
-          <h3 className="panel-title">Sign Up</h3>
-        </div>
-      <div className="panel-body">
-        <div className="col-md-4" id="legend">
-          <form className="form-horizontal" onSubmit={handleSignupSubmit} name={name}>
-          <fieldset>
-            <div className="control-group">
-              <label className="control-label" htmlFor="firstName">First Name</label>
-              <div className="controls">
-                <input type="text" id="firstName" name="firstName" placeholder="" className="form-control input-lg" />
-              </div>
+    <div className="row">
+      <div className="col-md-12">
+        <form className="form-horizontal" onSubmit={handleSignupSubmit} name={name}>
+        <fieldset>
+          <div id="legend">
+            <img src="img/loginSignup.png"/>
+            <legend className="">Sign Up</legend>
+          </div>
+
+          <div className="control-group">
+            <label className="control-label" htmlFor="firstName">First Name</label>
+            <div className="controls">
+              <input type="text" id="firstName" name="firstName" placeholder="" className="form-control input-lg" />
             </div>
 
           <div className="control-group">
