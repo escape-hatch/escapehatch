@@ -7,11 +7,11 @@ let secret;
 try {
   secret = require('../../secret');
 }
-catch(err){
+catch (err){
   console.log('No secret file found. Skipping OAuth.');
 }
 
-if(secret) {
+if (secret) {
   const googleConfig = {
     clientID: secret.GOOGLE_CLIENT_ID,
     clientSecret: secret.GOOGLE_CLIENT_SECRET,
@@ -37,6 +37,6 @@ if(secret) {
 module.exports = router
   .get('/', passport.authenticate('google', { scope: 'email' }))
   .get('/callback', passport.authenticate('google', {
-    successRedirect: '/home',
+    successReturnToOrRedirect: '/home',
     failureRedirect: '/login'
   }));
