@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import AuthFormLogin from './AuthFormLogin';
 import AuthFormSignup from './AuthFormSignup';
+import AuthFormButtons from './AuthFormButtons';
 import { authSignup, authLogin } from '../reducer/user';
 
 const mapLogin = ({ user }) => ({
@@ -37,3 +38,4 @@ const mapDispatch = dispatch => ({
 
 export const Login = connect(mapLogin, mapDispatch)(AuthFormLogin);
 export const Signup = connect(mapSignup, mapDispatch)(AuthFormSignup);
+export const Button = connect()(AuthFormButtons);

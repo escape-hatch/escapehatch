@@ -2,7 +2,15 @@ body form div {
   margin: 1em 0;
 }
 
-.col-md-12 {
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    text-align: left;
+}
+
+.col-md-3 {
   text-align: center;
 }
 
@@ -11,15 +19,15 @@ body form div {
 }
 
 .form-horizontal .control-label {
-  text-align: center;
+  text-align: left;
 }
 
 .btn-success{
-  background-color: #687864;
-  border-color: #767976;
+  background-color: #8FC1E3;
+  border-color: #5085A5;
 }
 
-.btn-success:hover, .btn-success:focus, .btn-success:visited{
+.btn-success:hover, .btn-success:focus, .btn-success:visited {
     background-color: #555b54;
     border-color: #767976;
 }
