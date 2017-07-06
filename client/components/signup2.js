@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import signupLoginScss from './scss/SignupLogin.scss';
 
 const AuthForm = props => {
 
@@ -29,7 +30,6 @@ const AuthForm = props => {
         </div>
         { error &&  <div> { error.response.data } </div> }
       </form>
-      <a href="/auth/github">{ displayName } with GitHub</a>
     </div>
   );
 };
