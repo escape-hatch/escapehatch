@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { logout } from '../reducer/user';
 import SearchBar from './SearchBar';
+import Footer from './Footer';
 
 import scssMain from './scss/Main.scss';
 
@@ -42,6 +43,7 @@ const Main = props => {
           </div>
           <SearchBar />
           { children }
+          <Footer />
     </div>
   );
 };

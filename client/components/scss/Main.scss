@@ -120,3 +120,29 @@ li.loginSignup {
 //   padding: 0 12%;
 //   width: 200px;
 // }
+
+#footer {
+  text-align: center;
+  background-color: #5085A5;
+  color: #F7F9FB;
+  padding: 10px 0 0;
+  margin: 20px 0 0 0;
+}
+
+
+#footer a {
+  color: #F7F9FB
+}
+
+#footer a:hover {
+  color: rgba(255, 255, 255, 0.71)
+}
+
+.fa-code {
+  font-size: 18px;
+  color: #F7F9FB;
+}
+
+.fa-code:hover {
+  color: rgba(255, 255, 255, 0.71)
+}
