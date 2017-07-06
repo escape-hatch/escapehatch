@@ -9,7 +9,7 @@ import {
 } from 'react-addons-test-utils';
 import { expect } from 'chai';
 
-import { Links } from './Links';
+import { LinksDummy } from './LinksDummy';
 
 describe('Links Component - Tags', () => {
   let component;
@@ -24,7 +24,7 @@ describe('Links Component - Tags', () => {
       id: 1,
     }
 
-    component = ReactTestUtils.renderIntoDocument(<Links
+    component = ReactTestUtils.renderIntoDocument(<LinksDummy
       git={git}
       stack={stack}
       user={user}

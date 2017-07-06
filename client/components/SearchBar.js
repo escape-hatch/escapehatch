@@ -5,6 +5,7 @@ import base64url from 'base64-url';
 module.exports = () =>
   (
     <div className="row">
+      <div className="col-lg-3" />
       <div id="formDiv" className="col-lg-6">
         <form id="search" className="input-group" onSubmit={handleSubmit}>
           <input
@@ -14,10 +15,11 @@ module.exports = () =>
             placeholder="Search for..."
           />
           <span className="input-group-btn">
-            <button className="btn btn-default" type="submit">Go!</button>
+            <button className="btn btn-default searchButton" type="submit">Go!</button>
           </span>
         </form>
       </div>
+      <div className="col-lg-3" />
     </div>
   );
 
