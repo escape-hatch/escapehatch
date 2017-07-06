@@ -8,45 +8,58 @@ import Footer from './Footer';
 
 import scssMain from './scss/Main.scss';
 
-const Main = props => {
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      prevPath: {
+        pathname: '/home'
+      }
+    };
+  }
 
-  const { children, handleClick, loggedIn, email } = props;
+  componentWillReceiveProps(nextProps) {
+    const routeChanged = nextProps.location !== this.props.location;
+    if (routeChanged) this.setState({ prevPath: this.props.location });
+  }
 
-  return (
-    <div>
-
-      <div className="panel panel-default header">
-        <div className="panel-heading nav navbar-default">
-          <div className="navBar row">
-              <div className="col-xs-4">
-                <h2 className="panel-title"><a href="#" className=""><img className="hatch" src="/img/hatch.png" />Escape Hatch</a></h2>
-              </div>
-            <div className="col-xs-3"></div>
-              <div className="col-xs-5">
-                  <ul className="nav navbar-nav navbar-right">
-                      <li className="loginSignup"><Link to="/">Home</Link></li>
-                        { loggedIn ?
-                      <li className="loginSignup">
-                        <span>Welcome!</span>
-                        <Link to='/' onClick={() => props.handleClick() } className="logout">Logout</Link>
-                      </li>:
-                      <li className="loginSignup">
-                        <span><Link to="/login">Login</Link></span>
-                        <span><Link to="/signup">Sign Up</Link></span>
-                      </li>
-                      }
-                      <hr />
-                  </ul>
-              </div>
+  render() {
+    const { children, handleClick, loggedIn, email } = this.props;
+    return (
+      <div>
+        <div className="panel panel-default">
+          <div className="panel-heading nav navbar-default">
+            <div className="navBar row">
+                <div className="col-xs-4">
+                  <h2 className="panel-title"><a href="#" className="">Escape Hatch</a></h2>
+                </div>
+              <div className="col-xs-3" />
+                <div className="col-xs-5">
+                    <ul className="nav navbar-nav navbar-right">
+                        <li><Link to="/">Home</Link></li>
+                          { loggedIn ?
+                          <li className="loginSignup">
+                            <span>Welcome!</span>
+                            <Link to="/" onClick={() => this.props.handleClick() } className="logout">Logout</Link>
+                            </li> :
+                            <li className="loginSignup">
+                            <span><Link to="/login">Login</Link></span>
+                            <span><Link to="/signup">Sign Up</Link></span>
+                            </li>
+                        }
+                        <hr />
+                    </ul>
+                </div>
+            </div>
           </div>
-        </div>
-          </div>
-          <SearchBar />
-          { children }
-          <Footer />
-    </div>
-  );
-};
+            </div>
+            <SearchBar />
+            { React.cloneElement(children, { ...this.state }) }
+      </div>
+    );
+  }
+}
+
 
 Main.propTypes = {
   children: PropTypes.object,

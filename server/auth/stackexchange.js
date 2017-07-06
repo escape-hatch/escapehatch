@@ -2,13 +2,24 @@ const passport = require('passport');
 const router = require('express').Router();
 const Strategy = require('passport-stackexchange').Strategy;
 const User = require('../db/models/user');
+const userPrevPath = require('./sessionMiddleware');
 let secret;
 
 try {
   secret = require('../../secret');
 }
 catch (err){
-  console.log('No secret file found. Skipping OAuth.');
+  console.log('No secret file found...checking process.env');
+  if (process.env.STACK_CLIENT_ID && process.env.STACK_CLIENT_SECRET && process.env.STACK_CALLBACK) {
+    secret = {
+      STACK_CLIENT_ID: process.env.STACK_CLIENT_ID,
+      STACK_CLIENT_SECRET: process.env.STACK_CLIENT_SECRET,
+    };
+    console.log('StackExchange process.env keys found.');
+  }
+  else {
+    console.log('No StackExchange process.env keys found, skipping oAuth.');
+  }
 }
 
 if (secret) {
@@ -36,8 +47,8 @@ if (secret) {
 }
 
 module.exports = router
-  .get('/', passport.authenticate('stackexchange'))
+  .get('/', userPrevPath, passport.authenticate('stackexchange'))
   .get('/callback', passport.authenticate('stackexchange', {
-    successRedirect: '/home',
+    successReturnToOrRedirect: '/home',
     failureRedirect: '/login'
   }));
