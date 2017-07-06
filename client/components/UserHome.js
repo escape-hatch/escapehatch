@@ -3,18 +3,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const UserHome = props => {
-
-  const { email } = props;
+  const { firstName, email } = props;
 
   return (
     <div>
-      <h3>Welcome, { email }</h3>
+      {
+        firstName ?
+          <h3>Welcome, { firstName }!</h3> :
+          email ?
+            <h3>Welcome, { email }!</h3> :
+            <h3>Welcome!</h3>
+      }
     </div>
   );
 };
 
 const mapState = ({ user }) => ({
-  email: user.email
+  firstName: user.firstName,
+  email: user.email,
 });
 
 export default connect(mapState)(UserHome);
