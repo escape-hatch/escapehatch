@@ -18,8 +18,33 @@ describe('Links Component - Tags', () => {
   let user;
 
   beforeEach('render the component', () => {
-    git = ['i\'m just a link', 'yes i\'m only a link'];
-    stack = ['and i\'m sitting here on capitol hill'];
+    stack = [
+      {
+        vendor_id: 1,
+        title: 'i\'m just a link',
+        modified: 'Sun Feb 22 2015',
+        views: 47,
+        tags: ['school', 'house', 'rock!'],
+      }
+    ];
+
+    git = [
+      {
+        vendor_id: 1212345789101112,
+        title: `yes, i'm only a link`,
+        modified: '2012-12-10T02:48:26Z',
+        status: 'open',
+        comments: 52,
+      },
+      {
+        vendor_id: 172123914,
+        title: `and i'm sittin' here on capitol hill`,
+        modified: '2017-06-22T18:54:57Z',
+        status: 'closed',
+        comments: 2,
+      }
+    ];
+
     user = {
       id: 1,
     }

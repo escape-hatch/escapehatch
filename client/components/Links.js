@@ -26,7 +26,12 @@ class Links extends React.Component {
 
     return (
       <div className="links">
-        <h1>Search Results for "{ error }"</h1>
+        {
+          stack && git
+          ? <h1>Search Results for "{ error }"</h1>
+          : <h1>Retrieving search results ... </h1>
+        }
+
         <ul>
         {
           git && git.map(l => {
