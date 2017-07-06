@@ -25,6 +25,16 @@ function onLinksEnter(nextRouterState) {
   store.dispatch(getLinksByErrId(errId));
 }
 
+function onUserEnter(nextRouterState) {
+  whoAmI
+    .then(() => {
+      const { user } = store.getState()
+      console.log('~~~ user.id:', user.id)
+      // store.dispatch(getUserUpvotes(user.id))
+    })
+    .catch(err => console.log(err))
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -33,7 +43,7 @@ ReactDOM.render(
         <Route path="home" component={Home} />
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
         <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter}/>
-        <Route path="user" component={UserHome}/>
+        <Route path="user" component={UserHome} onEnter={onUserEnter} />
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
         <Route onEnter={requireLogin}>

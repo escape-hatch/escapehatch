@@ -14,6 +14,7 @@ const UserHome = props => {
             <h3>Welcome, { email }!</h3> :
             <h3>Welcome!</h3>
       }
+      <h4>Below are links you have previously found helpful:</h4>
     </div>
   );
 };
