@@ -32,10 +32,16 @@ div {
   // color:red
 }
 
-.navBar, .header a {
-  font-family: 'Bungee Inline', 'Orbitron', 'Righteous', cursive;
+.navBar, .header a, .loginSignup span {
+  font-family: 'Bungee Inline';
   font-size: 20px;
   // font-weight: bold;
+}
+
+.loginSignup span {
+  font-family: 'Bungee Inline';
+  font-size: 20px;
+  color: #b2ca98;
 }
 
 .panel-title {

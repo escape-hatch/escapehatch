@@ -70,20 +70,20 @@ class Links extends React.Component {
                             ? <div>
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i> Upvote</button>
                                   </div>
                                 </div>
 
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i> Downvote</button>
                                   </div>
                                 </div>
                               </div>
                             : <div>
                                 <h4>
-                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
-                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                  <Link className="loginSignupButtonSR" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButtonSR" to='/signup'><strong> sign up </strong></Link> to vote!
                                 </h4>
                               </div>
                             }
@@ -135,20 +135,20 @@ class Links extends React.Component {
                             ? <div>
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i> Upvote</button>
                                   </div>
                                 </div>
 
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i> Downvote</button>
                                   </div>
                                 </div>
                               </div>
                             : <div>
                                 <h4>
-                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
-                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                  <Link className="loginSignupButtonSR" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButtonSR" to='/signup'><strong> sign up </strong></Link> to vote!
                                 </h4>
                               </div>
                             }

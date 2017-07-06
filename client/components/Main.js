@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 import { logout } from '../reducer/user';
 import SearchBar from './SearchBar';
 
-import mainCSS from './scss/index.scss';
 import scssMain from './scss/Main.scss';
 
 const Main = props => {
