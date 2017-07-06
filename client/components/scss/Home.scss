@@ -24,15 +24,31 @@ body {
     text-align: center;
   }
 
-  .codeInput {
+  .codebox {
     padding: 20px;
   }
 
-  code {
-    padding: 10px;
+  .headerMain {
+    padding-top: 35px;
   }
 
   .headerHome {
-    padding: 20px;
+    padding: 40px;
+  }
+
+  .exHeader {
+    padding-top: 50px;
+  }
+
+  .backend-ss {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+  }
+
+  .frontend-ss {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0 auto;
   }
 }
