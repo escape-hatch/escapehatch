@@ -26,13 +26,12 @@ class Links extends React.Component {
     return (
       <div className="links">
         {
-          stack && git
+          results && results
           ? <h1>Search Results for "{ error }"</h1>
           : <h1>Retrieving search results ... </h1>
         }
 
         <ul>
-<<<<<<< HEAD
           {
             results && results.map(res => {
               return res.vendor === 'github'
@@ -73,135 +72,6 @@ class Links extends React.Component {
                   )
             })
           }
-=======
-        {
-          git && git.map(l => {
-            return (
-              <li key={ l.vendor_id } className="gitResults results">
-                <div className="center-block" style={{textAlign: 'left'}}>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-md-12">
-                        <div className="panel panel-primary">
-                          <div className="panel-heading">
-                            <h2 className="panel-title" style={{display: 'inline'}}>
-                              <img src="/img/github-icon.png" className="vendorIcon" />
-                              <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
-                            </h2>
-                            <div className="" style={{float:'right', padddinRight: '30px'}}>Status: {l.status}</div>
-                          </div>
-
-                          <div className="panel-body">
-
-                            <div className="row">
-                              <div className="col-md-6">Last Modified: {l.modified}</div>
-
-                              <div className="col-md-6">
-                                 Score: {l.comments}
-                              </div>
-                            </div>
-
-                            <div className="row">
-                              <div className="body-heading"></div>
-                            </div>
-
-                            <div className="row ending">
-                              <div className="col-md-12 body">
-                                <div dangerouslySetInnerHTML={this.createMarkup(l.body)} />
-                              </div>
-                            </div>
-
-                            {
-                              user.id
-                            ? <div className="end">
-                                <div className="row">
-                                  <div className="col-md-6">Was this result helpful for you?
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
-                                  </div>
-                                </div>
-
-                              </div>
-                            : <div>
-                                <h4>
-                                  <Link className="loginSignupButtonSR" to='/login'><strong>Log in </strong></Link>or
-                                  <Link className="loginSignupButtonSR" to='/signup'><strong> sign up </strong></Link> to vote!
-                                </h4>
-                              </div>
-                            }
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </li>
-            );
-          })
-        }
-
-                {
-          stack && stack.map(l => {
-            return (
-              <li key={ l.vendor_id } className="stackResults results">
-                <div className="center-block" style={{textAlign: 'left'}}>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-md-12">
-                        <div className="panel panel-primary">
-                          <div className="panel-heading">
-                            <h2 className="panel-title" style={{display: 'inline'}}>
-                              <img src="/img/so-icon.png" className="vendorIcon" />
-                              <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
-                            </h2>
-                            <div className="" style={{float:'right', padddinRight: '30px'}}>Views: {l.views}</div>
-                          </div>
-
-                          <div className="panel-body">
-
-                            <div className="row ending">
-                              <div className="col-md-6">Last Modified: {l.modified}</div>
-
-                              <div className="col-md-6">
-                                 Score: {l.comments}
-                              </div>
-
-                              <div className="col-md-6">
-                                 Tags: {l.tags.join(', ')}
-                              </div>
-                            </div>
-
-                            {
-                              user.id
-                            ? <div className="end">
-                                <div className="row">
-                                  <div className="col-md-6">Was this result helpful for you?
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
-                                  </div>
-                                </div>
-
-                              </div>
-                            : <div>
-                                <h4>
-                                  <Link className="loginSignupButtonSR" to='/login'><strong>Log in </strong></Link>or
-                                  <Link className="loginSignupButtonSR" to='/signup'><strong> sign up </strong></Link> to vote!
-                                </h4>
-                              </div>
-                            }
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </li>
-            );
-          })
-        }
->>>>>>> master
         </ul>
     </div>
     );
