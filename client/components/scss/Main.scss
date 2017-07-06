@@ -15,18 +15,52 @@ ol {
   padding: 0;
 }
 
+
+@font-face {
+  font-family: "Amiko";
+  src: url('/fonts/Amiko/Amiko-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Bungee Inline";
+  src: url('/fonts/Bungee_Inline/BungeeInline-Regular.ttf');
+}
+
+div {
+  font-family: Arial, 'Amiko';
+  font-size: 15px;
+  // color:red
+}
+
+.navBar, .header a, .loginSignup span {
+  font-family: 'Bungee Inline';
+  font-size: 20px;
+  // font-weight: bold;
+}
+
+.loginSignup span {
+  font-family: 'Bungee Inline';
+  font-size: 20px;
+  color: #b2ca98;
+}
+
 .panel-title {
+  font-family: 'Russo One';
   font-size: 20px;
   padding: 15px 0;
 }
 
-.panel-heading.nav.navbar-default{padding-top:0px;padding-bottom:0px;}
+.panel-heading.nav.navbar-default{
+  padding-top:0px;
+  padding-bottom:0px;
+}
 
-.panel-heading.nav.navbar-default h3{margin-top:20px;}
-.panel-heading.nav.navbar-default h4{margin-top:15px;}
-
-.panel-heading .nav.navbar-nav.navbar-right h4{padding-bottom:0px;margin-bottom:0px;padding-top:0px;margin-top:0px;}
-
+.panel-heading .nav.navbar-nav.navbar-right h4{
+  padding-bottom:0px;
+  margin-bottom:0px;
+  padding-top:0px;
+  margin-top:0px;
+}
 
 .navBar, .dropdown, .navbar-default .navbar-nav>li>a {
   background-color: #5085A5;
@@ -44,6 +78,10 @@ ol {
     text-decoration: none;
 }
 
+.navbar-nav>li>a {
+  line-height: 28.5714px;
+}
+
 .loginSignup {
   padding: 15px 15px;
 }
@@ -55,6 +93,7 @@ ol {
 .navbar-nav>li {
   padding: 15px 15px;
 }
+
 .nav>li>a {
   display: inline
 }
@@ -65,14 +104,78 @@ padding-right: 0;
 }
 
 li.loginSignup {
-    padding-left: 0;
+  padding-left: 0;
+}
+
+.hatch {
+  width: 40px;
+  height: 35px;
+  margin: 0 10px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 // #formDiv{
 //   text-align: left;
 //   padding: 0 12%;
-// }
-
-// .searchButton {
 //   width: 200px;
 // }
+
+#footer {
+  text-align: center;
+  background-color: #5085A5;
+  color: #F7F9FB;
+  padding: 10px 0 0;
+  margin: 20px 0 0 0;
+}
+
+
+#footer a {
+  color: #F7F9FB
+}
+
+#footer a:hover {
+  color: rgba(255, 255, 255, 0.71)
+}
+
+.fa-code {
+  font-size: 18px;
+  color: #F7F9FB;
+}
+
+.fa-code:hover {
+  color: rgba(255, 255, 255, 0.71)
+}
+
+
+.scroll-top {
+   position:fixed;
+   bottom:0;
+   right:6%;
+   z-index:100;
+   background: #ffcc33;
+   font-size:24px;
+   border-top-left-radius:3px;
+   border-top-right-radius:3px;
+}
+
+.scroll-top a {
+   background: #ffcc33;
+}
+
+.scroll-top a:hover {
+   background: #ffcc33 !important;
+}
+
+.scroll-top i {
+  color: white
+}
+
+.scroll-top i:hover {
+  color: gray
+}
+
+.scroll-top a:link,.scroll-top a:visited {
+  color:#222;
+}
+

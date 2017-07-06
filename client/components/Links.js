@@ -26,7 +26,12 @@ class Links extends React.Component {
 
     return (
       <div className="links">
-        <h1>Search Results for "{ error }"</h1>
+        {
+          stack && git
+          ? <h1>Search Results for "{ error }"</h1>
+          : <h1>Retrieving search results ... </h1>
+        }
+
         <ul>
         {
           git && git.map(l => {
@@ -59,7 +64,7 @@ class Links extends React.Component {
                               <div className="body-heading"></div>
                             </div>
 
-                            <div className="row">
+                            <div className="row ending">
                               <div className="col-md-12 body">
                                 <div dangerouslySetInnerHTML={this.createMarkup(l.body)} />
                               </div>
@@ -67,23 +72,19 @@ class Links extends React.Component {
 
                             {
                               user.id
-                            ? <div>
+                            ? <div className="end">
                                 <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                  <div className="col-md-6">Was this result helpful for you?
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
                                   </div>
                                 </div>
 
-                                <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
-                                  </div>
-                                </div>
                               </div>
                             : <div>
                                 <h4>
-                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
-                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                  <Link className="loginSignupButtonSR" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButtonSR" to='/signup'><strong> sign up </strong></Link> to vote!
                                 </h4>
                               </div>
                             }
@@ -118,7 +119,7 @@ class Links extends React.Component {
 
                           <div className="panel-body">
 
-                            <div className="row">
+                            <div className="row ending">
                               <div className="col-md-6">Last Modified: {l.modified}</div>
 
                               <div className="col-md-6">
@@ -132,23 +133,19 @@ class Links extends React.Component {
 
                             {
                               user.id
-                            ? <div>
+                            ? <div className="end">
                                 <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
+                                  <div className="col-md-6">Was this result helpful for you?
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
                                   </div>
                                 </div>
 
-                                <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
-                                  </div>
-                                </div>
                               </div>
                             : <div>
                                 <h4>
-                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
-                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                  <Link className="loginSignupButtonSR" to='/login'><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButtonSR" to='/signup'><strong> sign up </strong></Link> to vote!
                                 </h4>
                               </div>
                             }
