@@ -10,7 +10,7 @@ const AuthFormSignup = props => {
   return (
   <div className="container">
     <div className="row">
-      <div className="col-md-12">
+      <div className="col-md-6">
         <form className="form-horizontal" onSubmit={handleSignupSubmit} name={name}>
         <fieldset>
           <div id="legend">
@@ -55,7 +55,15 @@ const AuthFormSignup = props => {
         </fieldset>
         { error &&  <div> { error.response.data } </div> }
       </form>
-      <a href="/auth/google">{ displayName } with Google</a>
+      </div>
+      <div className="col-md-6">
+      <a href="/auth/google" className="btn btn-block btn-social btn-google">
+      <span className= "fa fa-google" /> { displayName } with Google</a>
+      <br />
+      <a href="/auth/github" className="btn btn-block btn-social btn-github">
+        <span className= "fa fa-github" /> { displayName } with GitHub</a>
+      <br />
+      <a href="/auth/stack">{ displayName } with StackExchange</a>
       </div>
     </div>
   </div>
