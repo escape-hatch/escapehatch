@@ -9,6 +9,7 @@ const Promise = require('bluebird')
 const db = require('../../db')
 const dbFormatter = require('./utils/dbFormatter')
 const addVotes = require('./utils/dbApiZipVotes')
+const sortData = require('./utils/sortResults')
 const Err = require('../../db/models/err');
 const Link = require('../../db/models/link');
 const UserLink = require('../../db/models/user_links');
@@ -42,7 +43,8 @@ router
     const data = { stackapp: stackData, github: gitData, error: userErr }
     const voteData = dbFormatter(dbResults[0])
     const formattedData = addVotes(data, voteData)
-    res.json(formattedData)
+    const sortedData = sortData(formattedData)
+    res.json(sortedData)
   })
   .catch(next);
 });
