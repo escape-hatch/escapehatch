@@ -53,6 +53,7 @@ const AuthFormSignup = props => {
             </div>
           </div>
         </fieldset>
+    </div>
         { error &&  <div> { error.response.data } </div> }
       </form>
     </div>
