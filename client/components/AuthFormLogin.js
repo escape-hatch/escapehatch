@@ -44,7 +44,9 @@ const AuthFormLogin = props => {
         <br />
           <a href="/auth/github" className="btn btn-block btn-social btn-github"><span className= "fa fa-github" /> { displayName } with GitHub</a>
         <br />
-          <a href="/auth/stack" >{ displayName } with StackExchange</a>
+          <a href="/auth/stack" className="btn btn-block btn-social btn-stackExchange">
+            <span className= "fa fa-stack-exchange" />{ displayName } with StackExchange
+        </a>
         </fieldset>
       </form>
       </div>
