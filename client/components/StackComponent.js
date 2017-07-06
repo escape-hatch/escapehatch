@@ -19,7 +19,7 @@ module.exports = (props) => {
 
               <div className="panel-body">
 
-                <div className="row">
+                <div className="row ending">
                   <div className="col-md-6">Last Modified: {modified}</div>
 
                   <div className="col-md-6">
@@ -31,7 +31,7 @@ module.exports = (props) => {
                   </div>
                 </div>
 
-                <div className="row">
+                <div className="row ending">
                   <div className="col-md-12 body">
                     <div dangerouslySetInnerHTML={createMarkup(body)} />
                 </div>

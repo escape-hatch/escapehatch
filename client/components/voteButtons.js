@@ -8,23 +8,18 @@ const VoteButtons = (props) =>
     <div>
       {
         props.loggedIn
-          ? <div>
+          ? <div className="end">
               <div className="row">
-                <div className="col-md-6">
-                  <button className="upvote btn-success"  onClick={() => props.dispatchUpvote(props.item)}>Upvote</button>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-md-6">
-                  <button className="downvote btn-success"  onClick={() => props.dispatchDownvote(props.item)}>Downvote</button>
+                <div className="col-md-6">Was this result helpful for you?
+                  <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                  <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
                 </div>
               </div>
             </div>
           : <div>
               <h4>
-                <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
-                <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                <Link className="loginSignupButtonSR" to='/login'><strong>Log in </strong></Link>or
+                <Link className="loginSignupButtonSR" to='/signup'><strong> sign up </strong></Link> to vote!
               </h4>
             </div>
       }

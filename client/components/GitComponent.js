@@ -32,7 +32,7 @@ module.exports = (props) => {
                   <div className="body-heading"></div>
                 </div>
 
-                <div className="row">
+                <div className="row ending">
                   <div className="col-md-12 body">
                     <div dangerouslySetInnerHTML={createMarkup(body)} />
                   </div>
