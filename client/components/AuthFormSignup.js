@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import signupLoginScss from './scss/SignupLogin.scss';
-
+import AuthFormButtons from './AuthFormButtons';
 
 const AuthFormSignup = props => {
 
-  const { name, displayName, handleSignupSubmit, error } = props;
+  const { name, displayName, handleSignupSubmit, error, prevPath } = props;
 
   return (
   <div className="container">
@@ -58,19 +58,17 @@ const AuthFormSignup = props => {
       </form>
       </div>
       <div className="col-md-12">
-      <a href="/auth/google" className="btn btn-block btn-social btn-google">
-      <span className= "fa fa-google" /> { displayName } with Google</a>
-      <br />
-      <a href="/auth/github" className="btn btn-block btn-social btn-github">
-        <span className= "fa fa-github" /> { displayName } with GitHub</a>
-      <br />
-      <a href="/auth/stack" className="btn btn-block btn-social btn-stackExchange">
-        <span className= "fa fa-stack-exchange" />{ displayName } with StackExchange
-      </a>
+          <a href={'/auth/google?returnTo=' + prevPath.pathname} className="btn btn-block btn-social btn-google">
+            <span className= "fa fa-google" /> { displayName } with Google</a>
+          <br />
+          <a href={'/auth/github?returnTo=' + prevPath.pathname}  className="btn btn-block btn-social btn-github">
+            <span className= "fa fa-github" /> { displayName } with GitHub</a>
+          <br />
+          <a href={'/auth/stack?returnTo=' + prevPath.pathname}  className="btn btn-block btn-social btn-stackExchange">
+        <span className= "fa fa-stack-exchange" />{ displayName } with StackExchange</a>
+        </div>
       </div>
-    </div>
   </div>
-
   );
 };
 
