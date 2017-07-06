@@ -2,13 +2,25 @@ const passport = require('passport');
 const router = require('express').Router();
 const GithubStrategy = require('passport-github2').Strategy;
 const User = require('../db/models/user');
+const userPrevPath = require('./sessionMiddleware');
 let secret;
 
 try {
   secret = require('../../secret');
 }
 catch (err){
-  console.log('No secret file found. Skipping OAuth.');
+  console.log('No GitHub secret file found...checking process.env');
+  if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET && process.env.GITHUB_CALLBACK) {
+    secret = {
+      GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+      GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+      GITHUB_CALLBACK: process.env.GITHUB_CALLBACK
+    };
+    console.log('GitHub process.env keys found.');
+  }
+  else {
+    console.log('No GitHub process.env keys found, skipping oAuth.');
+  }
 }
 
 if (secret) {
@@ -34,7 +46,7 @@ if (secret) {
 }
 
 module.exports = router
-  .get('/', passport.authenticate('github', { scope: ['user:email']} ))
+  .get('/', userPrevPath, passport.authenticate('github', { scope: ['user:email']} ))
   .get('/callback', passport.authenticate('github', {
     successRedirect: '/home',
     failureRedirect: '/login'

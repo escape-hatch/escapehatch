@@ -32,7 +32,7 @@ ReactDOM.render(
         <IndexRedirect to="/home" />
         <Route path="home" component={Home} />
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
-        <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter}/>
+        <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter} />
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
         <Route onEnter={requireLogin}>

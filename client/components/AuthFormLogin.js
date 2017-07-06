@@ -4,7 +4,7 @@ import signupLoginScss from './scss/SignupLogin.scss';
 
 const AuthFormLogin = props => {
 
-  const { name, displayName, handleLoginSubmit, error } = props;
+  const { name, displayName, handleLoginSubmit, error, prevPath } = props;
 
   return (
 
@@ -39,11 +39,11 @@ const AuthFormLogin = props => {
             </div>
           </div>
         { error &&  <div> { error.response.data } </div> }
-        <a href="/auth/google" className="btn btn-block btn-social btn-google"> <span className= "fa fa-google" /> { displayName } with Google</a>
+        <a href={'/auth/google?returnTo=' + prevPath.pathname} className="btn btn-block btn-social btn-google"> <span className= "fa fa-google" /> { displayName } with Google</a>
         <br />
-          <a href="/auth/github" className="btn btn-block btn-social btn-github"><span className= "fa fa-github" /> { displayName } with GitHub</a>
+          <a href={'/auth/github?returnTo=' + prevPath.pathname} className="btn btn-block btn-social btn-github"><span className= "fa fa-github" /> { displayName } with GitHub</a>
         <br />
-          <a href="/auth/stack" >{ displayName } with StackExchange</a>
+          <a href={'/auth/stack?returnTo=' + prevPath.pathname} >{ displayName } with StackExchange</a>
         </fieldset>
       </form>
       </div>
