@@ -12,17 +12,22 @@ const getLinks = links => ({
   links,
 });
 
+const getUpvotes = userUpvotedLinks => ({
+  type: GET_UPVOTES,
+  userUpvotedLinks,
+})
+
 // thunk action creators
 export const getLinksByErrId = encryptedId =>
   dispatch =>
     axios.get(`/api/search/${encryptedId}`)
-    .then(res => dispatch(getLinks(res.data)))
-    .catch(err => console.log(err))
+      .then(res => dispatch(getLinks(res.data)))
+      .catch(err => console.log(err))
 
 export const getUserUpvotes = () =>
   dispatch =>
     axios.get('/api/upvotes')
-      .then(res => console.log("res.data:", res.data))
+      .then(res => dispatch(getUpvotes(res.data)))
       .catch(err => console.log(err))
 
 export const updateVote = (info) =>
@@ -33,7 +38,8 @@ export const updateVote = (info) =>
 
 // reducer
 const initialLinksState = {
-  currentLinks: {}
+  currentLinks: {},
+  upvotedLinks: [],
 }
 
 export default function(state = initialLinksState, action) {
@@ -42,6 +48,10 @@ export default function(state = initialLinksState, action) {
   switch (action.type) {
     case GET_LINKS:
       newState.currentLinks = action.links
+      break;
+
+    case GET_UPVOTES:
+      newState.upvotedLinks = action.userUpvotedLinks
       break;
 
     default:
