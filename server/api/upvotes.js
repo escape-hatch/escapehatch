@@ -10,8 +10,8 @@ router
 
   user_links.findAll()
   .then(votes => {
-    const userVotes = votes.filter(v => v.userId === userId)
-    res.send(userVotes)
+    const userUpvotes = votes.filter(v => v.userId === userId && v.vote === 'upvote')
+    res.send(userUpvotes)
   })
   .catch(next);
 })
