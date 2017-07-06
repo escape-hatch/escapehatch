@@ -146,3 +146,36 @@ li.loginSignup {
 .fa-code:hover {
   color: rgba(255, 255, 255, 0.71)
 }
+
+
+.scroll-top {
+   position:fixed;
+   bottom:0;
+   right:6%;
+   z-index:100;
+   background: #ffcc33;
+   font-size:24px;
+   border-top-left-radius:3px;
+   border-top-right-radius:3px;
+}
+
+.scroll-top a {
+   background: #ffcc33;
+}
+
+.scroll-top a:hover {
+   background: #ffcc33 !important;
+}
+
+.scroll-top i {
+  color: white
+}
+
+.scroll-top i:hover {
+  color: gray
+}
+
+.scroll-top a:link,.scroll-top a:visited {
+  color:#222;
+}
+
