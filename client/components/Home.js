@@ -23,6 +23,7 @@ module.exports = () =>
           <div className="example">
             <h4 className="headerHome">For monitoring errors on your server side, simply add the follow line to the top of your server start file:</h4>
             <span className="codebox"><code>require('escape-hatch-node')()</code></span>
+            <img src="/assets/backend-ss.png" className="img-responsive" />
           </div>
 
           <div className="example">
