@@ -20,7 +20,7 @@ module.exports = () =>
           <h2 className="headerHome">Getting Started</h2>
           <span><code className="codebox">npm install escape-hatch</code></span>
 
-          <h4 className="headerHome">This gives you access to both the client side, and server side files that you can plug into your code and start getting solutions to your problems</h4>
+          <h4 className="headerHome">This gives you access to both client side and server side files that you can plug into your code and start getting solutions to your problems</h4>
           <hr />
 
           <div className="example">
