@@ -23,6 +23,7 @@ const AuthFormSignup = props => {
             <div className="controls">
               <input type="text" id="firstName" name="firstName" placeholder="" className="form-control input-lg" />
             </div>
+          </div>
 
           <div className="control-group">
             <label className="control-label" htmlFor="lastName">Last Name</label>
@@ -49,25 +50,22 @@ const AuthFormSignup = props => {
 
           <div className="control-group">
             <div className="controls">
-              <button className="btn btn-success btn-lg" type="submit">{ displayName }</button>
+              <button className="btn btn-success btn-lg"type="submit">{ displayName }</button>
             </div>
-          </div>
           </div>
         </fieldset>
         { error &&  <div> { error.response.data } </div> }
       </form>
       </div>
-    </div>
-    <div className="col-md-2" />
-      <div className="col-md-4 center-block">
-      <div className="row align-items-center">
+      <div className="col-md-12">
           <a href={'/auth/google?returnTo=' + prevPath.pathname} className="btn btn-block btn-social btn-google">
             <span className= "fa fa-google" /> { displayName } with Google</a>
           <br />
           <a href={'/auth/github?returnTo=' + prevPath.pathname}  className="btn btn-block btn-social btn-github">
             <span className= "fa fa-github" /> { displayName } with GitHub</a>
           <br />
-          <a href={'/auth/stack?returnTo=' + prevPath.pathname}  className="btn btn-block btn-social btn-facebook">{ displayName } with StackExchange</a>
+          <a href={'/auth/stack?returnTo=' + prevPath.pathname}  className="btn btn-block btn-social btn-stackExchange">
+        <span className= "fa fa-stack-exchange" />{ displayName } with StackExchange</a>
         </div>
       </div>
   </div>
