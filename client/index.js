@@ -26,13 +26,7 @@ function onLinksEnter(nextRouterState) {
 }
 
 function onUserEnter(nextRouterState) {
-  whoAmI
-    .then(() => {
-      const { user } = store.getState()
-      console.log('~~~ user.id:', user.id)
-      store.dispatch(getUserUpvotes(user.id))
-    })
-    .catch(err => console.log(err))
+  store.dispatch(getUserUpvotes())
 }
 
 ReactDOM.render(

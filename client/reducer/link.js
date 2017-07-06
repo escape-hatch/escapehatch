@@ -19,10 +19,10 @@ export const getLinksByErrId = encryptedId =>
     .then(res => dispatch(getLinks(res.data)))
     .catch(err => console.log(err))
 
-export const getUserUpvotes = userId =>
+export const getUserUpvotes = () =>
   dispatch =>
-    axios.get('/api/upvotes/userId')
-      .then(res => console.log("res:", res))
+    axios.get('/api/upvotes')
+      .then(res => console.log("res.data:", res.data))
       .catch(err => console.log(err))
 
 export const updateVote = (info) =>
