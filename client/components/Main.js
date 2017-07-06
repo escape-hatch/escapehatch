@@ -18,7 +18,7 @@ const Main = props => {
         <div className="panel-heading nav navbar-default">
           <div className="navBar row">
               <div className="col-xs-4">
-                <h2 className="panel-title"><a href="#" className="">Escape Hatch</a></h2>
+                <h2 className="panel-title"><a href="#" className=""><img className="hatch" src="/img/hatch.png" />Escape Hatch</a></h2>
               </div>
             <div className="col-xs-3"></div>
               <div className="col-xs-5">
