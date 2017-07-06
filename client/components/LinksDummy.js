@@ -25,7 +25,12 @@ class LinksDummy extends React.Component {
 
     return (
       <div className="links">
-        <h1>Search Results for "{ error }"</h1>
+        {
+          stack && git
+          ? <h1>Search Results for "{ error }"</h1>
+          : <h1>Retrieving search results ... </h1>
+        }
+
         <ul>
         {
           git && git.map(l => {
@@ -38,7 +43,7 @@ class LinksDummy extends React.Component {
                         <div className="panel panel-primary">
                           <div className="panel-heading">
                             <h2 className="panel-title" style={{display: 'inline'}}>
-                              <img src="/img/github-icon.png" />
+                              <img src="/img/github-icon.png" className="vendorIcon" />
                               <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
                             </h2>
                             <div className="" style={{float:'right', padddinRight: '30px'}}>Status: {l.status}</div>
@@ -109,7 +114,7 @@ class LinksDummy extends React.Component {
                         <div className="panel panel-primary">
                           <div className="panel-heading">
                             <h2 className="panel-title" style={{display: 'inline'}}>
-                              <img src="/img/so-icon.png" />
+                              <img src="/img/so-icon.png" className="vendorIcon" />
                               <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
                             </h2>
                             <div className="" style={{float:'right', padddinRight: '30px'}}>Views: {l.views}</div>
