@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { logout } from '../reducer/user';
-import scssMain from './scss/Main.scss';
 import SearchBar from './SearchBar';
+
+import mainCSS from './scss/index.scss';
+import scssMain from './scss/Main.scss';
 
 const Main = props => {
 
@@ -13,7 +15,7 @@ const Main = props => {
   return (
     <div>
 
-      <div className="panel panel-default">
+      <div className="panel panel-default header">
         <div className="panel-heading nav navbar-default">
           <div className="navBar row">
               <div className="col-xs-4">
@@ -22,16 +24,16 @@ const Main = props => {
             <div className="col-xs-3"></div>
               <div className="col-xs-5">
                   <ul className="nav navbar-nav navbar-right">
-                      <li><Link to="/">Home</Link></li>
+                      <li className="loginSignup"><Link to="/">Home</Link></li>
                         { loggedIn ?
-                        <li className="loginSignup">
-                          <span>Welcome!</span>
-                          <Link to='/' onClick={() => props.handleClick() } className="logout">Logout</Link>
-                          </li>:
-                          <li className="loginSignup">
-                          <span><Link to="/login">Login</Link></span>
-                          <span><Link to="/signup">Sign Up</Link></span>
-                          </li>
+                      <li className="loginSignup">
+                        <span>Welcome!</span>
+                        <Link to='/' onClick={() => props.handleClick() } className="logout">Logout</Link>
+                      </li>:
+                      <li className="loginSignup">
+                        <span><Link to="/login">Login</Link></span>
+                        <span><Link to="/signup">Sign Up</Link></span>
+                      </li>
                       }
                       <hr />
                   </ul>

@@ -1,6 +1,6 @@
 const passport = require('passport');
 const router = require('express').Router();
-const GithubStrategy = require('passport-github2').Strategy;
+// const GithubStrategy = require('passport-github2').Strategy;
 const User = require('../db/models/user');
 let secret;
 
@@ -30,7 +30,7 @@ if (secret) {
     .catch(done);
   });
 
-  passport.use(strategy);
+  // passport./use(strategy);
 }
 
 module.exports = router

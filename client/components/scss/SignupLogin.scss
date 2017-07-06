@@ -23,3 +23,23 @@ body form div {
     background-color: #555b54;
     border-color: #767976;
 }
+
+img {
+  width: 50px;
+}
+
+.btn-stackExchange {
+  color: white;
+  background-color: #337ab7;
+}
+
+.btn-stackExchange:hover, .btn-stackExchange:active, .btn-stackExchange:focus {
+  color: white;
+  background-color: #2b608e;
+}
+
+.btn-github, .btn-google, .btn-stackExchange {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}

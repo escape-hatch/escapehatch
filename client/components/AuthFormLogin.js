@@ -14,6 +14,7 @@ const AuthFormLogin = props => {
         <form className="form-horizontal" onSubmit={handleLoginSubmit} name={name}>
         <fieldset>
           <div id="legend">
+            <img src="img/loginSignup.png"/>
             <legend className="">Log In</legend>
           </div>
 

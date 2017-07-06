@@ -12,6 +12,10 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file?name=public/fonts/[name].[ext]'
+      },
       //converts sass(.scss) files into css files
       {
         test: /\.scss$/,
