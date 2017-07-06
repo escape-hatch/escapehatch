@@ -23,7 +23,7 @@
     "react",
     "redux"
   ],
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/escape-hatch/escapehatch"
   },
@@ -36,16 +36,20 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.16.1",
     "bootstrap": "^3.3.7",
+    "bootstrap-social": "^5.1.1",
     "connect-session-sequelize": "^4.1.0",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
+    "font-awesome": "^4.7.0",
     "he": "^1.1.1",
     "jquery": "^3.2.1",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
     "octonode": "^0.7.13",
     "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
     "passport-google-oauth": "^1.0.0",
+    "passport-stackexchange": "^0.1.2",
     "path": "^0.12.7",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
@@ -57,29 +61,31 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
-    "sequelize": "^3.30.2"
-  },
-  "devDependencies": {
+    "sanitize-html": "^1.14.1",
+    "showdown": "^1.7.1",
+    "sequelize": "^3.30.2",
+    "sass-loader": "^6.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "node-sass": "^4.5.0",
+    "css-loader": "^0.26.1",
     "babel-core": "^6.22.1",
-    "babel-eslint": "^7.2.3",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.23.0",
     "babel-preset-react": "^6.22.0",
-    "babel-register": "^6.24.1",
+    "babel-register": "^6.24.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "chai": "^3.5.0",
-    "css-loader": "^0.26.1",
     "enzyme": "^2.8.2",
     "eslint": "^4.1.1",
     "eslint-config-fullstack": "^3.0.0",
     "eslint-plugin-react": "^7.1.0",
     "jsdom": "^11.0.0",
     "mocha": "^3.3.0",
-    "node-sass": "^4.5.0",
     "react-addons-test-utils": "^15.6.0",
-    "sass-loader": "^6.0.0",
     "sinon": "^2.3.6",
-    "style-loader": "^0.13.1",
-    "supertest": "^3.0.0",
-    "webpack": "^2.2.1"
+    "supertest": "^3.0.0"
   }
 }

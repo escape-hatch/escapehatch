@@ -29,20 +29,23 @@ const AuthFormLogin = props => {
           <div className="control-group">
             <label className="control-label" htmlFor="password">Password</label>
             <div className="controls">
-              <input type="text" id="password" name="password" placeholder="" className="form-control input-lg" type="password"/>
+              <input type="text" id="password" name="password" placeholder="" className="form-control input-lg" type="password" />
               <p className="help-block">Password should be at least 6 characters</p>
             </div>
           </div>
-
           <div className="control-group">
             <div className="controls">
               <button className="btn btn-success btn-lg"type="submit">{ displayName }</button>
             </div>
           </div>
-        </fieldset>
         { error &&  <div> { error.response.data } </div> }
+        <a href="/auth/google" className="btn btn-block btn-social btn-google"> <span className= "fa fa-google" /> { displayName } with Google</a>
+        <br />
+          <a href="/auth/github" className="btn btn-block btn-social btn-github"><span className= "fa fa-github" /> { displayName } with GitHub</a>
+        <br />
+          <a href="/auth/stack" >{ displayName } with StackExchange</a>
+        </fieldset>
       </form>
-      <a href="/auth/google">{ displayName } with Google</a>
       </div>
     </div>
   </div>

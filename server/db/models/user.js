@@ -19,7 +19,7 @@ module.exports = db.define('user', {
   email: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false
+    allowNull: true
   },
   password: {
     type: Sequelize.STRING
@@ -28,6 +28,9 @@ module.exports = db.define('user', {
     type: Sequelize.STRING
   },
   googleId: {
+    type: Sequelize.STRING
+  },
+  githubId: {
     type: Sequelize.STRING
   }
 }, {
