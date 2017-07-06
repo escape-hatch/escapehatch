@@ -8,7 +8,7 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import store from './store';
 import { Main, Login, Signup, UserHome, Links, Home, LinksDummy } from './components';
 import { me } from './reducer/user';
-import { getLinksByErrId } from './reducer/link';
+import { getLinksByErrId, getUserUpvotes } from './reducer/link';
 
 const whoAmI = store.dispatch(me());
 
@@ -26,6 +26,10 @@ function onLinksEnter(nextRouterState) {
   store.dispatch(getLinksByErrId(errId));
 }
 
+function onUserEnter(nextRouterState) {
+  store.dispatch(getUserUpvotes())
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -34,6 +38,7 @@ ReactDOM.render(
         <Route path="home" component={Home} />
         <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
         <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter}/>
+        <Route path="user" component={UserHome} onEnter={onUserEnter} />
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
         <Route onEnter={requireLogin}>
