@@ -32,6 +32,7 @@ export const updateVote = (info) =>
       })
       .catch(err => console.log(err))
 
+
 // reducer
 const initialLinksState = {
   currentLinks: {}

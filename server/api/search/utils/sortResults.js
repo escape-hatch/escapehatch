@@ -10,7 +10,7 @@ module.exports = (results) => {
 
   combinedResults.results = combinedResults.results.sort((a, b) =>
     a.voteCount - b.voteCount
-  )
-  console.log(combinedResults);
+  );
 
+  return combinedResults;
 };

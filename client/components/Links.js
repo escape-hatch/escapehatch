@@ -19,8 +19,7 @@ class Links extends React.Component {
   }
 
   render() {
-    const stack = this.props.stack;
-    const git = this.props.git;
+    const results = this.props.results;
     const error = this.props.error;
     const user = this.props.user;
 
@@ -29,48 +28,48 @@ class Links extends React.Component {
         <h1>Search Results for "{ error }"</h1>
         <ul>
           {
-            git && git.map(l => {
-              return (
-                <li key={ l.vendor_id } className="gitResults results">
-                  <GitComponent
-                    url={ l.url }
-                    title={ l.title }
-                    status={ l.status }
-                    modified={ l.modified }
-                    comments={ l.comments }
-                    body={ l.body }
-                    user={ user }
-                    error={ error }
-                    createMarkup={ this.createMarkup }
-                  />
-                </li>
-              );
-            })
-          }
-          {
-            stack && stack.map(l => {
-              return (
-                <li key={ l.vendor_id } className="stackResults results">
-                  <StackComponent
-                    url={ l.url }
-                    title={ l.title }
-                    views= { l.views }
-                    modified={ l.modified }
-                    comments={ l.comments }
-                    tags={ l.tags }
-                    user={ user }
-                    error={ error }
-                  />
-                </li>
-              );
+            results && results.map(res => {
+              return res.vendor === 'github'
+                ? (
+                  <li key={ res.vendor_id } className="gitResults results">
+                    <GitComponent
+                      vendor={ res.vendor }
+                      vendor_id={ res.vendor_id }
+                      url={ res.url }
+                      title={ res.title }
+                      status={ res.status }
+                      modified={ res.modified }
+                      comments={ res.comments }
+                      body={ res.body }
+                      user={ user }
+                      error={ error }
+                      createMarkup={ this.createMarkup }
+                    />
+                  </li>
+                  )
+                : (
+                  <li key={ res.vendor_id } className="stackResults results">
+                    <StackComponent
+                      vendor={ res.vendor }
+                      vendor_id={ res.vendor_id }
+                      url={ res.url }
+                      title={ res.title }
+                      views= { res.views }
+                      modified={ res.modified }
+                      comments={ res.comments }
+                      body={ res.body }
+                      tags={ res.tags }
+                      user={ user }
+                      error={ error }
+                      createMarkup={ this.createMarkup }
+                    />
+                  </li>
+                  )
             })
           }
         </ul>
-
     </div>
-
     );
-
   }
 }
 
@@ -78,8 +77,7 @@ export { Links };
 
 // Container //
 const mapState = (state) => ({
-  stack: state.link.currentLinks.stackapp,
-  git: state.link.currentLinks.github,
+  results: state.link.currentLinks.results,
   error: state.link.currentLinks.error,
   user: state.user,
 });

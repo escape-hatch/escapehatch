@@ -43,8 +43,8 @@ router
     const data = { stackapp: stackData, github: gitData, error: userErr }
     const voteData = dbFormatter(dbResults[0])
     const formattedData = addVotes(data, voteData)
-    // const sortedData = sortData(formattedData)
-    res.json(formattedData)
+    const sortedData = sortData(formattedData)
+    res.json(sortedData)
   })
   .catch(next);
 });

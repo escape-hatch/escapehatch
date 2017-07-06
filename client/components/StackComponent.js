@@ -2,7 +2,7 @@ import React from 'react';
 import VoteButtons from './voteButtons';
 
 module.exports = (props) => {
-  const { url, title, views, modified, comments, tags, user } = props
+  const { url, title, views, modified, comments, tags, user, body, createMarkup } = props
   return (
     <div className="center-block" style={{textAlign: 'left'}}>
       <div className="container">
@@ -30,6 +30,12 @@ module.exports = (props) => {
                       Tags: {tags.join(', ')}
                   </div>
                 </div>
+
+                <div className="row">
+                  <div className="col-md-12 body">
+                    <div dangerouslySetInnerHTML={createMarkup(body)} />
+                </div>
+              </div>
 
                 {
                   user.id
