@@ -16,6 +16,7 @@ describe('Stack Exchange API:', () => {
         'backend'
       ],
       'is_answered': false,
+      'body': 'This is the body of this post',
       'view_count': 20,
       'answer_count': 1,
       'score': 0,
