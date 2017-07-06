@@ -49,6 +49,6 @@ if (secret) {
 module.exports = router
   .get('/', userPrevPath, passport.authenticate('stackexchange'))
   .get('/callback', passport.authenticate('stackexchange', {
-    successRedirect: '/home',
+    successReturnToOrRedirect: '/home',
     failureRedirect: '/login'
   }));

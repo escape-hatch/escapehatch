@@ -48,6 +48,6 @@ if (secret) {
 module.exports = router
   .get('/', userPrevPath, passport.authenticate('github', { scope: ['user:email']} ))
   .get('/callback', passport.authenticate('github', {
-    successRedirect: '/home',
+    successReturnToOrRedirect: '/home',
     failureRedirect: '/login'
   }));
