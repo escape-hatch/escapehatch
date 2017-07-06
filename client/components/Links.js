@@ -59,7 +59,7 @@ class Links extends React.Component {
                               <div className="body-heading"></div>
                             </div>
 
-                            <div className="row">
+                            <div className="row ending">
                               <div className="col-md-12 body">
                                 <div dangerouslySetInnerHTML={this.createMarkup(l.body)} />
                               </div>
@@ -67,18 +67,14 @@ class Links extends React.Component {
 
                             {
                               user.id
-                            ? <div>
+                            ? <div className="end">
                                 <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i> Upvote</button>
+                                  <div className="col-md-6">Was this result helpful for you?
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
                                   </div>
                                 </div>
 
-                                <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i> Downvote</button>
-                                  </div>
-                                </div>
                               </div>
                             : <div>
                                 <h4>
@@ -118,7 +114,7 @@ class Links extends React.Component {
 
                           <div className="panel-body">
 
-                            <div className="row">
+                            <div className="row ending">
                               <div className="col-md-6">Last Modified: {l.modified}</div>
 
                               <div className="col-md-6">
@@ -132,18 +128,14 @@ class Links extends React.Component {
 
                             {
                               user.id
-                            ? <div>
+                            ? <div className="end">
                                 <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i> Upvote</button>
+                                  <div className="col-md-6">Was this result helpful for you?
+                                    <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
                                   </div>
                                 </div>
 
-                                <div className="row">
-                                  <div className="col-md-6">
-                                    <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i> Downvote</button>
-                                  </div>
-                                </div>
                               </div>
                             : <div>
                                 <h4>

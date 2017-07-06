@@ -55,6 +55,10 @@ span.score {
   // text-align: left;
 }
 
+.panel-body {
+  background-color: rgba(128, 128, 128, 0.26)
+}
+
 .body-heading {
   border-bottom: 1px solid #5085A5;
   margin: 0 0 10px 0;
@@ -120,4 +124,31 @@ span.score {
 
 .loginSignupButtonSR:active, .loginSignupButtonSR:hover, .loginSignupButtonSR:focus {
   color: #265984 !important;
+}
+
+.upvote, .downvote {
+  background-color: #749fbb;
+  border-color: #749fbb;
+  position: inherit;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+
+.upvote:hover, .downvote:hover,
+.upvote:active, .downvote:active,
+.upvote:focus, .downvote:focus   {
+  background-color: #5085A5;
+  border-color: #5085A5;
+}
+
+.row.ending {
+    border-bottom: 1px solid #5085A5;
+    padding: 0 0 10px 0;
+}
+
+.end {
+  margin: 10px 0 0 0;
+  padding: 10px 0;
 }
