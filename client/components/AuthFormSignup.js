@@ -10,10 +10,11 @@ const AuthFormSignup = props => {
   return (
   <div className="container">
     <div className="row">
-      <div className="col-md-6">
+      <div className="col-md-12">
         <form className="form-horizontal" onSubmit={handleSignupSubmit} name={name}>
         <fieldset>
           <div id="legend">
+            <img src="img/loginSignup.png"/>
             <legend className="">Sign Up</legend>
           </div>
 
@@ -56,14 +57,16 @@ const AuthFormSignup = props => {
         { error &&  <div> { error.response.data } </div> }
       </form>
       </div>
-      <div className="col-md-6">
+      <div className="col-md-12">
       <a href="/auth/google" className="btn btn-block btn-social btn-google">
       <span className= "fa fa-google" /> { displayName } with Google</a>
       <br />
       <a href="/auth/github" className="btn btn-block btn-social btn-github">
         <span className= "fa fa-github" /> { displayName } with GitHub</a>
       <br />
-      <a href="/auth/stack">{ displayName } with StackExchange</a>
+      <a href="/auth/stack" className="btn btn-block btn-social btn-stackExchange">
+        <span className= "fa fa-stack-exchange" />{ displayName } with StackExchange
+      </a>
       </div>
     </div>
   </div>

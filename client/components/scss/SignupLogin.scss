@@ -23,3 +23,29 @@ body form div {
     background-color: #555b54;
     border-color: #767976;
 }
+
+img {
+  width: 50px;
+}
+
+.btn-stackExchange {
+  color: white;
+  background-color: #337ab7;
+}
+
+.btn-stackExchange:hover, .btn-stackExchange:active, .btn-stackExchange:focus {
+  color: white;
+  background-color: #2b608e;
+}
+
+.btn-github, .btn-google, .btn-stackExchange {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.btn-success:active, .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
+  background-color: #555b54;
+  border-color: #767976;
+}
+
