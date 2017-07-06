@@ -52,10 +52,11 @@ const AuthFormSignup = props => {
               <button className="btn btn-success btn-lg" type="submit">{ displayName }</button>
             </div>
           </div>
+          </div>
         </fieldset>
-    </div>
         { error &&  <div> { error.response.data } </div> }
       </form>
+      </div>
     </div>
     <div className="col-md-2" />
       <div className="col-md-4 center-block">
@@ -69,9 +70,6 @@ const AuthFormSignup = props => {
           <a href={'/auth/stack?returnTo=' + prevPath.pathname}  className="btn btn-block btn-social btn-facebook">{ displayName } with StackExchange</a>
         </div>
       </div>
-  </div>
-  </div>
-  </div>
   </div>
   );
 };
