@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import cssLinks from './scss/Links.scss';
-import { updateVote } from '../reducer/link';
 import GitComponent from './GitComponent';
 import StackComponent from './StackComponent';
 
@@ -41,6 +40,7 @@ class Links extends React.Component {
                     comments={ l.comments }
                     body={ l.body }
                     user={ user }
+                    error={ error }
                     createMarkup={ this.createMarkup }
                   />
                 </li>
@@ -59,6 +59,7 @@ class Links extends React.Component {
                     comments={ l.comments }
                     tags={ l.tags }
                     user={ user }
+                    error={ error }
                   />
                 </li>
               );
@@ -83,31 +84,4 @@ const mapState = (state) => ({
   user: state.user,
 });
 
-const mapDispatch = (dispatch) => ({
-  dispatchUpvote: link => {
-    const info = {
-      error: link.error,
-      vendor: link.vendor,
-      vendor_id: link.vendor_id,
-      vote: 'upvote',
-      url: link.url,
-      created: link.created,
-      modified: link.modified
-    }
-    dispatch(updateVote(info));
-  },
-  dispatchDownvote: link => {
-    const info = {
-      error: link.error,
-      vendor: link.vendor,
-      vendor_id: link.vendor_id,
-      vote: 'downvote',
-      url: link.url,
-      created: link.created,
-      modified: link.modified
-    }
-    dispatch(updateVote(info));
-  }
-});
-
-export default connect(mapState, mapDispatch)(Links);
+export default connect(mapState)(Links);

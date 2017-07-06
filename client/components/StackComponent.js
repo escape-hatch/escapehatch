@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
+import VoteButtons from './voteButtons';
 
-module.exports = ({ url, title, views, modified, comments, tags, user }) =>
-  (
+module.exports = (props) => {
+  const { url, title, views, modified, comments, tags, user } = props
+  return (
     <div className="center-block" style={{textAlign: 'left'}}>
       <div className="container">
         <div className="row">
@@ -32,25 +33,8 @@ module.exports = ({ url, title, views, modified, comments, tags, user }) =>
 
                 {
                   user.id
-                ? <div>
-                    <div className="row">
-                      <div className="col-md-6">
-                        <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}>Upvote</button>
-                      </div>
-                    </div>
-
-                    <div className="row">
-                      <div className="col-md-6">
-                        <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}>Downvote</button>
-                      </div>
-                    </div>
-                  </div>
-                : <div>
-                    <h4>
-                      <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
-                      <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
-                    </h4>
-                  </div>
+                    ? <VoteButtons loggedIn={ true } item= { props } />
+                    : <VoteButtons loggedIn={ false } item= { props } />
                 }
 
               </div>
@@ -60,3 +44,4 @@ module.exports = ({ url, title, views, modified, comments, tags, user }) =>
       </div>
     </div>
   );
+}
