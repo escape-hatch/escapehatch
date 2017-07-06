@@ -32,6 +32,7 @@ describe('LinksDummy Component - List Items', function () {
         title: 'i\'m just a link',
         modified: 'Sun Feb 22 2015',
         views: 47,
+        tags: ['school', 'house', 'rock!'],
       }
     ]
   }
