@@ -19,17 +19,17 @@ export const getLinksByErrId = encryptedId =>
     .then(res => dispatch(getLinks(res.data)))
     .catch(err => console.log(err))
 
+export const getUserUpvotes = userId =>
+  dispatch =>
+    axios.get('/api/upvotes/userId')
+      .then(res => console.log("res:", res))
+      .catch(err => console.log(err))
+
 export const updateVote = (info) =>
   dispatch =>
     axios.put(`/api/links/${info.vendor}`, info)
-      .then(res => {
-        console.log("res:", res)
-      })
+      .then(res => console.log("res:", res))
       .catch(err => console.log(err))
-
-// export const getUserUpvotes = userId =>
-//   dispatch =>
-//     axios.get
 
 // reducer
 const initialLinksState = {

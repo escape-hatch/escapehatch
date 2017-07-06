@@ -7,7 +7,7 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import store from './store';
 import { Main, Login, Signup, UserHome, Links, Home, LinksDummy } from './components';
 import { me } from './reducer/user';
-import { getLinksByErrId } from './reducer/link';
+import { getLinksByErrId, getUserUpvotes } from './reducer/link';
 
 const whoAmI = store.dispatch(me());
 
@@ -30,7 +30,7 @@ function onUserEnter(nextRouterState) {
     .then(() => {
       const { user } = store.getState()
       console.log('~~~ user.id:', user.id)
-      // store.dispatch(getUserUpvotes(user.id))
+      store.dispatch(getUserUpvotes(user.id))
     })
     .catch(err => console.log(err))
 }
