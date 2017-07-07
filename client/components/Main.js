@@ -55,6 +55,7 @@ class Main extends React.Component {
             </div>
             <SearchBar />
             { React.cloneElement(children, { ...this.state }) }
+            <Footer />
       </div>
     );
   }
