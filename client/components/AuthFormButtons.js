@@ -8,7 +8,7 @@ const AuthFormButtons = props => {
   const { displayName, prevPath } = props;
 
   return (
-      <div className="col-md-4 center-block">
+      <div className="col-md-12 center-block">
         <div className="row align-items-center">
             <a href={'/auth/google?returnTo=' + prevPath.pathname} className="btn btn-block btn-social btn-google">
               <span className= "fa fa-google" /> { displayName } with Google</a>

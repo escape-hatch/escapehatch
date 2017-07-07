@@ -31,16 +31,16 @@ class Main extends React.Component {
           <div className="panel-heading nav navbar-default">
             <div className="navBar row">
                 <div className="col-xs-4">
-                  <h2 className="panel-title"><a href="#" className="">Escape Hatch</a></h2>
+                  <h2 className="panel-title tab"><a href="#" className=""><img src="/img/hatch.png" className="hatch"/>Escape Hatch</a></h2>
                 </div>
               <div className="col-xs-3" />
                 <div className="col-xs-5">
                     <ul className="nav navbar-nav navbar-right">
-                        <li><Link to="/">Home</Link></li>
+                        <li className="tab"><Link to="/">Home</Link></li>
                           { loggedIn ?
                           <li className="loginSignup">
                             <span>Welcome!</span>
-                            <Link to="/" onClick={() => this.props.handleClick() } className="logout">Logout</Link>
+                            <Link to="/" onClick={() => this.props.handleClick() } className="logout tab">Logout</Link>
                             </li> :
                             <li className="loginSignup">
                             <span><Link to="/login">Login</Link></span>
@@ -55,6 +55,7 @@ class Main extends React.Component {
             </div>
             <SearchBar />
             { React.cloneElement(children, { ...this.state }) }
+            <Footer />
       </div>
     );
   }

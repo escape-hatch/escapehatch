@@ -18,8 +18,12 @@ body form div {
   display: block;
 }
 
+.col-md-12 {
+  text-align: center;
+}
+
 .form-horizontal .control-label {
-  text-align: left;
+  text-align: center;
 }
 
 .btn-success{
