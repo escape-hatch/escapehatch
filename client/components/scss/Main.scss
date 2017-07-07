@@ -32,10 +32,15 @@ div {
   // color:red
 }
 
-.navBar, .header a, .loginSignup span {
+.navBar, .header a, .loginSignup span, .tab {
   font-family: 'Bungee Inline';
   font-size: 20px;
   // font-weight: bold;
+}
+
+h2.panel-title.tab {
+  font-family: 'Bungee Inline';
+  font-size: 25px;
 }
 
 .loginSignup span {
@@ -44,10 +49,11 @@ div {
   color: #b2ca98;
 }
 
-.panel-title {
-  font-family: 'Russo One';
+.result-title {
   font-size: 20px;
   padding: 15px 0;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .panel-heading.nav.navbar-default{
