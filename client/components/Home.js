@@ -20,12 +20,12 @@ module.exports = () =>
           <h2 className="headerHome">Getting Started</h2>
           <span><code className="codebox">npm install escape-hatch</code></span>
 
-          <h4 className="headerHome">This gives you access to both the client side, and server side files that you can plug into your code and start getting solutions to your problems</h4>
+          <h4 className="headerHome">This gives you access to both client side and server side files that you can plug into your code and start getting solutions to your problems</h4>
           <hr />
 
           <div className="example">
             <h4 className="headerHome">For monitoring errors on your server side, simply add the follow line to the top of your server start file:</h4>
-            <span><code className="codebox">require('escape-hatch-node')()</code></span>
+            <span><code className="codebox">require('escape-hatch')()</code></span>
             <h4 className="exHeader">You'll see links in your terminal like this upon errors in Node:</h4>
             <img src="/assets/backend-ss.png" className="img-responsive backend-ss" />
           </div>
