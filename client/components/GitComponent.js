@@ -11,7 +11,7 @@ module.exports = (props) => {
           <div className="col-md-12">
             <div className="panel panel-primary">
               <div className="panel-heading">
-                <h2 className="panel-title" style={{display: 'inline'}}>
+                <h2 className="result-title" style={{display: 'inline'}}>
                   <img src="/img/github-icon.png" className="vendorIcon" />
                   <a href={url}>{title} <span className="glyphicon glyphicon-log-in" /></a>
                 </h2>

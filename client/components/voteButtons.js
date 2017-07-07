@@ -11,8 +11,8 @@ const VoteButtons = (props) =>
           ? <div className="end">
               <div className="row">
                 <div className="col-md-6">Was this result helpful for you?
-                  <button className="upvote btn-success"  onClick={() => this.props.dispatchUpvote(l)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                  <button className="downvote btn-success"  onClick={() => this.props.dispatchDownvote(l)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
+                  <button className="upvote btn-success"  onClick={() => props.dispatchUpvote(props.item)}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                  <button className="downvote btn-success"  onClick={() => props.dispatchDownvote(props.item)}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
                 </div>
               </div>
             </div>
