@@ -8,6 +8,7 @@
       },
       "debug": false, // `true` outputs which plugins are used and why
       "useBuiltIns": true // reduces `babel-polyfill` in `main.jsx` to a subset of polyfills
-    }]
+    }],
+    "stage-3"
   ]
 }
