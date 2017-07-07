@@ -31,12 +31,12 @@ class Main extends React.Component {
           <div className="panel-heading nav navbar-default">
             <div className="navBar row">
                 <div className="col-xs-4">
-                  <h2 className="panel-title"><a href="#" className="">Escape Hatch</a></h2>
+                  <h2 className="panel-title"><a href="#" className="navTabTitle">Escape Hatch</a></h2>
                 </div>
               <div className="col-xs-3" />
                 <div className="col-xs-5">
                     <ul className="nav navbar-nav navbar-right">
-                        <li><Link to="/">Home</Link></li>
+                        <li className="navTab"><Link to="/">Home</Link></li>
                           { loggedIn ?
                           <li className="loginSignup">
                             <span>Welcome!</span>

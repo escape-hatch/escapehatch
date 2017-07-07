@@ -24,7 +24,7 @@ module.exports = () =>
           <hr />
 
           <div className="example">
-            <h4 className="headerHome">For monitoring errors on your server side, simply add the follow line to the top of your server start file:</h4>
+            <h4 className="headerHome">For monitoring errors on your server side, simply add the following line to the top of your server start file:</h4>
             <span><code className="codebox">require('escape-hatch')()</code></span>
             <h4 className="exHeader">You'll see links in your terminal like this upon errors in Node:</h4>
             <img src="/assets/backend-ss.png" className="img-responsive backend-ss" />
