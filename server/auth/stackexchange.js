@@ -10,10 +10,11 @@ try {
 }
 catch (err){
   console.log('No secret file found...checking process.env');
-  if (process.env.STACK_CLIENT_ID && process.env.STACK_CLIENT_SECRET && process.env.STACK_CALLBACK) {
+  if (process.env.STACK_CLIENT_ID && process.env.STACK_CLIENT_SECRET && process.env.STACK_KEY) {
     secret = {
       STACK_CLIENT_ID: process.env.STACK_CLIENT_ID,
       STACK_CLIENT_SECRET: process.env.STACK_CLIENT_SECRET,
+      STACK_KEY: process.env.STACK_KEY
     };
     console.log('StackExchange process.env keys found.');
   }
