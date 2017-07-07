@@ -31,7 +31,7 @@ class Main extends React.Component {
           <div className="panel-heading nav navbar-default">
             <div className="navBar row">
                 <div className="col-xs-4">
-                  <h2 className="panel-title tab"><a href="#" className="">Escape Hatch</a></h2>
+                  <h2 className="panel-title tab"><a href="#" className=""><img src="/img/hatch.png" className="hatch"/>Escape Hatch</a></h2>
                 </div>
               <div className="col-xs-3" />
                 <div className="col-xs-5">
