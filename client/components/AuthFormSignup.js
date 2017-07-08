@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import signupLoginScss from './scss/SignupLogin.scss';
-import AuthFormButtons from './AuthFormButtons';
 
 const AuthFormSignup = props => {
 
@@ -11,40 +10,36 @@ const AuthFormSignup = props => {
   <div className="container">
     <div className="row">
       <div className="col-md-12">
+          <div id="legend">
+            <img src="img/loginSignup.png" />
+            <legend className="">Sign Up </legend>
+          </div>
+
         <form className="form-horizontal" onSubmit={handleSignupSubmit} name={name}>
         <fieldset>
-          <div id="legend">
-            <img src="img/loginSignup.png"/>
-            <legend className="">Sign Up</legend>
-          </div>
 
           <div className="control-group">
-            <label className="control-label" htmlFor="firstName">First Name</label>
             <div className="controls">
-              <input type="text" id="firstName" name="firstName" placeholder="" className="form-control input-lg" />
+              <input type="text" id="firstName" name="firstName" placeholder="First Name" className="form-control input-lg" />
             </div>
           </div>
 
           <div className="control-group">
-            <label className="control-label" htmlFor="lastName">Last Name</label>
             <div className="controls">
-              <input type="text" id="lastName" name="lastName" placeholder="" className="form-control input-lg" />
+              <input type="text" id="lastName" name="lastName" placeholder="Last Name" className="form-control input-lg" />
             </div>
           </div>
 
           <div className="control-group">
-            <label className="control-label" htmlFor="email">E-mail</label>
             <div className="controls">
-              <input type="text" id="email" name="email" placeholder="" className="form-control input-lg"/>
-              <p className="help-block">Please provide your E-mail</p>
+              <input type="text" id="email" name="email" placeholder="E-mail" className="form-control input-lg" />
             </div>
           </div>
 
           <div className="control-group">
-            <label className="control-label" htmlFor="password">Password</label>
             <div className="controls">
-              <input type="text" id="password" name="password" type="password" className="form-control input-lg"/>
-              <p className="help-block">Password should be at least 6 characters</p>
+              <input type="text" id="password" name="password" type="password" className="form-control input-lg" placeholder="Password" />
+            <label className="control-label" htmlFor="password">Password should be at least 6 characters</label>
             </div>
           </div>
 
@@ -57,6 +52,7 @@ const AuthFormSignup = props => {
         { error &&  <div> { error.response.data } </div> }
       </form>
       </div>
+
       <div className="col-md-12">
           <a href={'/auth/google?returnTo=' + prevPath.pathname} className="btn btn-block btn-social btn-google">
             <span className= "fa fa-google" /> { displayName } with Google</a>

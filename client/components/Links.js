@@ -69,7 +69,7 @@ class Links extends React.Component {
                       createMarkup={ this.createMarkup }
                     />
                   </li>
-                  )
+                  );
             })
           }
         </ul>

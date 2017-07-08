@@ -18,20 +18,16 @@ const AuthFormLogin = props => {
             <legend className="">Log In</legend>
           </div>
 
-
           <div className="control-group">
-            <label className="control-label" htmlFor="email">E-mail</label>
             <div className="controls">
-              <input type="text" id="email" name="email" placeholder="" className="form-control input-lg"/>
-              <p className="help-block">Please provide your E-mail</p>
+              <input type="text" id="email" name="email" placeholder="E-mail" className="form-control input-lg" />
             </div>
           </div>
 
           <div className="control-group">
             <label className="control-label" htmlFor="password">Password</label>
             <div className="controls">
-              <input type="text" id="password" name="password" placeholder="" className="form-control input-lg" type="password" />
-              <p className="help-block">Password should be at least 6 characters</p>
+              <input type="text" id="password" name="password" placeholder="Password" className="form-control input-lg" type="password" />
             </div>
           </div>
           <div className="control-group">

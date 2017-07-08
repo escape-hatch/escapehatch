@@ -44,9 +44,9 @@ class LinksDummy extends React.Component {
                           <div className="panel-heading">
                             <h2 className="panel-title" style={{display: 'inline'}}>
                               <img src="/img/github-icon.png" className="vendorIcon" />
-                              <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
+                              <a href={l.url} >{l.title} <span className="glyphicon glyphicon-log-in" /></a>
                             </h2>
-                            <div className="" style={{float:'right', padddinRight: '30px'}}>Status: {l.status}</div>
+                            <div className="" style={{float: 'right', padddinRight: '30px'}}>Status: {l.status}</div>
                           </div>
 
                           <div className="panel-body">
@@ -86,8 +86,8 @@ class LinksDummy extends React.Component {
                               </div>
                             : <div>
                                 <h4>
-                                  <Link className="loginSignupButton" to='/login'><strong>Log in </strong></Link>or
-                                  <Link className="loginSignupButton" to='/signup'><strong> sign up </strong></Link> to vote!
+                                  <Link className="loginSignupButton" to="/login"><strong>Log in </strong></Link>or
+                                  <Link className="loginSignupButton" to="/signup"><strong> sign up </strong></Link> to vote!
                                 </h4>
                               </div>
                             }
@@ -115,7 +115,7 @@ class LinksDummy extends React.Component {
                           <div className="panel-heading">
                             <h2 className="panel-title" style={{display: 'inline'}}>
                               <img src="/img/so-icon.png" className="vendorIcon" />
-                              <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in"></span></a>
+                              <a href={l.url}>{l.title} <span className="glyphicon glyphicon-log-in" /></a>
                             </h2>
                             <div className="" style={{float:'right', padddinRight: '30px'}}>Views: {l.views}</div>
                           </div>
