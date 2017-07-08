@@ -1,37 +1,58 @@
-# Boilermaker
+# Escape Hatch
 
-*Good things come in pairs*
+Escape Hatch is an [NPM library](https://www.npmjs.com/package/escape-hatch) and [website](http://escapehatch.herokuapp.com) that instantly connects developers with relevant information to help cut down on debugging time.
 
-Looking to mix up a backend with express/sequelize and a frontend with react/redux? That's `boilermaker`!
+### Getting Started: NPM
 
-Follow along with the workshop to make your own! This canonical version can serve as a reference, or a starting point all on its own.
+In your terminal, type:
+```
+npm install escape-hatch
+```
 
-## Setup
+This gives you access to both client side and server side files that you can plug into your code to start getting solutions to errors.
 
-To use this boilerplate, you'll need to take the following steps:
-
-* `npm install`, or `yarn install` - whatever you're into
-* Create two postgres databases: `boilermaker` and `boilermaker-test`
-  * By default, running `npm test` will use `boilermaker-test`, while regular development uses `boilermaker`
-* Create a file called `secrets.js` in the project root
-  * This file is `.gitignore`'d, and will *only* be required in your *development* environment
-  * Its purpose is to attach the secret env variables that you'll use while developing
-  * However, it's **very** important that you **not** push it to Github! Otherwise, *prying eyes* will find your secret API keys!
-  * It might look like this:
-
+For monitoring errors on your server side, simply add the following line to the top of your `server start file`:
   ```
-    process.env.GOOGLE_CLIENT_ID = 'hush hush';
-    process.env.GOOGLE_CLIENT_SECRET = 'pretty secret';
-    process.env.GOOGLE_CALLBACK = '/auth/google/callback';
+  require('escape-hatch')()
   ```
 
-* To use OAuth with Google, complete the step above with a real client ID and client secret from Google
-  * You can get them here: https://console.developers.google.com/apis/credentials
+You'll see links in your terminal like this upon errors in Node:
 
-## Start
+![backend image](/public/assets/backend-ss.png)
 
-`npm start` will make great things happen!
+For monitoring in the browser, use this simple script tag in your `html` files:
 
-If you want to run the server and/or webpack separately, you can also `npm run start-server` and `npm run build-client`.
+  ```
+  <script src='node_modules/escape-hatch/escape-hatch-browser.js'></script>
+  ```
 
-From there, just follow your bliss.
+For front-end errors, you'll see links in your browser console:
+
+![frontend image](/public/assets/frontend-ss.png)
+
+### Getting Started: Website
+
+Just input an error to our search bar to see a curated search results page.
+
+## Built With
+
+* [React](https://facebook.github.io/react/)
+* [Yarn](https://yarnpkg.com/)
+* [Webpack](https://webpack.github.io/)
+* [Sequelize](http://docs.sequelizejs.com/)
+* [package.json](/package.json) for more info
+
+## Authors
+
+* **Alice Perez** - [Github](https://github.com/aperez25)
+* **Cindy Chen** - [Github](https://github.com/CindySchalit)
+* **Jennifer Tam** - [Github](https://github.com/jenktam)
+* **Josh White** - [Github](https://github.com/DillGromble)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+**Thank you** to our [Fullstack Academy](https://github.com/FullstackAcademy) instructor, [Gabriel Lebec](https://github.com/glebec), for his guidance and expert knowledge on this project.

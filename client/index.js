@@ -27,7 +27,7 @@ function onLinksEnter(nextRouterState) {
 }
 
 function onUserEnter(nextRouterState) {
-  store.dispatch(getUserUpvotes())
+  store.dispatch(getUserUpvotes());
 }
 
 ReactDOM.render(
@@ -36,8 +36,8 @@ ReactDOM.render(
       <Route path="/" component={Main}>
         <IndexRedirect to="/home" />
         <Route path="home" component={Home} />
-        <Route path="links/:errId" component={Links} onEnter={onLinksEnter}/>
-        <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter}/>
+        <Route path="links/:errId" component={Links} onEnter={onLinksEnter} />
+        <Route path="linksDummy/:errId" component={LinksDummy} onEnter={onLinksEnter} />
         <Route path="user" component={UserHome} onEnter={onUserEnter} />
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
