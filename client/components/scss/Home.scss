@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-
+}
   a {
     text-decoration: none;
   }
@@ -28,16 +28,18 @@ body {
     padding: 20px;
   }
 
-  .headerMain {
+  .headerMain, .headerHome {
+    font-weight: bold;
+    margin: 0 0 25px 0;
+  }
+
+  .headerHome:first-child{
     padding-top: 35px;
+    font-weight: bold;
   }
 
-  .headerHome {
-    padding: 40px;
-  }
-
-  .exHeader {
-    padding-top: 50px;
+  .subheader {
+    margin: 25px 0;
   }
 
   .backend-ss {
@@ -46,13 +48,52 @@ body {
     margin: 0 auto;
   }
 
-  .frontend-ss {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin: 0 auto;
-  }
+.frontend-ss {
+  padding: 20px 0;
+  margin: 0 auto;
 }
+
 
 .frontend-ss, .backend-ss {
   width: 70em;
+}
+
+.update {
+  color: red;
+}
+
+.logo {
+    width: 200px;
+    padding-left: 60px;
+}
+
+.title {
+   font-family: 'Bungee Inline';
+   font-size: 25px;
+}
+
+// new
+@media (min-width: 992px) {
+.vertical-overflow.hang-right {
+    position: relative;
+    left: 8%;
+    padding: 20px;
+}
+}
+
+@media (min-width: 992px) {
+.vertical-overflow.hang-left {
+    position: relative;
+    left: 10%;
+    padding: 20px;
+  }
+}
+
+.containerHome {
+    width: 100%;
+}
+
+hr {
+  border-top: 1px solid #5085a5;
+  margin: 25px 0;
 }
