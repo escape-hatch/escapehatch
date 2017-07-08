@@ -15,14 +15,18 @@ const UserHome = props => {
             <h3 className='user'>Welcome, { email }!</h3> :
             <h3 className='user'>Welcome!</h3>
       }
-      <h4 className='user'>Below are links you have previously found helpful:</h4>
-      <ul>
-      {
-        upvotedLinks && upvotedLinks.map(l => {
-          return <li key={ l.id } className='userLink'><a href={l.link}>{l.link} <span></span></a></li>
-        })
-      }
-      </ul>
+      <div>
+        <h4 className='user link'><img src='/img/link.png' className='link-img' alt='link image' />Below are links you have previously found helpful:</h4>
+      </div>
+      <div>
+        <ul>
+        {
+          upvotedLinks && upvotedLinks.map(l => {
+            return <li key={ l.id } className='userLink'><a href={l.link}>{l.link} <span></span></a></li>
+          })
+        }
+        </ul>
+      </div>
     </div>
   );
 };

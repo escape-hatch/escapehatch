@@ -1,7 +1,15 @@
 .user {
   font-weight: bold;
   margin-top: 25px;
+  margin-top: 25px;
   margin-left: 25px;
+}
+ .link-img {
+  float: none;
+  width:42px;
+  height:42px;
+  margin-left: 0px;
+  margin-right: 10px;
 }
 
 .userLink {
@@ -9,4 +17,8 @@
   margin-bottom: 10px;
   margin-left: 25px;
   list-style: none;
+}
+
+.link {
+  float: none;
 }
