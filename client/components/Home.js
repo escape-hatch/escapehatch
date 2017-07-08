@@ -68,10 +68,14 @@ module.exports = () =>
               <img src="/assets/frontend-ss.png" className="img-responsive frontend-ss" />
             </div>
           </div>
+          <hr />
+
+        <div className="example">
+          <h4 className="subheader">For more information about our npm library, visit us on <a href="https://www.npmjs.com/package/escape-hatch">npm</a>.</h4>
+        </div>
+
       </div>
 
         </div>
     </div>
   );
-
-            <p className="title">ESCAPE HATCH</p>
