@@ -15,22 +15,22 @@ export const me = () =>
       .then(res =>
         dispatch(getUser(res.data || defaultUser)));
 
-export const authSignup = (firstName, lastName, email, password, method) =>
+export const authSignup = (firstName, lastName, email, password, method, pathname = '/home') =>
   dispatch =>
     axios.post(`/auth/${method}`, { firstName, lastName, email, password })
       .then(res => {
         dispatch(getUser(res.data));
-        browserHistory.push('/home');
+        browserHistory.push(pathname);
       })
       .catch(error =>
         dispatch(getUser({ error })));
 
-export const authLogin = (email, password, method) =>
+export const authLogin = (email, password, method, pathname = '/home') =>
   dispatch =>
     axios.post(`/auth/${method}`, { email, password })
       .then(res => {
         dispatch(getUser(res.data));
-        browserHistory.push('/home');
+        browserHistory.push(pathname);
       })
       .catch(error =>
         dispatch(getUser({ error })));

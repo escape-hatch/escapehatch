@@ -16,22 +16,22 @@ const mapSignup = ({ user }) => ({
 });
 
 const mapDispatch = dispatch => ({
-  handleSignupSubmit(evt) {
+  handleSignupSubmit(evt, pathname) {
     evt.preventDefault();
     const formName = evt.target.name;
     const firstName = evt.target.firstName.value;
     const lastName = evt.target.lastName.value;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
-    dispatch(authSignup(firstName, lastName, email, password, formName));
+    dispatch(authSignup(firstName, lastName, email, password, formName, pathname));
   },
 
-  handleLoginSubmit (evt) {
+  handleLoginSubmit (evt, pathname) {
     evt.preventDefault();
     const formName = evt.target.name;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
-    dispatch(authLogin(email, password, formName));
+    dispatch(authLogin(email, password, formName, pathname));
   }
 });
 

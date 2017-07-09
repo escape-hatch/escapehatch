@@ -27,7 +27,6 @@ router
 // when user clicks "solved/helpful/etc":
 .put('/:vendor', (req, res, next) => {
   const userId = req.session.passport.user;
-  console.log("userId", userId)
   const info = {
     error: req.body.error,
     vendor: req.body.vendor,
