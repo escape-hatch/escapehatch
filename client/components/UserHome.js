@@ -16,7 +16,11 @@ const UserHome = props => {
             <h3 className='user'>Welcome!</h3>
       }
       <div>
-        <h4 className='user link'><img src='/img/link.png' className='link-img' alt='link image' />Below are links you have previously found helpful:</h4>
+      {
+        upvotedLinks.length > 0 ?
+          <h4 className='user link'><img src='/img/link.png' className='link-img' alt='link image' />Below are links you have previously found helpful:</h4> :
+          <h4 className='user link'><img src='/img/link.png' className='link-img' alt='link image' />There are no links in your upvote history.  Get voting!</h4>
+      }
       </div>
       <div>
         <ul>
