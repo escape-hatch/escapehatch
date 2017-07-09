@@ -10,12 +10,13 @@ try {
 }
 catch (err){
   console.log('No secret file found...checking process.env');
-  if (process.env.STACK_CLIENT_ID && process.env.STACK_CLIENT_SECRET && process.env.STACK_KEY && process.env.STACK_CALLBACK) {
+  if (process.env.STACK_CLIENT_ID && process.env.STACK_CLIENT_SECRET && process.env.STACK_KEY && process.env.STACK_CALLBACK && process.env.STACK_REDIRECT_URI) {
     secret = {
       STACK_CLIENT_ID: process.env.STACK_CLIENT_ID,
       STACK_CLIENT_SECRET: process.env.STACK_CLIENT_SECRET,
       STACK_KEY: process.env.STACK_KEY,
-      STACK_CALLBACK: process.env.STACK_CALLBACK
+      STACK_CALLBACK: process.env.STACK_CALLBACK,
+      STACK_REDIRECT_URI: process.env.STACK_REDIRECT_URI
     };
     console.log('StackExchange process.env keys found.');
   }
@@ -29,7 +30,8 @@ if (secret) {
     clientID: secret.STACK_CLIENT_ID,
     clientSecret: secret.STACK_CLIENT_SECRET,
     key: secret.STACK_KEY,
-    callbackURL: secret.STACK_CALLBACK
+    callbackURL: secret.STACK_CALLBACK,
+    redirect_uri: secret.STACK_REDIRECT_URI
   };
 
   const strategy = new Strategy(stackConfig, (accessToken, refreshToken, profile, done) => {
