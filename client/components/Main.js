@@ -40,6 +40,7 @@ class Main extends React.Component {
                           { loggedIn ?
                           <li className="loginSignup">
                             <span>Welcome!</span>
+                            <Link to="/user" className="logout tab">My Links</Link>
                             <Link to="/" onClick={() => this.props.handleClick() } className="logout tab">Logout</Link>
                             </li> :
                             <li className="loginSignup">
