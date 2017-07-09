@@ -35,8 +35,7 @@ if (secret) {
   const strategy = new Strategy(stackConfig, (accessToken, refreshToken, profile, done) => {
     const stackId = profile.id;
     const email = profile.email;
-    const firstName = profile._json.name;
-    console.log(profile)
+    const firstName = profile.display_name;
     User.findOrCreate({
       where: { stackId },
       defaults: { email, firstName }
