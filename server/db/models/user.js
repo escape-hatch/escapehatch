@@ -32,6 +32,9 @@ module.exports = db.define('user', {
   },
   githubId: {
     type: Sequelize.STRING
+  },
+  stackId: {
+    type: Sequelize.STRING
   }
 }, {
   instanceMethods: {
