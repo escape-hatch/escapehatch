@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import './scss/User.scss';
 
 const UserHome = props => {
   const { firstName, email, upvotedLinks } = props;
@@ -9,19 +10,27 @@ const UserHome = props => {
     <div>
       {
         firstName ?
-          <h3>Welcome, { firstName }!</h3> :
+          <h3 className='user'>Welcome, { firstName }!</h3> :
           email ?
-            <h3>Welcome, { email }!</h3> :
-            <h3>Welcome!</h3>
+            <h3 className='user'>Welcome, { email }!</h3> :
+            <h3 className='user'>Welcome!</h3>
       }
-      <h4>Below are links you have previously found helpful:</h4>
-      <ul>
+      <div>
       {
-        upvotedLinks && upvotedLinks.map(l => {
-          return <li key={ l.id }><a href={l.link}>{l.link} <span className="glyphicon glyphicon-log-in"></span></a></li>
-        })
+        upvotedLinks.length > 0 ?
+          <h4 className='user link'><img src='/img/link.png' className='link-img' alt='link image' />Below are links you have previously found helpful:</h4> :
+          <h4 className='user link'><img src='/img/link.png' className='link-img' alt='link image' />There are no links in your upvote history.  Get voting!</h4>
       }
-      </ul>
+      </div>
+      <div>
+        <ul>
+        {
+          upvotedLinks && upvotedLinks.map(l => {
+            return <li key={ l.id } className='userLink'><a href={l.link}>{l.link} <span></span></a></li>
+          })
+        }
+        </ul>
+      </div>
     </div>
   );
 };
