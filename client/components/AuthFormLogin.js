@@ -11,10 +11,14 @@ const AuthFormLogin = props => {
   <div className="container">
     <div className="row">
       <div className="col-md-12">
-        <form className="form-horizontal" onSubmit={handleLoginSubmit} name={name}>
+        <form
+          className="form-horizontal"
+          onSubmit={ values =>
+            { handleLoginSubmit(values, props.prevPath.pathname); } }
+          name={name}>
         <fieldset>
           <div id="legend">
-            <img src="img/loginSignup.png"/>
+            <img src="img/loginSignup.png" />
             <legend className="">Log In</legend>
           </div>
 
