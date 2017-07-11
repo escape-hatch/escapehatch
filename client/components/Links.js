@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import cssLinks from './scss/Links.scss';
 import GitComponent from './GitComponent';
 import StackComponent from './StackComponent';
+import SearchBar from './SearchBar';
 
 // Component //
 class Links extends React.Component {
@@ -24,56 +25,59 @@ class Links extends React.Component {
     const user = this.props.user;
 
     return (
-      <div className="links">
-        {
-          results && results
-          ? <h1>Search Results for "{ error }"</h1>
-          : <h1>Retrieving search results ... </h1>
-        }
-
-        <ul>
+      <div>
+        <SearchBar />
+        <div className="links">
           {
-            results && results.map(res => {
-              return res.vendor === 'github'
-                ? (
-                  <li key={ res.vendor_id } className="gitResults results">
-                    <GitComponent
-                      vendor={ res.vendor }
-                      vendor_id={ res.vendor_id }
-                      url={ res.url }
-                      title={ res.title }
-                      status={ res.status }
-                      modified={ res.modified }
-                      comments={ res.comments }
-                      body={ res.body }
-                      user={ user }
-                      error={ error }
-                      createMarkup={ this.createMarkup }
-                    />
-                  </li>
-                  )
-                : (
-                  <li key={ res.vendor_id } className="stackResults results">
-                    <StackComponent
-                      vendor={ res.vendor }
-                      vendor_id={ res.vendor_id }
-                      url={ res.url }
-                      title={ res.title }
-                      views= { res.views }
-                      modified={ res.modified }
-                      comments={ res.comments }
-                      body={ res.body }
-                      tags={ res.tags }
-                      user={ user }
-                      error={ error }
-                      createMarkup={ this.createMarkup }
-                    />
-                  </li>
-                  );
-            })
+            results && results
+            ? <h1>Search Results for "{ error }"</h1>
+            : <h1>Retrieving search results ... </h1>
           }
-        </ul>
-    </div>
+
+          <ul>
+            {
+              results && results.map(res => {
+                return res.vendor === 'github'
+                  ? (
+                    <li key={ res.vendor_id } className="gitResults results">
+                      <GitComponent
+                        vendor={ res.vendor }
+                        vendor_id={ res.vendor_id }
+                        url={ res.url }
+                        title={ res.title }
+                        status={ res.status }
+                        modified={ res.modified }
+                        comments={ res.comments }
+                        body={ res.body }
+                        user={ user }
+                        error={ error }
+                        createMarkup={ this.createMarkup }
+                      />
+                    </li>
+                    )
+                  : (
+                    <li key={ res.vendor_id } className="stackResults results">
+                      <StackComponent
+                        vendor={ res.vendor }
+                        vendor_id={ res.vendor_id }
+                        url={ res.url }
+                        title={ res.title }
+                        views= { res.views }
+                        modified={ res.modified }
+                        comments={ res.comments }
+                        body={ res.body }
+                        tags={ res.tags }
+                        user={ user }
+                        error={ error }
+                        createMarkup={ this.createMarkup }
+                      />
+                    </li>
+                    );
+              })
+            }
+          </ul>
+        </div>
+      </div>
     );
   }
 }
