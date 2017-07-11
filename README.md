@@ -18,7 +18,7 @@ For monitoring errors on your server side, simply add the following line to the 
 
 You'll see links in your terminal like this upon errors in Node:
 
-![backend image](/public/assets/backend-ss.png)
+![backend image](/public/img/backend-ss.png)
 
 For monitoring in the browser, use this simple script tag in your `html` files:
 
@@ -28,7 +28,7 @@ For monitoring in the browser, use this simple script tag in your `html` files:
 
 For front-end errors, you'll see links in your browser console:
 
-![frontend image](/public/assets/frontend-ss.png)
+![frontend image](/public/img/frontend-ss.png)
 
 ### Getting Started: Website
 
