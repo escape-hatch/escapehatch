@@ -30,6 +30,7 @@ const VoteButtons = (props) =>
 const mapDispatch = (dispatch) => ({
   dispatchUpvote: link => {
     const info = {
+      title: link.title,
       error: link.error,
       vendor: link.vendor,
       vendor_id: link.vendor_id,
@@ -39,9 +40,11 @@ const mapDispatch = (dispatch) => ({
       modified: link.modified
     }
     dispatch(updateVote(info));
+    console.log("info***", info)
   },
   dispatchDownvote: link => {
     const info = {
+      title: link.title,
       error: link.error,
       vendor: link.vendor,
       vendor_id: link.vendor_id,

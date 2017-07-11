@@ -133,10 +133,14 @@ li.loginSignup {
   text-align: center;
   background-color: #5085A5;
   color: #F7F9FB;
-  padding: 10px 0 0;
+  padding: 15px 0;
   margin: 20px 0 0 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
 }
-
 
 #footer a {
   color: #F7F9FB
@@ -195,4 +199,13 @@ li.loginSignup {
 .navTabTitle {
   font-family: "Bungee Inline";
   font-size: 30px;
+}
+
+// Footer
+#app {
+    position: relative;
+    margin: 0;
+    padding-bottom: 15rem;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
