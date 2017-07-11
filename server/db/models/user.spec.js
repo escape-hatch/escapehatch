@@ -24,11 +24,11 @@ describe('User model', () => {
           });
       });
 
-      xit('returns true if the password is correct', () => {
+      it('returns true if the password is correct', () => {
         expect(cody.correctPassword('bones')).to.be.equal(true);
       });
 
-      xit('returns false if the password is incorrect', () => {
+      it('returns false if the password is incorrect', () => {
         expect(cody.correctPassword('bonez')).to.be.equal(false);
       });
 

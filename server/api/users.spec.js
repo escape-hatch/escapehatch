@@ -92,7 +92,7 @@ describe('User routes', () => {
       });
 
       describe('when not logged in', () => {
-        xit('fails with a 401 (Unauthorized)', () => {
+        it('fails with a 401 (Unauthorized)', () => {
           request(app)
           .get('/api/users/1')
           .expect(401)

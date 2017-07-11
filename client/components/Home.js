@@ -59,7 +59,7 @@ module.exports = () =>
               <h4 className="subheader">For monitoring errors with your Node server, simply add the following line to the top of your server start file:</h4>
               <span><code className="codebox">require('escape-hatch')()</code></span>
               <h4 className="subheader">You'll see links in your terminal like this upon errors in Node. Click the link to see results on our website.</h4>
-              <img src="/assets/backend-ss.png" className="img-responsive backend-ss" />
+              <img src="/img/backend-ss.png" className="img-responsive backend-ss" />
             </div>
             <hr />
 
@@ -67,7 +67,7 @@ module.exports = () =>
               <h4 className="subheader">For monitoring in the browser, use this simple script tag in your html files:</h4>
               <span><code className="codebox">&lt;script src='node_modules/escape-hatch/escape-hatch-browser.js'&gt;&lt;/script&gt;</code></span>
               <h4 className="subheader">You'll see links in your browser console upon front-end errors:</h4>
-              <img src="/assets/frontend-ss.png" className="img-responsive frontend-ss" />
+              <img src="/img/frontend-ss.png" className="img-responsive frontend-ss" />
             </div>
           </div>
           <hr />
