@@ -1,9 +1,11 @@
 import React from 'react';
 import './scss/Home.scss';
+import SearchBar from './SearchBar';
 
 module.exports = () =>
   (
     <div>
+      <SearchBar />
       <div className="row content">
         <div className="col-lg-3" />
         <div className="col-lg-6">

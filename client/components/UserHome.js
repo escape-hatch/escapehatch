@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './scss/User.scss';
+import SearchBar from './SearchBar';
 
 const UserHome = props => {
   const { firstName, email, upvotedLinks } = props;
 
   return (
     <div>
+      <SearchBar />
       {
         firstName ?
           <h3 className='user'>Welcome, { firstName }!</h3> :
