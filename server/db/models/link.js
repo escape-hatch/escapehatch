@@ -4,6 +4,10 @@ const User = require('./user')
 const Err = require('./err')
 
 module.exports = db.define('link', {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
   link: {
     type: Sequelize.STRING,
     allowNull: false
@@ -33,6 +37,7 @@ module.exports = db.define('link', {
           vendor: info.vendor
         },
         defaults: {
+          title: info.title,
           link: info.url,
           linkedPostCreated: info.created,
           linkedPostModified: info.modified

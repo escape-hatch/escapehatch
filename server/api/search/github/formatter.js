@@ -27,6 +27,7 @@ module.exports = function (gitList, userErr) {
 const truncateString = (str) => {
   const array = str.split(' ');
   if(array.length <=20) return array.join(' ');
+  else if(array.length === 0) return '';
   else return array.slice(0,50).join(' ') + '...';
 }
 

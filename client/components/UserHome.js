@@ -26,7 +26,7 @@ const UserHome = props => {
         <ul>
         {
           upvotedLinks && upvotedLinks.map(l => {
-            return <li key={ l.id } className='userLink'><a href={l.link}>{l.link} <span></span></a></li>
+            return <li key={ l.id } className='userLink'><a href={l.link}>{l.title} <span></span></a></li>
           })
         }
         </ul>

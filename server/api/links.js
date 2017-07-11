@@ -28,6 +28,7 @@ router
 .put('/:vendor', (req, res, next) => {
   const userId = req.session.passport.user;
   const info = {
+    title: req.body.title,
     error: req.body.error,
     vendor: req.body.vendor,
     vendor_id: req.body.vendor_id,
