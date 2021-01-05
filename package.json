@@ -30,7 +30,7 @@
   "author": "Jennifer Tam <jennifer.k.tam@gmail.com>, Cindy Schalit <cindyschalit@gmail.com>, Alice Perez <aliceperez25@gmail.com>, Josh White <whitejosh42@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.21.1",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.23.0",
