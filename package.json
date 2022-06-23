@@ -83,7 +83,7 @@
     "eslint": "^4.1.1",
     "eslint-config-fullstack": "^3.0.0",
     "eslint-plugin-react": "^7.1.0",
-    "jsdom": "^11.0.0",
+    "jsdom": "^16.5.0",
     "mocha": "^3.3.0",
     "react-addons-test-utils": "^15.6.0",
     "sinon": "^2.3.6",
