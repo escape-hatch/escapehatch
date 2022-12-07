@@ -45,7 +45,7 @@
     "bootstrap-social": "^5.1.1",
     "connect-session-sequelize": "^4.1.0",
     "css-loader": "^0.26.1",
-    "express": "^4.14.1",
+    "express": "^4.17.3",
     "express-session": "^1.15.1",
     "font-awesome": "^4.7.0",
     "he": "^1.1.1",
